@@ -1,0 +1,12 @@
+# serverless.yml
+service: ${self:custom.name}
+provider:
+  name: aws
+  runtime: nodejs10.x
+  stage: ${opt:stage, 'dev'}
+  region: ap-northeast-1 // wherever you want
+custom:
+  name: zadelis
+
+zadelis:
+component: "@sls-next/serverless-component@1.15.1" # it is recommended you pin the latest stable version of serverless-next.js
