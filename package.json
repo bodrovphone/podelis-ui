@@ -9,8 +9,11 @@
   },
   "dependencies": {
     "next": "9.3.5",
+    "node-fetch": "^2.6.0",
     "react": "16.13.1",
     "react-dom": "16.13.1"
   },
-  "devDependencies": {}
+  "devDependencies": {
+    "serverless-next.js": "^1.15.0-alpha.2"
+  }
 }
