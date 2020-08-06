@@ -1,0 +1,11 @@
+@import '../components/styles/media.css';
+
+@font-face {
+  font-family: 'zadelis-font';
+  src: url('/fonts/Philosopher-Regular.ttf');
+ }
+
+.container {
+  background-color: #fff;
+  font-family: 'zadelis-font';
+}

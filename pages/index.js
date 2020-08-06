@@ -1,6 +1,8 @@
 import Head from 'next/head';
 import Link from 'next/link';
 
+import TopNav from '../components/topNav';
+
 
 export default function Home() {
   return (
@@ -9,6 +11,8 @@ export default function Home() {
         <title>Main Page Zadelis</title>
         <link rel="icon" href="/favicon.ico" />
       </Head>
+
+      <TopNav />
 
       <main>
         <h1 className="title">
@@ -25,6 +29,7 @@ export default function Home() {
           <a href="https://nextjs.org/docs" className="card">
             <h3>Documentation &rarr;</h3>
             <p>Find in-depth information about Next.js features and API.</p>
+            Curois
           </a>
 
           <a href="https://nextjs.org/learn" className="card">
@@ -66,7 +71,7 @@ export default function Home() {
       <style jsx>{`
         .container {
           min-height: 100vh;
-          padding: 0 0.5rem;
+          padding: 0;
           display: flex;
           flex-direction: column;
           justify-content: center;
