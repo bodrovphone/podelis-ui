@@ -1,7 +1,14 @@
-import '../styles/main.css'
-import 'bootstrap/dist/css/bootstrap.min.css';
+import App from 'next/app'
+import { ThemeProvider } from 'styled-components'
+import theme from '../components/styles/theme';
 
-// This default export is required in a new `pages/_app.js` file.
-export default function MyApp({ Component, pageProps }) {
-  return <Component {...pageProps} />
+export default class MyApp extends App {
+  render() {
+    const { Component, pageProps } = this.props
+    return (
+      <ThemeProvider theme={theme}>
+        <Component {...pageProps} />
+      </ThemeProvider>
+    )
+  }
 }

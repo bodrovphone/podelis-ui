@@ -18,6 +18,7 @@
     "styled-components": "^5.1.1"
   },
   "devDependencies": {
+    "babel-plugin-styled-components": "^1.11.1",
     "serverless-next.js": "^1.15.0-alpha.2"
   }
 }
