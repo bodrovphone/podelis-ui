@@ -4,7 +4,8 @@ const theme = {
       grey: 'rgb(208, 208, 208)',
       black: '#4a5662',
       skyBlue: '#92e1fd',
-      blue: '#3d77f5'
+      blue: '#3d77f5',
+      dark: '#4c4b4b'
     },
     gradinets: {
       skyBlueToWhite: 'linear-gradient(180deg, rgba(255,255,255,0.95) 0%, rgba(146,225,253,1) 100%)',

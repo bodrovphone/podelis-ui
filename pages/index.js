@@ -3,7 +3,6 @@ import Link from 'next/link';
 
 import TopNav from '../components/topNav';
 
-
 export default function Home() {
   return (
     <div className="container">
@@ -16,7 +15,7 @@ export default function Home() {
 
       <main>
         <h1 className="title">
-          Welcome to <a href="https://nextjs.org">Next.js!</a>
+          Приветствуем на <a href="#">Zadelis!</a>
         </h1>
 
         <p className="description">
