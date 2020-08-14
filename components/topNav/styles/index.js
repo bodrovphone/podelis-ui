@@ -10,7 +10,7 @@ export const Nav = styled.nav`
   padding: 10px 0;
   color: white;
   display: grid;
-  grid-template-columns: 4fr 4fr 4fr 4fr 2fr;
+  grid-template-columns: 4fr 4fr 4fr 4fr 2fr 1fr;
   margin: 0 auto;
 
   @media ${device.mobileXL} { 
@@ -18,7 +18,7 @@ export const Nav = styled.nav`
   }
 
   @media ${device.laptop} { 
-    max-width: 80%;
+    grid-template-columns: repeat(6, 2fr);
   }
 `;
 
@@ -42,10 +42,41 @@ export const NavItemLink = styled.a`
   display: flex;
   flex-direction: column;
   align-items: center;
+  cursor: pointer;
 
-  &.NavMenu {
-    align-self: center;
-    /* animation: ${rotate} 2s linear infinite; */
+    &:hover span {
+      color: ${props => props.theme.main.colors.paleGrey};
+    }
+
+    &:hover svg {
+      fill: ${props => props.theme.main.colors.aqua} !important;
+    }
+
+    &.navProfile,
+    &.navMessages {
+      display: none;
+    }
+
+    &.NavMenu {
+      align-self: center;
+      /* animation: ${rotate} 2s linear infinite; */
+    }
+
+  /* hide search icon on big screens */
+  @media ${device.laptop} {
+    &.navSearch {
+        display: none;
+      }
+
+    &.navProfile,
+    &.navMessages {
+      display: flex;
+    }
+
+    &.navHome {
+      align-self: center;
+    }
+    
   }
 
   &:not(:last-of-type) svg {
@@ -81,8 +112,8 @@ export const NavItemSpan = styled.span`
 // Icons
 
 export const ListIcon = styled(List)`
-  width: 21px;
-  height: 21px;
+  width: 23px;
+  height: 23px;
   fill: ${props => props.theme.main.colors.black};
   align-self: center;
   
