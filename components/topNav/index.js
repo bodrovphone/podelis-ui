@@ -14,46 +14,45 @@ import { HouseDoor,
          ChatDots } from 'react-bootstrap-icons';
 import SideBar from '../sideBar';
 
-
-
 const TopNav = (props) => {
   const [isActive, setActive] = useState(false);
   return (
-  <>
-    <LinksWrapper>
-      <Nav>
-        <Link href="/test">
-          <NavItemLink className="navHome"><HouseDoor/>
-            <NavItemSpan className="navHomeSpan">Главная</NavItemSpan>
+    <>
+      <LinksWrapper>
+        <Nav>
+          <Link href="/test">
+            <NavItemLink className="navHome"><HouseDoor/>
+              <NavItemSpan className="navHomeSpan">Главная</NavItemSpan>
+            </NavItemLink>
+          </Link>
+          <Link href="/test">
+            <NavItemLink><Heart/>
+              <NavItemSpan>Закладки</NavItemSpan></NavItemLink>
+          </Link>
+          <Link href="/">
+            <NavItemLink><ArrowUpCircle/>
+              <NavItemSpan>Добавить</NavItemSpan></NavItemLink>
+          </Link>
+          <Link href="/">
+            <NavItemLink className="navSearch"><Search/>
+              <NavItemSpan>Поиск</NavItemSpan></NavItemLink>
+          </Link>
+          <Link href="/">
+            <NavItemLink className="navProfile"><Person/>
+              <NavItemSpan>Профиль</NavItemSpan></NavItemLink>
+          </Link>
+          <Link href="/">
+            <NavItemLink className="navMessages"><ChatDots/>
+              <NavItemSpan>Сообщения</NavItemSpan></NavItemLink>
+          </Link>
+          <NavItemLink className='NavMenu' onClick={() => setActive(!isActive)}>
+            <ListIcon/>
           </NavItemLink>
-        </Link>
-        <Link href="/test">
-          <NavItemLink><Heart/>
-            <NavItemSpan>Закладки</NavItemSpan></NavItemLink>
-        </Link>
-        <Link href="/">
-          <NavItemLink><ArrowUpCircle/>
-            <NavItemSpan>Добавить</NavItemSpan></NavItemLink>
-        </Link>
-        <Link href="/">
-          <NavItemLink className="navSearch"><Search/>
-            <NavItemSpan>Поиск</NavItemSpan></NavItemLink>
-        </Link>
-        <Link href="/">
-          <NavItemLink className="navProfile"><Person/>
-            <NavItemSpan>Профиль</NavItemSpan></NavItemLink>
-        </Link>
-        <Link href="/">
-          <NavItemLink className="navMessages"><ChatDots/>
-            <NavItemSpan>Сообщения</NavItemSpan></NavItemLink>
-        </Link>
-        <NavItemLink className='NavMenu' onClick={() => setActive(!isActive)}>
-          <ListIcon/>
-        </NavItemLink>
-      </Nav>
-    </LinksWrapper>
-    <SideBar setActive={setActive} isActive={isActive} className={`${!isActive ? 'active' : ''}`} />
+        </Nav>
+      </LinksWrapper>
+      <SideBar setActive={setActive} isActive={isActive} className={`${!isActive ? 'active' : ''}`} />
     </>
 )};
 
 export default TopNav;
+

@@ -1,10 +1,6 @@
 import styled, { keyframes } from 'styled-components';
 import { device } from '../../styles/media';
-import { rotate } from '../../styles/animations';
 
-
-// Когда дойдешь до media кверей переделывай все под mobile-first 
-// бо у тебя стили отталкиваются от десктопа а мы начали делать с мобилы ёпт
 export const SbContainer = styled.div`
   height: 100%;
   min-height: 100vh;
@@ -32,8 +28,8 @@ export const SbContainer = styled.div`
 
   @media ${device.laptop} {
     &.active {
-    width: 200px;
-  }
+      width: 200px;
+    }
   }
 `;
 
@@ -81,6 +77,10 @@ export const NavLang = styled.span`
   color: ${props => props.theme.main.colors.paleSkyBlue};
   margin: 0 0 40px 25px;
   align-items: center;
+
+    &:hover {
+      color: ${props => props.theme.main.colors.white};
+    }
   
     & span {
       display: block;
@@ -90,4 +90,4 @@ export const NavLang = styled.span`
     & .optLang {
       color: ${props => props.theme.main.colors.skyBlue};
     }
-`
+`;

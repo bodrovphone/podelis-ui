@@ -10,10 +10,9 @@ import { Person,
          PencilSquare,
          InfoCircle } from 'react-bootstrap-icons';
 
-
 const SideBar = ({className, setActive, isActive }) => (
   <SbContainer className={className}>
-    <Close onClick={() => setActive(!isActive)} >&times;</Close>
+    <Close onClick={() => setActive(!isActive)}>&times;</Close>
     <Link href="/">
       <SbLink>
         <Person size={22} />
@@ -51,6 +50,5 @@ const SideBar = ({className, setActive, isActive }) => (
     </NavLang>
   </SbContainer>
 );
-
 
 export default SideBar;
