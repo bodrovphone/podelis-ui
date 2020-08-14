@@ -1,7 +1,14 @@
 import Link from 'next/link';
-import { List } from 'react-bootstrap-icons';
-import { SbContainer, SbLink, SbItemSpan, Close } from './styles';
-import { Person, ChatDots, Diagram3, PencilSquare, InfoCircle } from 'react-bootstrap-icons';
+import { SbContainer,
+         SbLink,
+         SbItemSpan,
+         Close,
+         NavLang } from './styles';
+import { Person,
+         ChatDots,
+         Diagram3,
+         PencilSquare,
+         InfoCircle } from 'react-bootstrap-icons';
 
 
 const SideBar = ({className, setActive, isActive }) => (
@@ -37,6 +44,11 @@ const SideBar = ({className, setActive, isActive }) => (
         <SbItemSpan>О нас</SbItemSpan>
       </SbLink>
     </Link>
+    <NavLang>
+      <span className="optLang">Мова</span> 
+      <div>&#124;</div> 
+      <span>Язык</span>
+    </NavLang>
   </SbContainer>
 );
 

@@ -5,8 +5,13 @@ import { NavItemLink,
          Nav, 
          NavItemSpan, 
          LinksWrapper,
-         ListIcon, NavLang } from './styles';
-import { HouseDoor, Heart, ArrowUpCircle, Search, Person, ChatDots } from 'react-bootstrap-icons';
+         ListIcon } from './styles';
+import { HouseDoor,
+         Heart,
+         ArrowUpCircle,
+         Search,
+         Person,
+         ChatDots } from 'react-bootstrap-icons';
 import SideBar from '../sideBar';
 
 
@@ -17,10 +22,6 @@ const TopNav = (props) => {
   <>
     <LinksWrapper>
       <Nav>
-        <NavLang>
-          <span>Uk</span>
-          {/* <span>Ru</span> */}
-        </NavLang>
         <Link href="/test">
           <NavItemLink className="navHome"><HouseDoor/>
             <NavItemSpan className="navHomeSpan">Главная</NavItemSpan>

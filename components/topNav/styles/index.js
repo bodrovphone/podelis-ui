@@ -18,9 +18,7 @@ export const Nav = styled.nav`
   }
 
   @media ${device.laptop} { 
-    max-width: 100%;
-    grid-template-columns: 1fr 2fr 2fr 2fr 2fr 2fr 2fr;
-
+    grid-template-columns: repeat(6, 2fr);
   }
 `;
 
@@ -44,16 +42,25 @@ export const NavItemLink = styled.a`
   display: flex;
   flex-direction: column;
   align-items: center;
+  cursor: pointer;
 
-  &.navProfile,
-  &.navMessages {
-    display: none;
-  }
+    &:hover span {
+      color: ${props => props.theme.main.colors.paleGrey};
+    }
 
-  &.NavMenu {
-    align-self: center;
-    /* animation: ${rotate} 2s linear infinite; */
-  }
+    &:hover svg {
+      fill: ${props => props.theme.main.colors.aqua} !important;
+    }
+
+    &.navProfile,
+    &.navMessages {
+      display: none;
+    }
+
+    &.NavMenu {
+      align-self: center;
+      /* animation: ${rotate} 2s linear infinite; */
+    }
 
   /* hide search icon on big screens */
   @media ${device.laptop} {
@@ -115,19 +122,3 @@ export const ListIcon = styled(List)`
     height: 26px;
     }
 `;
-
-export const NavLang = styled.span`
-  display: none;
-  
-  @media ${device.laptop} { 
-      display: flex;
-      cursor: pointer;
-      /* flex-direction: column; */
-      color: ${props => props.theme.main.colors.black};
-
-      & span {
-        margin: 10px;
-      }
-    }
-
-`
