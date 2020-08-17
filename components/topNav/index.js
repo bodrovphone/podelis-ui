@@ -1,4 +1,5 @@
-import react, { useState } from 'react';
+import React, { useContext } from 'react';
+import { SideBarContext, SideBarDispatch } from '../context/sideBar.context';
 import Link from 'next/link';
 // https://icons.getbootstrap.com/#usage
 import { NavItemLink,
@@ -14,8 +15,9 @@ import { HouseDoor,
          ChatDots } from 'react-bootstrap-icons';
 import SideBar from '../sideBar';
 
-const TopNav = (props) => {
-  const [isActive, setActive] = useState(false);
+const TopNav = () => {
+  const navState = useContext(SideBarContext);
+  const toggle = useContext(SideBarDispatch);
   return (
     <>
       <LinksWrapper>
@@ -45,12 +47,12 @@ const TopNav = (props) => {
             <NavItemLink className="navMessages"><ChatDots/>
               <NavItemSpan>Сообщения</NavItemSpan></NavItemLink>
           </Link>
-          <NavItemLink className='NavMenu' onClick={() => setActive(!isActive)}>
+          <NavItemLink className='NavMenu' onClick={() => toggle(!navState)}>
             <ListIcon/>
           </NavItemLink>
         </Nav>
       </LinksWrapper>
-      <SideBar setActive={setActive} isActive={isActive} className={`${!isActive ? 'active' : ''}`} />
+      <SideBar />
     </>
 )};
 
