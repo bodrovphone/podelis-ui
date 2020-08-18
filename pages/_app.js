@@ -2,7 +2,7 @@ import App from 'next/app';
 import React from 'react';
 import { ThemeProvider } from 'styled-components';
 import theme from '../components/styles/theme';
-import { SideBarProvider } from '../components/context/sideBar.context';
+import { SideBarProvider } from '../context/sideBar.context';
 
 export default class MyApp extends App {
   render() {

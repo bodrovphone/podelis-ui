@@ -7,18 +7,18 @@ export const SbContainer = styled.div`
   z-index: 5;
   position: fixed;
   top: 0;
-  right: -300px;
+  right: -180px;
   overflow-x: hidden;
-  transition: ease-out 1s;
+  transition: right 2s;
   display: flex;
   flex-direction: column-reverse;
   background-color: ${props => props.theme.main.colors.dark};
   align-items: baseline;
   box-sizing: border-box;
+  width: 180px;
 
   &.active {
     right: 0;
-    width: 180px;
   }
 
   @media ${device.mobileXL} { 
