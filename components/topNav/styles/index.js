@@ -26,7 +26,7 @@ export const LinksWrapper = styled.div`
   position: fixed;
   bottom: 0;
   left: 0;
-  width: 100%;
+  width: inherit;
   background: ${props => props.theme.main.colors.skyBlue};
   background: ${props => props.theme.main.gradinets.skyBlueToWhite};
 

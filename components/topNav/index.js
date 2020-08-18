@@ -1,5 +1,5 @@
 import React, { useContext } from 'react';
-import { SideBarContext, SideBarDispatch } from '../context/sideBar.context';
+import { SideBarContext, SideBarDispatch } from '../../context/sideBar.context';
 import Link from 'next/link';
 // https://icons.getbootstrap.com/#usage
 import { NavItemLink,

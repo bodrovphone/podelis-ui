@@ -10,7 +10,7 @@ import { Person,
          Diagram3,
          PencilSquare,
          InfoCircle } from 'react-bootstrap-icons';
-import { SideBarContext, SideBarDispatch } from '../context/sideBar.context';
+import { SideBarContext, SideBarDispatch } from '../../context/sideBar.context';
 
 
 const SideBar = () => {
