@@ -8,7 +8,6 @@ export default function Home() {
     <div className="container">
       <Head>
         <title>Main Page Zadelis</title>
-        <link rel="icon" href="/favicon.ico" />
       </Head>
 
       <TopNav />

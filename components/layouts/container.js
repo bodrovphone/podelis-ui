@@ -1,4 +1,3 @@
-import Head from 'next/head';
 import React, { useContext } from 'react';
 import TopNav from '../topNav';
 import { Wrapper } from './styles';
@@ -19,10 +18,6 @@ const Container = ({children}) => {
 
   return (
     <>
-      <Head>
-        <title>Main Page Zadelis</title>
-        <link rel="icon" href="/favicon.ico" />
-      </Head>
       <Wrapper className={`${navState ? 'active' : ''}`} onClick={shouldToggle}>
         <TopNav />
         {children}
