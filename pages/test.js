@@ -1,14 +1,11 @@
 import Link from 'next/link';
+import Layout from '../components/layouts';
 
-import Head from 'next/head'
+import Container from '../components/layouts/container';
 
 export default function Home() {
   return (
-    <div className="container">
-      <Head>
-        <title>I'm Test Page</title>
-        <link rel="icon" href="/favicon.ico" />
-      </Head>
+    <Layout>
 
       <main>
         <h1 className="title">
@@ -210,6 +207,6 @@ export default function Home() {
           box-sizing: border-box;
         }
       `}</style>
-    </div>
+    </Layout>
   )
 }
