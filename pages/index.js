@@ -1,15 +1,9 @@
-import Head from 'next/head';
 import Link from 'next/link';
-
-import TopNav from '../components/topNav';
+import Layout from '../components/layouts';
 
 export default function Home() {
   return (
-    <div className="container">
-      <Head>
-        <title>Main Page Zadelis</title>
-      </Head>
-
+    <Layout>
       <TopNav />
 
       <main>
@@ -17,26 +11,27 @@ export default function Home() {
           Приветствуем на <a href="#">Zadelis!</a>
         </h1>
 
+        
+
         <p className="description">
-          <Link href="/test">
-            <a>Test Page</a>
+          <Link href="/">
+            <a>Home</a>
           </Link>
         </p>
 
         <div className="grid">
-          <a href="#" className="card">
+          <a href="https://nextjs.org/docs" className="card">
             <h3>Documentation &rarr;</h3>
             <p>Find in-depth information about Next.js features and API.</p>
-            Curois
           </a>
 
-          <a href="#" className="card">
+          <a href="https://nextjs.org/learn" className="card">
             <h3>Learn &rarr;</h3>
             <p>Learn about Next.js in an interactive course with quizzes!</p>
           </a>
 
           <a
-            href="#"
+            href="https://github.com/zeit/next.js/tree/master/examples"
             className="card"
           >
             <h3>Examples &rarr;</h3>
@@ -44,7 +39,7 @@ export default function Home() {
           </a>
 
           <a
-            href="#"
+            href="https://vercel.com/import?filter=next.js&utm_source=create-next-app&utm_medium=default-template&utm_campaign=create-next-app"
             className="card"
           >
             <h3>Deploy &rarr;</h3>
@@ -57,7 +52,7 @@ export default function Home() {
 
       <footer>
         <a
-          href="#"
+          href="https://vercel.com?utm_source=create-next-app&utm_medium=default-template&utm_campaign=create-next-app"
           target="_blank"
           rel="noopener noreferrer"
         >
@@ -69,7 +64,7 @@ export default function Home() {
       <style jsx>{`
         .container {
           min-height: 100vh;
-          padding: 0;
+          padding: 0 0.5rem;
           display: flex;
           flex-direction: column;
           justify-content: center;
@@ -211,6 +206,6 @@ export default function Home() {
           box-sizing: border-box;
         }
       `}</style>
-    </div>
+    </Layout>
   )
 }
