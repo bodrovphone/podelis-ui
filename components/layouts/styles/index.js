@@ -23,7 +23,7 @@ export const MainStyled = styled.main`
     }
 `;
 
-export const Header1Styled = styled.h1`
+export const H1Styled = styled.h1`
   margin: 22px 0;
   font-size: 3em;
   color: ${props => props.theme.main.colors.blue};

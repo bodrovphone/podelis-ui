@@ -1,16 +1,16 @@
-import Layout, { Main, Header1, Description } from '../components/layouts';
+import Layout, { Main, H1, Description } from '../components/layouts';
 
 export default function Home() {
   return (
     <Layout>
       <Main>
-        <Header1>
+        <H1>
           <div>
             Zadelis
           </div>
           <span>На прокат бери - деньги береги.</span>
           {/*укр: В оренду забирай - грошi зберiгай. */}
-        </Header1>
+        </H1>
 
         <Description>
           <span>

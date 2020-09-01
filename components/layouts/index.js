@@ -1,7 +1,7 @@
 import React from 'react';
 import Container from './container';
 import Head from './head';
-import { MainStyled, Header1Styled, DescriptionStyled } from './styles';
+import { MainStyled, H1Styled, DescriptionStyled } from './styles';
 
 const Layout = (props) => (
   <>
@@ -16,8 +16,8 @@ export const Main = ({children}) => (
   </MainStyled>
 );
 
-export const Header1 = (props) => (
-  <Header1Styled {...props}/>
+export const H1 = (props) => (
+  <H1Styled {...props}/>
 );
 
 export const Description = (props) => (
