@@ -3,7 +3,7 @@
   src: url('/fonts/Philosopher-Regular.ttf');
  }
 
-.container {
-  background-color: #fff;
+body {
+  background-color: #fafbfb;
   font-family: 'zadelis-font';
 }

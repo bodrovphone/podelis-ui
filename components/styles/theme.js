@@ -7,13 +7,16 @@ const theme = {
       skyBlue: '#92e1fd',
       paleSkyBlue: 'rgba(146, 225, 253, 0.4)',
       blue: '#3d77f5',
-      dark: '#4c4b4b',
+      dark: '#5390d9',
       white: '#fff',
-      aqua: '#0070f3'
+      aqua: '#0070f3',
     },
     gradinets: {
       skyBlueToWhite: 'linear-gradient(180deg, rgba(255,255,255,0.95) 0%, rgba(146,225,253,1) 100%)',
       skyWhiteToBlue: 'linear-gradient(180deg, rgba(146,225,253, 1) 0%, rgba(255,255,255,0.95) 100%)'
+    },
+    shadows: {
+      logoHeader: '2px 8px 6px rgba(0,0,0,0.2), 0px -5px 35px rgba(255,255,255,0.3)'
     }
   }
 }

@@ -13,3 +13,39 @@ export const Wrapper = styled.div`
       }
     }
 `;
+
+export const MainStyled = styled.main`
+   padding: 0 .3em;
+   line-height: 150%;
+   font-size: 1.1em;
+   @media ${device.mobileXL} { 
+      padding: 5em 0; 
+    }
+`;
+
+export const Header1Styled = styled.h1`
+  margin: 22px 0;
+  font-size: 3em;
+  color: ${props => props.theme.main.colors.blue};
+  & div {
+    text-shadow: ${props => props.theme.main.shadows.logoHeader};
+    margin-bottom: 5px;
+  }
+  & span {
+    font-size: 0.3em;
+    color: ${props => props.theme.main.colors.skyBlue};
+    padding-left: 2em;
+  }
+`;
+
+export const DescriptionStyled = styled.div`
+  .text-truncated {
+    display: none
+  }
+
+  @media ${device.mobileXL} { 
+    .text-truncated {
+      display: inline;
+    }
+  }
+`;

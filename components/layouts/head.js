@@ -6,7 +6,8 @@ const MetaHead = () => (
     <meta name="robots" content="noindex, nofollow, nosnippet"></meta>
     <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no"></meta>
     <meta charSet="utf-8"></meta>
-    <meta name="Description" CONTENT="Сервис объявлений аренды. Экономь, наслаждайся сейчас тем, что покупать не стоит."></meta>
+    <meta name="Description" content="Сервис объявлений аренды. Экономь, наслаждайся сейчас тем, что покупать не стоит."></meta>
+    <link href="/static/main.css" rel="stylesheet" />
   </Head>
 );
 
