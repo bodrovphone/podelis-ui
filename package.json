@@ -3,17 +3,20 @@
   "version": "0.1.0",
   "private": true,
   "scripts": {
-    "dev": "next dev",
+    "dev": "source $HOME/.nvm/nvm.sh; nvm use; next dev",
     "build": "next build",
     "start": "next start",
     "deploy": "nvm use && serverless"
   },
   "dependencies": {
+    "classnames": "^2.2.6",
     "next": "9.3.5",
     "node-fetch": "^2.6.1",
+    "prop-types": "^15.7.2",
     "react": "16.13.1",
     "react-bootstrap-icons": "^1.0.3-alpha5",
     "react-dom": "16.13.1",
+    "react-lifecycles-compat": "^3.0.4",
     "styled-components": "^5.1.1"
   },
   "devDependencies": {
