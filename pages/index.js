@@ -1,4 +1,5 @@
 import Layout, { Main, H1, Description } from '../components/layouts';
+import CategoryWidget from '../components/categoryWidget';
 
 export default function Home() {
   return (
@@ -12,16 +13,18 @@ export default function Home() {
           {/*укр: В оренду забирай - грошi зберiгай. */}
         </H1>
 
+        <CategoryWidget categories={['clothes', 'tools', 'electronics', 'transport', 'hobby', 'business']} />
+
         <Description>
           <span>
-            Шаринг-сервис для тебя.
-            Пользуйся тем что нужно, не покупая.
-
+            Простой и удобный шаринг-сервис для тебя.
+            Арендуй поблизости. Пользуйся тем что нужно, не покупая.
             Тут возможно еще текст - более развернутый...<span className='text-truncated'>возможно при клике или при ховере
             суть в том чтобы на фоне поставить заманчивую картинку и ... чтобы текст интриговал
             </span>
           </span>
         </Description>
+
 
           <p>
             Тут у меня будут thumbnails с картинками основных категорий ?

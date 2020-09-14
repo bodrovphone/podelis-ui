@@ -1,11 +1,23 @@
 import styled, { keyframes } from 'styled-components';
 
-export const rotate = keyframes`
-  from {
-    transform: rotate(0deg);
+export const swipeRight = ( pointOne, pointTwo, pointLast = 0 ) => {
+  return keyframes`
+ 
+  0% {
+    transform: translateX(0);
   }
 
-  to {
-    transform: rotate(360deg);
+  45% {
+    transform: translateX(${pointOne});
   }
+
+  50% {
+    transform: translateX(${pointTwo});
+  }
+
+  100% {
+    transform: translateX(${pointLast});
+  }
+
 `;
+}
