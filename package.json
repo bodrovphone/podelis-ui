@@ -11,7 +11,7 @@
   "dependencies": {
     "classnames": "^2.2.6",
     "next": "9.3.5",
-    "node-fetch": "^2.6.0",
+    "node-fetch": "^2.6.1",
     "prop-types": "^15.7.2",
     "react": "16.13.1",
     "react-bootstrap-icons": "^1.0.3-alpha5",
