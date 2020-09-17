@@ -9,6 +9,7 @@ export const CategoriesStyled = styled.div`
   width: 100%;
   margin-bottom: 20px;
   overflow: scroll;
+  font-family: 'zadelis-font';
   &::-webkit-scrollbar {
     display: none;
   }
@@ -26,10 +27,10 @@ export const Mask = styled.div`
     animation: ${swipeM} 3s linear 2s 1;
   }
 
-  @media ${device.laptop} { 
+  @media ${device.tablet} { 
     animation: none;
     width: 100%;
-    justify-content: space-evenly;
+    justify-content: space-around;
   }
 `;
 

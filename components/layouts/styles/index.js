@@ -27,6 +27,7 @@ export const H1Styled = styled.h1`
   margin: 22px 0;
   font-size: 3em;
   color: ${props => props.theme.main.colors.blue};
+  font-family: 'zadelis-font';
   & div {
     text-shadow: ${props => props.theme.main.shadows.logoHeader};
     margin-bottom: 5px;
