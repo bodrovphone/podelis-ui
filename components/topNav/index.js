@@ -16,8 +16,8 @@ import { HouseDoor,
 import SideBar from '../sideBar';
 
 const TopNav = () => {
-  const navState = useContext(SideBarContext);
-  const toggle = useContext(SideBarDispatch);
+  const { navState } = useContext(SideBarContext);
+  const { toggleNav, triggerFocus } = useContext(SideBarDispatch);
   return (
     <>
       <LinksWrapper>
@@ -35,10 +35,10 @@ const TopNav = () => {
             <NavItemLink><ArrowUpCircle/>
               <NavItemSpan>Добавить</NavItemSpan></NavItemLink>
           </Link>
-          <Link href="/">
-            <NavItemLink className="navSearch"><Search/>
-              <NavItemSpan>Поиск</NavItemSpan></NavItemLink>
-          </Link>
+          <NavItemLink className="navSearch" onClick={() => triggerFocus(true)}>
+            <Search/>
+            <NavItemSpan>Поиск</NavItemSpan>
+          </NavItemLink>
           <Link href="/">
             <NavItemLink className="navProfile"><Person/>
               <NavItemSpan>Профиль</NavItemSpan></NavItemLink>
@@ -47,7 +47,7 @@ const TopNav = () => {
             <NavItemLink className="navMessages"><ChatDots/>
               <NavItemSpan>Сообщения</NavItemSpan></NavItemLink>
           </Link>
-          <NavItemLink className='NavMenu' onClick={() => toggle(!navState)}>
+          <NavItemLink className='NavMenu' onClick={() => toggleNav(!navState)}>
             <ListIcon/>
           </NavItemLink>
         </Nav>

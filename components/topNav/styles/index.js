@@ -12,6 +12,7 @@ export const Nav = styled.nav`
   display: grid;
   grid-template-columns: 4fr 4fr 4fr 4fr 2fr 1fr;
   margin: 0 auto;
+  font-family: 'zadelis-font';
 
   @media ${device.mobileXL} { 
     max-width: 90%;

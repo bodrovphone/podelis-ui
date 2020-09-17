@@ -14,12 +14,12 @@ import { SideBarContext, SideBarDispatch } from '../../context/sideBar.context';
 
 
 const SideBar = () => {
-  const navState = useContext(SideBarContext);
-  const toggle = useContext(SideBarDispatch);
+  const { navState } = useContext(SideBarContext);
+  const { toggleNav } = useContext(SideBarDispatch);
 
   return (
     <SbContainer className={`${navState ? 'active' : ''}`}>
-      <Close onClick={() => toggle(!navState)}>&times;</Close>
+      <Close onClick={() => toggleNav(!navState)}>&times;</Close>
       <Link href="/">
         <SbLink>
           <Person size={22} />

@@ -2,13 +2,15 @@
   font-family: 'zadelis-font';
   src: url('/fonts/Philosopher-Regular.ttf');
  }
-
+* {
+  box-sizing: border-box;
+}
 html {
   scroll-behavior: smooth;
 }
 
 body {
   background-color: #fafbfb;
-  /* background: url('./img/bg.png') repeat; */
-  font-family: 'zadelis-font';
+  font-family: 'Helvetica Neue', Helvetica, Arial, sans-serif;
+  font-size: 0.9em;
 }

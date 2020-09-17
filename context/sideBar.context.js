@@ -4,10 +4,11 @@ const SideBarContext = createContext();
 const SideBarDispatch = createContext();
 
 function SideBarProvider ({ children }){
-  const [ navState, toggleNav ] = useState(false)
+  const [ navState, toggleNav ] = useState(false);
+  const [ searchFocus, triggerFocus ] = useState(false);
   return (
-    <SideBarContext.Provider value={navState}>
-      <SideBarDispatch.Provider value={toggleNav}>
+    <SideBarContext.Provider value={{navState, searchFocus}}>
+      <SideBarDispatch.Provider value={{toggleNav, triggerFocus}}>
         {children}
       </SideBarDispatch.Provider>
     </SideBarContext.Provider>
