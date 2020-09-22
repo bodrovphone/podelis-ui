@@ -1,8 +1,9 @@
 import Layout, { Main, H1, Description } from '../components/layouts';
 import SearchBar from '../components/searchBar';
 import CategoryWidget from '../components/categoryWidget';
+import CardsWidget from '../components/cardsWidget';
 
-export default function Home() {
+export default function Home(props) {
   return (
     <Layout>
       <Main>
@@ -26,7 +27,8 @@ export default function Home() {
           </span>
         </Description>
 
-
+        <CardsWidget {...props} posts={[1,2,3]}/>
+        
           <p>
             Тут у меня будут thumbnails с картинками основных категорий ?
           </p>

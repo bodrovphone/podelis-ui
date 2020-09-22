@@ -30,7 +30,7 @@ export const LinksWrapper = styled.div`
   width: inherit;
   background: ${props => props.theme.main.colors.skyBlue};
   background: ${props => props.theme.main.gradinets.skyBlueToWhite};
-
+  z-index: 300;
   @media ${device.mobileXL} { 
     top: 0px;
     bottom: unset;
