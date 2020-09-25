@@ -4,7 +4,7 @@ import { device } from '../../styles/media';
 export const SbContainer = styled.div`
   height: 100%;
   min-height: 100vh;
-  z-index: 5;
+  z-index: 400;
   position: fixed;
   top: 0;
   right: -180px;

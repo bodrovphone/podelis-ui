@@ -2,6 +2,11 @@
   font-family: 'zadelis-font';
   src: url('/fonts/Philosopher-Regular.ttf');
  }
+
+ @font-face {
+  font-family: 'zadelisR-font';
+  src: url('/fonts/PTSans-Regular.ttf');
+ }
 * {
   box-sizing: border-box;
 }
