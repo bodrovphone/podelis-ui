@@ -6,21 +6,32 @@ export const Wrapper = styled.div`
   min-height: 100vh;
   transition: width ease 2s;
 
-  @media ${device.mobileXL} { 
+  @media ${device.mobileXL} {
       &.active {
         margin-right: 180px;
         width: calc(100% - 180px);
       }
-    }
+  }
 `;
 
 export const MainStyled = styled.main`
-   padding: 0 .3em;
-   line-height: 150%;
-   font-size: 1.1em;
-   @media ${device.mobileXL} { 
-      padding: 5em 0; 
-    }
+  padding: 0 .3em;
+  line-height: 150%;
+  font-size: 1.1em;
+
+  @media ${device.mobileXL} { 
+    padding: 5em 0; 
+  }
+
+  @media ${device.laptop} {
+      width: 80%;
+      margin: 0 auto;
+  }
+
+  @media ${device.laptopL} {
+      width: 70%;
+      margin: 0 auto;
+  }
 `;
 
 export const H1Styled = styled.h1`

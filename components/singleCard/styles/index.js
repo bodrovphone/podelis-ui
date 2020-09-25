@@ -4,12 +4,12 @@ import { device } from '../../styles/media';
 export const CardWrapper = styled.div`
   display: flex;
   flex-direction: column;
-  overflow: hidden;
   padding: 5px;
   box-sizing: border-box;
   box-shadow: 0 4px 8px 0 rgba(0,0,0,0.2);
   transition: 0.3s;
   border-radius: 5px;
+  font-family: zadelisR-font;
 
   &:hover {
     box-shadow: 0 8px 16px 0 rgba(0,0,0,0.2);
@@ -19,31 +19,34 @@ export const CardWrapper = styled.div`
     color: inherit;
     text-decoration: none;
   }
+
 `;
 
 export const CardDetails = styled.div`
-  display: flex;
-  line-height: 1.4em;
-  height: 3.8em;
-  position: relative;
-  font-size: 0.8em;
+  padding: 10px 0;
+  margin-left: 5px;
+  font-size: .9em;
 
-    &:after {
-    content: "";
-    text-align: right;
-    position: absolute;
-    bottom: 0;
-    right: 0;
-    width: 70%;
-    height: 1.2em;
-    background: linear-gradient(to right, rgba(255, 255, 255, 0), rgba(255, 255, 255, 1) 50%);
+  div {
+    display: flex;
+    align-items: center;
+    
+    svg {
+      margin-right: 10px;
+    }
+
   }
+    svg.bookmark {
+      margin-left: auto;
+      fill: ${ props => props.theme.main.colors.blue };
+    }
 `;
 
 export const CardImage = styled.div`
+
   img {
     width: 100%;
-    height: 100%;
+    height: auto;
   }
 `;
 
@@ -51,7 +54,7 @@ export const CardTitle = styled.h3`
   font-size: .9em;
   font-weight: 500;
   vertical-align: bottom; 
-  margin: 5px 0;
+  margin: 5px 0 0 5px;
   
   line-height: 1.2em;
   height: 2.4em;
@@ -67,7 +70,6 @@ export const CardTitle = styled.h3`
     right: 0;
     width: 50%;
     height: 1.2em;
-    background: linear-gradient(to right, rgba(255, 255, 255, 0), rgba(255, 255, 255, 1) 50%);
+    background: linear-gradient(to right, rgba(255, 255, 255, 0), rgba(255, 255, 255, 1) 90%);
   }
-  
 `;
