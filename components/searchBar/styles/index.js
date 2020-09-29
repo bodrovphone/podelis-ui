@@ -3,6 +3,10 @@ import { device } from '../../styles/media';
 
 export const InputWrapper = styled.div`
   display: flex;
+
+  span {
+    width: 100%;
+  }
 `;
 
 export const Input = styled.input`
