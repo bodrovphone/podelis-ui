@@ -1,7 +1,7 @@
 import React from 'react';
 import Container from './container';
 import Head from './head';
-import { MainStyled, H1Styled, DescriptionStyled } from './styles';
+import { MainStyled, H1Styled, DescriptionStyled, CenteredStyled } from './styles';
 
 const Layout = (props) => (
   <>
@@ -26,4 +26,9 @@ export const Description = (props) => (
   </DescriptionStyled>
 );
 
+export const Centered = ({children}) => (
+  <CenteredStyled>
+    {children}
+  </CenteredStyled>
+);
 export default Layout;
