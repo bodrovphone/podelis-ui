@@ -15,12 +15,12 @@ export const Wrapper = styled.div`
 `;
 
 export const MainStyled = styled.main`
-  padding: 0 .3em;
   line-height: 150%;
   font-size: 1.1em;
+  padding: 8px;
 
   @media ${device.mobileXL} { 
-    padding: 5em 0; 
+    padding: 5em 3em; 
   }
 
   @media ${device.laptop} {

@@ -19,8 +19,4 @@ export const CardsStyled = styled.section`
   @media ${device.laptop} { 
     grid-template-columns: repeat(5, 1fr);
   }
-
-  @media ${device.laptopL} { 
-    grid-template-columns: repeat(7, 1fr);
-  }
 `;

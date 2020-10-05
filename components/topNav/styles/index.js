@@ -44,6 +44,7 @@ export const NavItemLink = styled.a`
   flex-direction: column;
   align-items: center;
   cursor: pointer;
+  padding: 8px;
 
     &:hover span {
       color: ${props => props.theme.main.colors.paleGrey};
@@ -111,7 +112,6 @@ export const NavItemSpan = styled.span`
 
 
 // Icons
-
 export const ListIcon = styled(List)`
   width: 23px;
   height: 23px;
