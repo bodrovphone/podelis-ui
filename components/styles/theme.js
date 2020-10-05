@@ -3,6 +3,7 @@ const theme = {
     colors: {
       grey: 'rgb(208, 208, 208)',
       paleGrey: '#949496',
+      anotherGrey: '#cfcfd0',
       black: '#4a5662',
       skyBlue: '#92e1fd',
       paleSkyBlue: 'rgba(146, 225, 253, 0.4)',
@@ -10,6 +11,8 @@ const theme = {
       dark: '#5390d9',
       white: '#fff',
       aqua: '#0070f3',
+      lemon: 'lemonchiffon',
+      darkBlue: '#1f2685'
     },
     gradinets: {
       skyBlueToWhite: 'linear-gradient(180deg, rgba(250,251,251, 0.95) 0%, rgba(146,225,253,1) 100%)',

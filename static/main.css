@@ -2,6 +2,11 @@
   font-family: 'zadelis-font';
   src: url('/fonts/Philosopher-Regular.ttf');
  }
+ 
+@font-face {
+  font-family: 'zadelis-font-italic';
+  src: url('/fonts/Philosopher-Italic.ttf');
+}
 
  @font-face {
   font-family: 'zadelisR-font';
@@ -18,4 +23,6 @@ body {
   background-color: #fafbfb;
   font-family: 'Helvetica Neue', Helvetica, Arial, sans-serif;
   font-size: 0.9em;
+  padding: 0;
+  margin: 0;
 }
