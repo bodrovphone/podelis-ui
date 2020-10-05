@@ -20,7 +20,7 @@ export const MainStyled = styled.main`
   padding: 8px;
 
   @media ${device.mobileXL} { 
-    padding: 5em 3em; 
+    padding: 5em 3em 2em 3em; 
   }
 
   @media ${device.laptop} {
@@ -59,5 +59,25 @@ export const DescriptionStyled = styled.div`
     .text-truncated {
       display: inline;
     }
+  }
+`;
+
+export const CenteredStyled = styled.div`
+  line-height: 150%;
+  font-size: 1.1em;
+  padding: 8px;
+
+  @media ${device.mobileXL} { 
+    padding: 1em 3em; 
+  }
+
+  @media ${device.laptop} {
+      width: 80%;
+      margin: 0 auto;
+  }
+
+  @media ${device.laptopL} {
+      width: 70%;
+      margin: 0 auto;
   }
 `;
