@@ -7,12 +7,13 @@ export const CardWrapper = styled.div`
   padding: 5px;
   box-sizing: border-box;
   box-shadow: 0 4px 8px 0 rgba(0,0,0,0.2);
-  transition: 0.3s;
+  transition: all 0.3s ease-in-out;
   border-radius: 5px;
-  font-family: zadelisR-font;
+  font-family: 'zadelisR-font';
 
   &:hover {
     box-shadow: 0 8px 16px 0 rgba(0,0,0,0.2);
+    transform: scale(1.06);
   }
 
   a {
@@ -38,7 +39,7 @@ export const CardDetails = styled.div`
   }
     svg.bookmark {
       margin-left: auto;
-      fill: ${ props => props.theme.main.colors.blue };
+      fill: ${ props => props.theme.colors.rareMedium };
     }
 `;
 
@@ -55,10 +56,8 @@ export const CardTitle = styled.h3`
   font-weight: 500;
   vertical-align: bottom; 
   margin: 5px 0 0 5px;
-  
   line-height: 1.2em;
   height: 2.4em;
-
   overflow: hidden;
   position: relative;
 

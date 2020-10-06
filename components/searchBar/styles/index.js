@@ -15,21 +15,22 @@ export const Input = styled.input`
   outline: none;
   padding: 5px 7px;
   border-radius: 0 10px 0 10px;
-  border: 2px solid ${props => props.theme.main.colors.lemon};
+  border: 2px solid ${props => props.theme.colors.solt};
   height: 35px;
-  box-shadow: ${props => props.theme.main.shadows.logoHeader};
+  box-shadow: ${props => props.theme.shadows.logoHeader};
   appearance: none;
-  background: #e3f8ff;
+  background: ${props => props.theme.colors.wellDone};
   text-align: center;
   font-family: 'zadelis-font';
+  font-size: 1em;
 
   ::placeholder {
       text-align: center;
     }
 
   &:focus {
-    background-color: l${props => props.theme.main.colors.lemon};
-    border: 2px solid ${props => props.theme.main.colors.skyBlue};
+    background-color: ${props => props.theme.colors.solt};
+    border: 2px solid ${props => props.theme.colors.mediumWell};
 
     ::placeholder {
       color: transparent;

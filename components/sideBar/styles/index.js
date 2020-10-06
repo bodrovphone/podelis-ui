@@ -1,4 +1,4 @@
-import styled, { keyframes } from 'styled-components';
+import styled from 'styled-components';
 import { device } from '../../styles/media';
 
 export const SbContainer = styled.div`
@@ -12,7 +12,7 @@ export const SbContainer = styled.div`
   transition: right 2s;
   display: flex;
   flex-direction: column-reverse;
-  background-color: ${props => props.theme.main.colors.dark};
+  background-color: ${props => props.theme.colors.wellDone};
   align-items: baseline;
   box-sizing: border-box;
   width: 180px;
@@ -40,24 +40,24 @@ export const SbLink = styled.a`
   align-items: center;
 
     &:hover span {
-      color: ${props => props.theme.main.colors.paleGrey};
+      color: ${props => props.theme.colors.rare};
     }
 
     &:hover svg {
-      fill: ${props => props.theme.main.colors.white} !important;
+      fill: ${props => props.theme.colors.solt} !important;
     }
 `;
 
 export const SbItemSpan = styled.span`
   display: block;
-  color: ${props => props.theme.main.colors.skyBlue};
+  color: ${props => props.theme.colors.rareMedium};
   font-size: 1em;
   margin-left: 10px;
 `;
 
 // TODO: This is going to be removed probably when I integrate context with clicking on the body
 export const Close = styled.button`
-  background: ${props => props.theme.main.colors.dark};
+  background: ${props => props.theme.colors.wellDone};
   width: 10em;
   outline: none;
   margin: 0 0 60px 35px;
@@ -74,12 +74,12 @@ export const Close = styled.button`
 export const NavLang = styled.span`
   display: flex;
   cursor: pointer;
-  color: ${props => props.theme.main.colors.paleSkyBlue};
+  color: ${props => props.theme.colors.rare};
   margin: 0 0 40px 25px;
   align-items: center;
 
-    &:hover {
-      color: ${props => props.theme.main.colors.white};
+    .optLang:hover {
+      color: ${props => props.theme.colors.solt};
     }
   
     & span {
@@ -88,6 +88,6 @@ export const NavLang = styled.span`
     }
 
     & .optLang {
-      color: ${props => props.theme.main.colors.skyBlue};
+      color: ${props => props.theme.colors.mediumWell};
     }
 `;

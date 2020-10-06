@@ -18,8 +18,8 @@ export const ButtonStyled = styled.button`
   text-decoration: none;
   outline: none;
   color: black;
-  background-color: ${props => props.theme.main.colors.lemon};
-  border: 2px solid ${props => props.theme.main.colors.skyBlue};;
+  background-color: ${props => props.theme.colors.solt};
+  border: 2px solid ${props => props.theme.colors.mediumWell};;
   border-radius: 0 10px 0 10px;
   box-shadow: 0 4px 8px 0 rgba(0,0,0,0.2);
   
@@ -37,8 +37,8 @@ export const ButtonStyled = styled.button`
   }
 
   :hover {
-    border: 2px solid ${props => props.theme.main.colors.lemon};;
-    background-color: ${props => props.theme.main.colors.skyBlue};
+    border: 2px solid ${props => props.theme.colors.solt};;
+    background-color: ${props => props.theme.colors.mediumWell};
   }
 
   :hover span {
@@ -51,8 +51,8 @@ export const ButtonStyled = styled.button`
   }
 
   :active {
-    background-color: ${props => props.theme.main.colors.skyBlue};
-    box-shadow: 0 18px 8px 0 rgba(0,0,0,0.2);
+    background-color: ${props => props.theme.colors.mediumWell};
+    box-shadow: 0 11px 5px 0 rgba(0,0,0,0.2);
     transform: translateY(4px);
     outline: none;
   }

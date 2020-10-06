@@ -37,15 +37,15 @@ export const MainStyled = styled.main`
 export const H1Styled = styled.h1`
   margin: 22px 0;
   font-size: 3em;
-  color: ${props => props.theme.main.colors.blue};
+  color: ${props => props.theme.colors.rareMedium};
   font-family: 'zadelis-font';
   & div {
-    text-shadow: ${props => props.theme.main.shadows.logoHeader};
+    text-shadow: ${props => props.theme.shadows.logoHeader};
     margin-bottom: 5px;
   }
   & span {
     font-size: 0.3em;
-    color: ${props => props.theme.main.colors.skyBlue};
+    color: ${props => props.theme.colors.mediumWell};
     padding-left: 2em;
   }
 `;

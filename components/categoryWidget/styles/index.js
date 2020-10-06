@@ -43,13 +43,13 @@ export const ImageWrapper = styled.div`
     border-radius: 50%;
     width: 90px;
     height: 90px;
-    background-color: #87c5fb;
+    background-color: ${props => props.theme.colors.medium};
   }
 
   &:nth-child(3n) img {
-    background-color: ${props => props.theme.main.colors.skyBlue};
+    background-color: ${props => props.theme.colors.mediumWell};
   }
   &:nth-child(3n + 1) img {
-    background-color: ${props => props.theme.main.colors.blue};
+    background-color: ${props => props.theme.colors.rareMedium};
   }
 `;
