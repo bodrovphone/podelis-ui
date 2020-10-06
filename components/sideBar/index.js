@@ -51,9 +51,9 @@ const SideBar = () => {
         </SbLink>
       </Link>
       <NavLang>
-        <span className="optLang">Мова</span> 
+        <span className="optLang">UK</span> 
         <div>&#124;</div> 
-        <span>Язык</span>
+        <span>RU</span>
       </NavLang>
     </SbContainer>
 )};

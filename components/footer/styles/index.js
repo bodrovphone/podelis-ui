@@ -2,7 +2,7 @@ import styled from 'styled-components';
 import { device } from '../../styles/media';
 
 export const FooterStyled = styled.footer`
-  background: ${props => props.theme.main.colors.paleSkyBlue};
+  background: ${props => props.theme.colors.wellDone};
   width: 100%;
   padding: 25px 8px 80px 8px;
   position: relative;
@@ -37,7 +37,7 @@ export const Grid = styled.div`
 export const GridBlock = styled.ul`
   line-height: 30px;
   margin: 0;
-  color: ${props => props.theme.main.colors.darkBlue};
+  color: ${props => props.theme.colors.medium};
   
   img, svg {
     width: 32px;
@@ -56,22 +56,19 @@ export const GridItemStyled = styled.li`
     list-style: none;
     font-weight: bold;
     margin-bottom: 5px;
-    color: ${props => props.theme.main.colors.blue};
+    color: ${props => props.theme.colors.rareMedium};
   }
 
   :first-child:hover {
     list-style: none;
-    color: ${props => props.theme.main.colors.blue};
+    color: ${props => props.theme.colors.mediumRare};
     cursor: default;
   }
 
   :hover {
     cursor: pointer;
     list-style: kannada;
-  }
-
-  a:hover {
-    color: #4cd8b8;
+    color: ${props => props.theme.colors.rare};
   }
 
 `;

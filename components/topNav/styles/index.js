@@ -28,14 +28,17 @@ export const LinksWrapper = styled.div`
   bottom: 0;
   left: 0;
   width: inherit;
-  background: ${props => props.theme.main.colors.skyBlue};
-  background: ${props => props.theme.main.gradinets.skyBlueToWhite};
+  background: ${props => props.theme.gradinets.skyBlueToWhite};
   z-index: 300;
   @media ${device.mobileXL} { 
     top: 0px;
     bottom: unset;
-    background: ${props => props.theme.main.colors.skyBlue};
-    background: ${props => props.theme.main.gradinets.skyWhiteToBlue};
+    background: ${props => props.theme.colors.mediumWell};
+    background: ${props => props.theme.gradinets.skyWhiteToBlue};
+  }
+
+  @media ${device.tablet} { 
+    box-shadow: 0 2px 2px #80808012;
   }
 `;
 
@@ -47,11 +50,11 @@ export const NavItemLink = styled.a`
   padding: 8px;
 
     &:hover span {
-      color: ${props => props.theme.main.colors.paleGrey};
+      color: ${props => props.theme.colors.rare};
     }
 
     &:hover svg {
-      fill: ${props => props.theme.main.colors.aqua} !important;
+      fill: ${props => props.theme.colors.mediumRare} !important;
     }
 
     &.navProfile,
@@ -84,7 +87,7 @@ export const NavItemLink = styled.a`
   &:not(:last-of-type) svg {
     width: 18px;
     height: 18px;
-    fill: ${props => props.theme.main.colors.black};
+    fill: ${props => props.theme.colors.rare};
 
     @media ${device.laptop} { 
       width: 26px;
@@ -100,7 +103,7 @@ export const NavItemLink = styled.a`
 
 export const NavItemSpan = styled.span`
   display: block;
-  color: ${props => props.theme.main.colors.black};
+  color: ${props => props.theme.colors.medium};
   font-size: 0.8em;
   margin-top: 3px;
 
@@ -115,7 +118,7 @@ export const NavItemSpan = styled.span`
 export const ListIcon = styled(List)`
   width: 23px;
   height: 23px;
-  fill: ${props => props.theme.main.colors.black};
+  fill: ${props => props.theme.colors.rare};
   align-self: center;
   
   @media ${device.laptop} { 

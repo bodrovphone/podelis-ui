@@ -3,7 +3,7 @@ import { device } from '../../styles/media';
 
 export const AboutStyled = styled.section`
   height: 300px;
-  background: ${props => props.theme.main.colors.lemon};
+  background: ${props => props.theme.colors.solt};
   width: 100%;
   padding: 20px .3em;
   margin: 30px 0;
