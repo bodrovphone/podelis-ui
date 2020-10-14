@@ -21,7 +21,7 @@ const SingleCard = ({id, imageSrc, title, details }) => {
 
   return (
     <CardWrapper>
-      <Link href={`/post/${id}`}>
+      <Link href={`/prokat/${id}`}>
         <a>
           <CardImage>
             <img src={imageSrc}></img>
