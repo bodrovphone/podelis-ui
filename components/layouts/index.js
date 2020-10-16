@@ -1,7 +1,13 @@
 import React from 'react';
 import Container from './container';
 import Head from './head';
-import { MainStyled, H1Styled, DescriptionStyled, CenteredStyled } from './styles';
+import { 
+  MainStyled,
+  H1Styled,
+  DescriptionStyled,
+  CenteredStyled,
+  TwoColumnsDesktop,
+  TwoColumns } from './styles';
 
 const Layout = (props) => (
   <>
@@ -10,25 +16,35 @@ const Layout = (props) => (
   </>
 )
 
-export const Main = ({children}) => (
+const Main = ({children}) => (
   <MainStyled>
     {children}
   </MainStyled>
 );
 
-export const H1 = (props) => (
+const H1 = (props) => (
   <H1Styled {...props}/>
 );
 
-export const Description = (props) => (
+const Description = (props) => (
   <DescriptionStyled {...props}>
     {props.children}
   </DescriptionStyled>
 );
 
-export const Centered = ({children}) => (
+const Centered = ({children}) => (
   <CenteredStyled>
     {children}
   </CenteredStyled>
 );
+
+export { 
+  TwoColumnsDesktop,
+  TwoColumns,
+  Centered,
+  Description,
+  H1,
+  Main
+ };
+
 export default Layout;

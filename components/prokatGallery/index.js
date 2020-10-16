@@ -1,9 +1,10 @@
 // https://www.npmjs.com/package/react-image-gallery
 import ImageGallery from 'react-image-gallery';
+import { GalleryWrapper } from './styles';
  
 // in production images will be passed from a page query if parameter.
 // I need to add logic to grab 5 images if exists and if there is 0 image, then we should just show a placeholder.
-const images = [
+const fallbackImages = [
   {
     original: 'https://i1.foxtrot.com.ua/product/MediumImages/6551725_0.jpg',
     thumbnail: 'https://i.xiaomi.ua/u/CatalogueImage/pv_xiaomi-mi-smart-compact-projector-120-001297391580382221.jpg',
@@ -18,8 +19,13 @@ const images = [
   },
 ];
 
-const ProkatGallery = (props) => (
-  <ImageGallery {...props} items={images} />
-);
+const ProkatGallery = (props) => {
+  const { images = fallbackImages } = props;
+  return (
+    <GalleryWrapper>
+      <ImageGallery {...props} items={images} />
+    </GalleryWrapper>
+  );
+}
 
 export default ProkatGallery;

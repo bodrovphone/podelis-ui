@@ -12,9 +12,15 @@ const AboutZadelis = () => (
       Сдавай в аренду вещи и зарабатывай.<br />
     </ContentStyled>
     <GoSocial>
-      <a target="_blank" rel="external" href="https://www.instagram.com/explore/tags/zadelis/"><img src="static/img/instagram-logo.png" alt="Facebook Logo" /></a>
-      <a target="_blank" rel="external" href="https://www.facebook.com/hashtag/zadelis"><img src="static/img/facebook-logo.png" alt="Instagram Logo"/></a>
-      <a target="_blank" rel="external" href="https://twitter.com/hashtag/zadelis"><img src="static/img/twitter-logo.png" alt="Twitter Logo"/></a>
+      <a target="_blank" rel="external" href="https://www.instagram.com/explore/tags/zadelis/">
+        <img src={require('../../static/img/instagram-logo.png')} alt="Facebook Logo" />
+      </a>
+      <a target="_blank" rel="external" href="https://www.facebook.com/hashtag/zadelis">
+        <img src={require("../../static/img/facebook-logo.png")} alt="Instagram Logo" />
+      </a>
+      <a target="_blank" rel="external" href="https://twitter.com/hashtag/zadelis">
+        <img src={require("../../static/img/twitter-logo.png")} alt="Twitter Logo" />
+      </a>
     </GoSocial>
   </AboutStyled>
 )

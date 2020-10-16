@@ -72,3 +72,9 @@ export const CardTitle = styled.h3`
     background: linear-gradient(to right, rgba(255, 255, 255, 0), rgba(255, 255, 255, 1) 90%);
   }
 `;
+
+export const SectionStyled = styled.section`
+  @media ${device.tablet} { 
+    width: 40%;
+  }
+`;

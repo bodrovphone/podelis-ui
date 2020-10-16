@@ -22,12 +22,12 @@ const TopNav = () => {
     <>
       <LinksWrapper>
         <Nav>
-          <Link href="/test">
+          <Link href="/">
             <NavItemLink className="navHome"><HouseDoor/>
               <NavItemSpan className="navHomeSpan">Главная</NavItemSpan>
             </NavItemLink>
           </Link>
-          <Link href="/test">
+          <Link href="/">
             <NavItemLink><Heart/>
               <NavItemSpan>Закладки</NavItemSpan></NavItemLink>
           </Link>
