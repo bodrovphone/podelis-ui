@@ -81,3 +81,21 @@ export const CenteredStyled = styled.div`
       margin: 0 auto;
   }
 `;
+
+export const TwoColumns = styled.div`
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: end;
+`;
+
+export const TwoColumnsDesktop = styled.div`
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  padding-bottom: 40px;
+
+  @media ${device.tablet} { 
+    flex-direction: row; 
+  }
+`;
