@@ -8,7 +8,7 @@ import Profile from '../../components/profile';
 import ProkatDetails, { SectionStyled, ContactOwnerWrapper } from '../../components/prokatDetails';
 import ProkatTitle from '../../components/prokatTitle';
 
-const Prokat = (props) => {
+const Prokat = () => {
   const router = useRouter();
   const { id } = router.query;
   console.log( 'id from props: ', props.prokat );
