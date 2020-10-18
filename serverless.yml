@@ -1,5 +1,5 @@
 zadelis-ui:
-  component: "@sls-next/serverless-component@1.17.0"
+  component: "@sls-next/serverless-component@1.18.0-alpha.8"
   inputs:
-    memory: 128
+    memory: 256
     bucketRegion: "eu-central-1"

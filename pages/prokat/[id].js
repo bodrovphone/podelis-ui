@@ -8,10 +8,10 @@ import Profile from '../../components/profile';
 import ProkatDetails, { SectionStyled, ContactOwnerWrapper } from '../../components/prokatDetails';
 import ProkatTitle from '../../components/prokatTitle';
 
-const Prokat = () => {
+const Prokat = (props) => {
   const router = useRouter();
   const { id } = router.query;
-  console.log( 'id from props: ', props.prokat );
+  console.log( 'date from props: ', props.date );
   console.log('id from router: ', id);
 
   if (router.isFallback) {
@@ -61,21 +61,27 @@ const Prokat = () => {
   );
 }
 
-export async function getStaticPaths() {
-  return {
-    paths: 
-      [
-        { params: { id: '90' } },
-        { params: { id: '91' } },
-        { params: { id: '92' } }
-    ],
-    fallback: true,
-  }
-}
+// export async function getStaticPaths() {
+//   return {
+//     paths: 
+//       [
+//         { params: { id: '90' } },
+//         { params: { id: '91' } },
+//         { params: { id: '92' } }
+//     ],
+//     fallback: true,
+//   }
+// }
 
-export async function getStaticProps({ params }) {
+// export async function getStaticProps({ params }) {
+//   return {
+//     props: { prokat: params.id || 'test' }
+//   }
+// }
+
+export async function getServerSideProps(context) {
   return {
-    props: { prokat: params.id || 'test' }
+    props: { date: new Date().toISOString() }
   }
 }
 
