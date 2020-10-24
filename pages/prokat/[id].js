@@ -22,9 +22,10 @@ const Prokat = (props) => {
   console.log("date from props: ", props.date);
   console.log("id from router: ", id);
 
-  if (router.isFallback) {
-    return <div>Загружаю...</div>;
-  }
+  // this will run if used altogether with getStaticPaths + getStaticProps
+  // if (router.isFallback) {
+  //   return <div>Загружаю...</div>
+  // }
 
   return (
     <Layout>
@@ -48,13 +49,13 @@ const Prokat = (props) => {
             <ProkatDescription description="Прекрасный проектор для просмотра фильмов с друзъями. Предлогаем разные модели. Простой в управлении. 4k качество ктор для просмотра фильмов с друзъями. Предлогактор для просмотра фильмов с друзъями. Прекрасный проектор для просмотра фильмов с друзъями. Предлогаем разные модели. Простой в управлении. 4k качество ктор для просмотра фильмов с друзъями. Предлогактор для просмотра фильмов с друзъями." />
 
             <ContactOwnerWrapper>
-              <img src="../static/img/chat.png" />
-              <img src="../static/img/call.png" />
+              <img src="../../static/img/chat.png" />
+              <img src="../../static/img/call.png" />
               <img
                 styles={{ fill: "red" }}
-                src="../static/img/viber-icon-colored.svg"
+                src="../../static/img/viber-icon-colored.svg"
               />
-              <img src="../static/img/telegram-icon-colored.svg" />
+              <img src="../../static/img/telegram-icon-colored.svg" />
             </ContactOwnerWrapper>
           </SectionStyled>
         </TwoColumnsDesktop>
