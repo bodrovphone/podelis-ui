@@ -2,17 +2,14 @@
 function Blog({ data }) {
   return (
     <div>
-      <h1>Test Blog</h1>
+      <h1>Тут будет страница поиска</h1>
       <ul>
-        {
-          Object.keys(data)
-            .map(item => {
-              return <li>{data[item]}</li>
-            })
-        }
+        {Object.keys(data).map((item) => {
+          return <li>{data[item]}</li>;
+        })}
       </ul>
     </div>
-  )
+  );
 }
 
 // This function gets called at build time on server-side.
@@ -22,12 +19,10 @@ export async function getStaticProps() {
   // Call an external API endpoint to get posts.
   // You can use any data fetching library
 
+  const fetch = require("node-fetch");
 
-  const fetch = require('node-fetch');
-
-  const res = await fetch('https://jsonplaceholder.typicode.com/todos/2');
+  const res = await fetch("https://jsonplaceholder.typicode.com/todos/2");
   const data = await res.json();
-
 
   // By returning { props: posts }, the Blog component
   // will receive `posts` as a prop at build time
@@ -35,7 +30,7 @@ export async function getStaticProps() {
     props: {
       data,
     },
-  }
+  };
 }
 
-export default Blog
+export default Blog;
