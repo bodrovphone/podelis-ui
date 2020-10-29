@@ -1,17 +1,15 @@
-import React from 'react';
-import { ButtonStyled, LoadMoreStyled } from './styles';
+import React from "react";
+import { Button_ST, LoadMore_ST } from "./styles";
 
 const LoadMore = () => (
-  <LoadMoreStyled>
-    <ButtonStyled>
+  <LoadMore_ST>
+    <Button_ST>
       <span>
         Показать еще
-        <i>
-          &gt;&gt;
-        </i>
+        <i>&gt;&gt;</i>
       </span>
-    </ButtonStyled>
-  </LoadMoreStyled>
+    </Button_ST>
+  </LoadMore_ST>
 );
 
 export default LoadMore;

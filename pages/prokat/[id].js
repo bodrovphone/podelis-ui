@@ -11,7 +11,7 @@ import ProkatGallery from "../../components/prokatGallery";
 import ProkatDescription from "../../components/prokatDescription";
 import Profile from "../../components/profile";
 import ProkatDetails, {
-  SectionStyled,
+  Section_ST,
   ContactOwnerWrapper,
 } from "../../components/prokatDetails";
 import ProkatTitle from "../../components/prokatTitle";
@@ -37,7 +37,7 @@ const Prokat = (props) => {
         </H1>
         <TwoColumnsDesktop>
           <ProkatGallery />
-          <SectionStyled>
+          <Section_ST>
             <ProkatTitle title="Проектор XIAOMI Mi Smart mini Projector" />
             <TwoColumns>
               <div>
@@ -57,7 +57,7 @@ const Prokat = (props) => {
               />
               <img src="../../static/img/telegram-icon-colored.svg" />
             </ContactOwnerWrapper>
-          </SectionStyled>
+          </Section_ST>
         </TwoColumnsDesktop>
       </Main>
 
