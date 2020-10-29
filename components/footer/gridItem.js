@@ -1,14 +1,12 @@
-import React from 'react';
-import Link from 'next/link';
-import { GridItemStyled } from './styles';
+import React from "react";
+import Link from "next/link";
+import { GridItem_ST } from "./styles";
 
-const GridItem = ({href, children}) => (
+const GridItem = ({ href, children }) => (
   <Link href={href}>
-    <GridItemStyled>
-      <a>
-        {children}
-      </a>
-    </GridItemStyled>
+    <GridItem_ST>
+      <a>{children}</a>
+    </GridItem_ST>
   </Link>
 );
 

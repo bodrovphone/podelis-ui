@@ -1,50 +1,32 @@
-import React from 'react';
-import Container from './container';
-import Head from './head';
-import { 
-  MainStyled,
-  H1Styled,
-  DescriptionStyled,
-  CenteredStyled,
+import React from "react";
+import Container from "./container";
+import Head from "./head";
+import {
+  Main_ST,
+  H1_ST,
+  Description_ST,
+  Centered_ST,
   TwoColumnsDesktop,
-  TwoColumns } from './styles';
+  TwoColumns,
+} from "./styles";
 
 const Layout = (props) => (
   <>
     <Head {...props} />
     <Container {...props} />
   </>
-)
-
-const Main = ({children}) => (
-  <MainStyled>
-    {children}
-  </MainStyled>
 );
 
-const H1 = (props) => (
-  <H1Styled {...props}/>
-);
+const Main = ({ children }) => <Main_ST>{children}</Main_ST>;
+
+const H1 = (props) => <H1_ST {...props} />;
 
 const Description = (props) => (
-  <DescriptionStyled {...props}>
-    {props.children}
-  </DescriptionStyled>
+  <Description_ST {...props}>{props.children}</Description_ST>
 );
 
-const Centered = ({children}) => (
-  <CenteredStyled>
-    {children}
-  </CenteredStyled>
-);
+const Centered = ({ children }) => <Centered_ST>{children}</Centered_ST>;
 
-export { 
-  TwoColumnsDesktop,
-  TwoColumns,
-  Centered,
-  Description,
-  H1,
-  Main
- };
+export { TwoColumnsDesktop, TwoColumns, Centered, Description, H1, Main };
 
 export default Layout;

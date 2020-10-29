@@ -1,10 +1,8 @@
-import React from 'react';
-import { DescriptionStyled } from './styles';
+import React from "react";
+import { Description_ST } from "./styles";
 
-const ProkatDescription = ({description}) => (
-  <DescriptionStyled>
-    {description}
-  </DescriptionStyled>
+const ProkatDescription = ({ description }) => (
+  <Description_ST>{description}</Description_ST>
 );
 
-export default ProkatDescription
+export default ProkatDescription;
