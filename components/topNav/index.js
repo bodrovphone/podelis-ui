@@ -38,7 +38,7 @@ const TopNav = () => {
               <NavItemSpan>Закладки</NavItemSpan>
             </NavItemLink>
           </Link>
-          <Link href="/">
+          <Link href="/add">
             <NavItemLink>
               <ArrowUpCircle />
               <NavItemSpan>Добавить</NavItemSpan>
