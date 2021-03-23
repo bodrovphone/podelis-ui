@@ -1,5 +1,7 @@
 import { Formik } from "formik";
 import { useState } from "react";
+import Resizer from "react-image-file-resizer";
+import { Images, ChevronDoubleRight } from "react-bootstrap-icons";
 import {
   Form_ST,
   Input_ST,
@@ -11,45 +13,63 @@ import {
   InputPeriod_ST,
   CheckBoxLabel_ST,
   InputRange_ST,
+  AdPreview_ST,
+  ButtonPhoto_ST,
+  ButtonSubmit_ST,
 } from "./styles";
 
 const Form = (props) => {
-  const [state, setState] = useState({});
+  const [state, setState] = useState({
+    files: [],
+    imagePreviewUrls: [],
+    error: "",
+  });
 
+  const resizeFile = (file) =>
+    new Promise((resolve) => {
+      Resizer.imageFileResizer(
+        file,
+        300,
+        300,
+        "JPEG",
+        100,
+        0,
+        (uri) => {
+          resolve(uri);
+        },
+        "base64"
+      );
+    });
   const handleImageChange = (e) => {
     e.preventDefault();
 
     // https://stackoverflow.com/questions/13975031/reading-multiple-files-with-javascript-filereader-api-one-at-a-time
-    let reader = new FileReader();
-    let file = e.target.files[0];
 
     const files = e.currentTarget.files;
-    Object.keys(files).forEach(i => {
+    Object.keys(files).forEach(async (i) => {
       const file = files[i];
       const reader = new FileReader();
+      // Resizing image and filling state
+      const image = await resizeFile(file);
       reader.onloadend = (e) => {
-        console.log('reader thing', e);
-        const stateFiles = state.files || [];
-        stateFiles.push(file);
-        const statePreviews = state.imagePreviewUrls || [];
-        statePreviews.push(reader.result);
-        setState({
-          file: stateFiles,
-          imagePreviewUrls: statePreviews
+        setState((prevState) => {
+          let error;
+          if (prevState.files.length > 9) {
+            prevState.files.length = 9;
+            prevState.imagePreviewUrls.length = 9;
+            error = "Загрузить можно до 10 фотографий";
+          }
+          return {
+            files: [...prevState.files, image],
+            imagePreviewUrls: [...prevState.imagePreviewUrls, image],
+            error,
+          };
         });
-      }
-      reader.readAsBinaryString(file, 'utf8');
-      // reader.readAsDataURL(file);
-    })
 
-    // reader.onloadend = () => {
-    //   setState({
-    //     file: file,
-    //     imagePreviewUrl: reader.result
-    //   });
-    // };
-
-    // reader.readAsDataURL(file);
+        // I will want to push the image to cloudFront through RestFul API request somewhere in this place
+      };
+      reader.readAsDataURL(file);
+    });
   };
 
   return (
@@ -157,21 +177,29 @@ const Form = (props) => {
             </CheckboxWrapper_ST>
           </PeriodWrapper_ST>
           <Label_ST>
-            Фотка
+            <ButtonPhoto_ST>
+              Добавить фото
+              <Images size={16} color="black" />
+            </ButtonPhoto_ST>
             <input
               type="file"
               name="photo"
               multiple
               onChange={handleImageChange}
             />
-            {
-            state.imagePreviewUrls && state.imagePreviewUrls.map(preview => (<img src={preview} />))
-    }
           </Label_ST>
+          {state.error}
+          <PeriodWrapper_ST>
+            {state.imagePreviewUrls &&
+              state.imagePreviewUrls.map((preview, i) => (
+                <AdPreview_ST key={i} src={preview} />
+              ))}
+          </PeriodWrapper_ST>
           {errors.title && touched.title && errors.title}
-          <button type="submit" disabled={isSubmitting}>
-            Submit
-          </button>
+          <ButtonSubmit_ST type="submit" disabled={isSubmitting}>
+            Отправить
+            <ChevronDoubleRight size={16} color="black" />
+          </ButtonSubmit_ST>
         </Form_ST>
       )}
     </Formik>

@@ -3,7 +3,7 @@
   "version": "0.1.0",
   "private": true,
   "scripts": {
-    "dev": "source $HOME/.nvm/nvm.sh; nvm use; next dev",
+    "dev": "next dev",
     "build": "next build",
     "start": "next start",
     "deploy": "nvm use && serverless"
@@ -19,6 +19,7 @@
     "react": "16.13.1",
     "react-bootstrap-icons": "1.0.3-alpha5",
     "react-dom": "16.13.1",
+    "react-image-file-resizer": "0.4.2",
     "react-image-gallery": "1.0.8",
     "react-lifecycles-compat": "3.0.4",
     "react-star-ratings": "2.3.0",
