@@ -36,10 +36,10 @@ const Footer = () => (
               <Envelope size={32} color="black" />
             </a>
             <a href="viber://add?number=12345678">
-              <img src="/static/img/viber-logo.svg" />
+              <img src="img/viber-logo.svg" />
             </a>
             <a href="https://telegram.me/YourUsernameHere">
-              <img src="/static/img/telegram-logo.svg" />
+              <img src="img/telegram-logo.svg" />
             </a>
           </div>
         </address>

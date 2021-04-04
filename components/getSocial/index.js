@@ -3,10 +3,10 @@ import { Wrapper } from './styles';
 
 const GetSocial = (props) => (
   <Wrapper>
-    <img src={require("../../static/img/getSocial/getSocial-bycicle.jpg")} />
-    <img src={require("../../static/img/getSocial/getSocial-worker.jpg")} />
-    <img src={require("../../static/img/getSocial/getSocial-kayak.jpg")} />
-    <img src={require("../../static/img/getSocial/getSocial-suit.jpg")} />
+    <img src="../img/getSocial/getSocial-bycicle.jpg" />
+    <img src="../img/getSocial/getSocial-worker.jpg" />
+    <img src="../img/getSocial/getSocial-kayak.jpg" />
+    <img src="../img/getSocial/getSocial-suit.jpg" />
   </Wrapper>
 );
 

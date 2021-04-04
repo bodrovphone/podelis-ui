@@ -1,17 +1,26 @@
 import styled from 'styled-components';
 import { device } from '../../styles/media';
 
-export const InputWrapper = styled.div`
+export const InputWrapper_ST = styled.div`
   display: flex;
+  flex-direction: column;
+    align-items: center;
+  justify-content: space-between;
+    gap: 12px;
 
   span {
     width: 100%;
   }
+
+  @media ${device.mobileS} { 
+    flex-direction: row;
+    gap: 0;
+    justify-content: space-around;
+  }
 `;
 
-export const Input = styled.input`
-  width: 90%;
-  margin: 0 auto 40px 3%;
+export const Input_ST = styled.input`
+width: 70%;
   outline: none;
   padding: 5px 7px;
   border-radius: 0 10px 0 10px;
@@ -37,8 +46,5 @@ export const Input = styled.input`
     }
   }
 
-  @media ${device.mobileXL} { 
-    width: 70%;
-    margin: 0 auto 40px auto;
-   }
+
 `;

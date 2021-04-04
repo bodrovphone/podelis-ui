@@ -9,8 +9,8 @@ const CategoriesWidget = ({ categories }) => (
       {categories.map((cat, index) => (
         <Image_ST key={index}>
           <GifPlayer
-            gif={`/static/img/categories/${cat}.gif`}
-            still={`/static/img/categories/${cat}.png`}
+            gif={`img/categories/${cat}.gif`}
+            still={`img/categories/${cat}.png`}
           />
           <span>{translate[cat]["ru"]}</span>
         </Image_ST>

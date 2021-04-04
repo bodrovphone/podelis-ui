@@ -8,6 +8,7 @@ import {
   Centered_ST,
   TwoColumnsDesktop,
   TwoColumns,
+  VCentered_ST
 } from "./styles";
 
 const Layout = (props) => (
@@ -27,6 +28,6 @@ const Description = (props) => (
 
 const Centered = ({ children }) => <Centered_ST>{children}</Centered_ST>;
 
-export { TwoColumnsDesktop, TwoColumns, Centered, Description, H1, Main };
+export { TwoColumnsDesktop, TwoColumns, Centered, VCentered_ST, Description, H1, Main };
 
 export default Layout;
