@@ -99,3 +99,8 @@ export const TwoColumnsDesktop = styled.div`
     flex-direction: row;
   }
 `;
+
+export const VCentered_ST = styled.div`
+  margin: 15px 0;
+  padding: 10px 0 50px 0;
+`;
