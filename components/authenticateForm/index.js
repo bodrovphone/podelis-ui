@@ -73,7 +73,7 @@ const AuthenticateForm = (props) => {
             <div>
               <Button_ST type="button">
                 <span>
-                  <Img_ST src={require("../../static/img/FB-big-logo.png")} />
+                  <Img_ST src="../img/FB-big-logo.png" />
                   Вход с Facebook
                   <i>&gt;&gt;</i>
                 </span>
@@ -81,7 +81,7 @@ const AuthenticateForm = (props) => {
 
               <Button_ST type="button">
                 <span>
-                  <Img_ST src={require("../../static/img/G-big-logo.png")} />
+                  <Img_ST src="../img/G-big-logo.png" />
                   Вход с Google
                   <i>&gt;&gt;</i>
                 </span>

@@ -22,7 +22,7 @@ const AboutZadelis = () => (
         href="https://www.instagram.com/explore/tags/zadelis/"
       >
         <img
-          src={require("../../static/img/instagram-logo.png")}
+          src="../img/instagram-logo.png"
           alt="Facebook Logo"
         />
       </a>
@@ -32,7 +32,7 @@ const AboutZadelis = () => (
         href="https://www.facebook.com/hashtag/zadelis"
       >
         <img
-          src={require("../../static/img/facebook-logo.png")}
+          src="../img/facebook-logo.png"
           alt="Instagram Logo"
         />
       </a>
@@ -42,7 +42,7 @@ const AboutZadelis = () => (
         href="https://twitter.com/hashtag/zadelis"
       >
         <img
-          src={require("../../static/img/twitter-logo.png")}
+          src="../img/twitter-logo.png"
           alt="Twitter Logo"
         />
       </a>

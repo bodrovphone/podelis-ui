@@ -20,7 +20,7 @@ const SideBar = () => {
   return (
     <SbContainer className={`${navState ? 'active' : ''}`}>
       <Close onClick={() => toggleNav(!navState)}>&times;</Close>
-      <Link href="/">
+      <Link href="/authenticate">
         <SbLink>
           <Person size={22} />
           <SbItemSpan>Профиль</SbItemSpan>
