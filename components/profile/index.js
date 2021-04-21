@@ -1,6 +1,8 @@
 import React from 'react';
 import { ProfileWrapper, Avatar, Name } from './styles';
 import StarRatings from 'react-star-ratings';
+import ProfileContext from './profileContext';
+import ProfileEditable from './profileEditable';
 
 const ProfileDetails = ({name, avatarUrl = 'http://www.gravatar.com/avatar/?d=mp', rating }) => (
   <ProfileWrapper>
@@ -18,3 +20,4 @@ const ProfileDetails = ({name, avatarUrl = 'http://www.gravatar.com/avatar/?d=mp
 )
 
 export default ProfileDetails;
+export { ProfileContext, ProfileEditable };

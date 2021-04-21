@@ -52,7 +52,7 @@ const TopNav = () => {
             </NavItemLink>
           </Link>
 
-          <Link href="/">
+          <Link href="/profile">
             <NavItemLink className="navProfile">
               <Person />
               <NavItemSpan>Профиль</NavItemSpan>

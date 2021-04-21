@@ -31,7 +31,7 @@ const defaultTopPosts = [
     description="Прекрасный проектор для просмотра фильмов с друзъями. Предлогаем разные модели. Простой в управлении. 4k качество..."
     imageSrc="https://images.ua.prom.st/2139978779_w640_h640_proektor-xiaomi-mi.jpg"
     id="fdsfks9werksdf"
-    key={"props.posts[0]"}
+    key={"props.posts[3]"}
   />,
 ];
 

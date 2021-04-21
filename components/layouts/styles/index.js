@@ -50,6 +50,12 @@ export const H1_ST = styled.h1`
   }
 `;
 
+export const H2_ST = styled.h2`
+  width: 100%;
+  color: #c5c5c5;
+  padding: 20px 0 0 50px;
+`;
+
 export const Description_ST = styled.div`
   .text-truncated {
     display: none;
@@ -79,6 +85,20 @@ export const Centered_ST = styled.div`
   @media ${device.laptopL} {
     width: 70%;
     margin: 0 auto;
+  }
+`;
+
+export const TwoColumnsWrap = styled.div`
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  gap: 25px;
+
+  align-items: flex-start;
+  align-content: flex-start;
+
+  @media ${device.tablet} {
+    flex-direction: row;
   }
 `;
 
