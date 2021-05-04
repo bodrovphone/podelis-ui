@@ -1,7 +1,7 @@
 import { Posts_ST, Messages_ST, Settings_ST } from "./styles";
 
 import CardsWidget from "../cardsWidget";
-import Messages from "../messages";
+import { Messages } from "../messages";
 import Settings from "../settings";
 
 import { H2 } from "../layouts";
