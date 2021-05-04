@@ -15,5 +15,38 @@
     "titleBar.inactiveBackground": "#21573299",
     "titleBar.inactiveForeground": "#e7e7e799"
   },
-  "peacock.color": "#215732"
+  "peacock.color": "#215732",
+  "editor.formatOnSave": true,
+  "search.searchOnType": false,
+  "editor.wordWrap": "on",
+  "editor.renderWhitespace": "all",
+  "liveServer.settings.donotVerifyTags": true,
+  "diffEditor.ignoreTrimWhitespace": false,
+  "editor.accessibilitySupport": "off",
+  "window.zoomLevel": -1,
+  "editor.tabSize": 2,
+  "editor.detectIndentation": false,
+  "gitlens.advanced.messages": {
+    "suppressLineUncommittedWarning": true
+  },
+  "liveServer.settings.donotShowInfoMsg": true,
+  "prettier.useTabs": false,
+  "prettier.tabWidth": 2,
+  "editor.cursorBlinking": "phase",
+  "workbench.editor.labelFormat": "short",
+  "workbench.editor.enablePreviewFromQuickOpen": false,
+  "editor.autoClosingBrackets": "beforeWhitespace",
+  "editor.autoClosingQuotes": "beforeWhitespace",
+  "editor.codeLens": false,
+  "editor.parameterHints.enabled": false,
+  "debug.javascript.usePreview": false,
+  "javascript.updateImportsOnFileMove.enabled": "always",
+  "git.autofetch": false,
+  "workbench.iconTheme": "vscode-icons",
+  "editor.fontFamily": "Fira Code",
+  "editor.fontSize": 15,
+  "editor.fontLigatures": true,
+  "[javascript]": {
+    "editor.defaultFormatter": "svipas.prettier-plus"
+  }
 }
