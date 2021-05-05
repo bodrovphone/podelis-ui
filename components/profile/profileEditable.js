@@ -12,7 +12,7 @@ import {
 
 import { H2 } from "../layouts";
 
-import { Button_ST } from "../loadMore/styles";
+import { Button } from "../layouts";
 
 import theme from "../styles/theme";
 
@@ -86,12 +86,12 @@ const ProfileEditable = ({
           />
         </Field_ST>
       </ContactInfo_ST>
-      <Button_ST type="button">
+      <Button type="button">
         <span>
           Сохранить
           <i>&gt;&gt;</i>
         </span>
-      </Button_ST>
+      </Button>
     </ProfileWrapper_ST>
   );
 };

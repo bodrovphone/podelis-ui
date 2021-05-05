@@ -1,7 +1,7 @@
 import React, { useRef, useEffect } from "react";
 import { Input_ST, InputWrapper_ST } from "./styles";
 import Typed from "typed.js";
-import { Button_ST } from "../loadMore/styles";
+import { Button } from "../layouts";
 
 const SearchBar = () => {
   const searchInput = useRef(null);
@@ -36,12 +36,12 @@ const SearchBar = () => {
   return (
     <InputWrapper_ST>
       <Input_ST ref={searchInput} type="text" />
-      <Button_ST type="button">
+      <Button type="button">
         <span>
           Поиск
           <i>&gt;&gt;</i>
         </span>
-      </Button_ST>
+      </Button>
     </InputWrapper_ST>
   );
 };

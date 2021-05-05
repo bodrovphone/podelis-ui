@@ -1,0 +1,26 @@
+{
+  "recommendations": [
+    "alefragnani.project-manager",
+    "CoenraadS.bracket-pair-colorizer-2",
+    "dsznajder.es7-react-js-snippets",
+    "eamodio.gitlens",
+    "johnpapa.vscode-peacock",
+    "jpoissonnier.vscode-styled-components",
+    "KnisterPeter.vscode-github",
+    "mark-tucker.aws-cli-configure",
+    "ms-azuretools.vscode-docker",
+    "ms-vscode-remote.remote-containers",
+    "msjsdiag.debugger-for-chrome",
+    "naumovs.color-highlight",
+    "paulmolluzzo.convert-css-in-js",
+    "remimarsal.prettier-now",
+    "ritwickdey.LiveServer",
+    "Shan.code-settings-sync",
+    "svipas.prettier-plus",
+    "syler.sass-indented",
+    "sysoev.vscode-open-in-github",
+    "vscode-icons-team.vscode-icons",
+    "wesbos.theme-cobalt2",
+    "yatki.vscode-surround"
+  ]
+}

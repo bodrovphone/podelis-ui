@@ -1,14 +1,15 @@
 import React from "react";
-import { Button_ST, LoadMore_ST } from "./styles";
+import { LoadMore_ST } from "./styles";
+import { Button } from "../layouts";
 
 const LoadMore = () => (
   <LoadMore_ST>
-    <Button_ST>
+    <Button>
       <span>
         Показать еще
         <i>&gt;&gt;</i>
       </span>
-    </Button_ST>
+    </Button>
   </LoadMore_ST>
 );
 

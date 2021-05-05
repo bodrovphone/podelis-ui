@@ -1,31 +1,23 @@
 import Layout, { Main, H1 } from "../../components/layouts";
 import SearchBar from "../../components/searchBar";
 import SearchFilters from "../../components/searchFilters";
-import CardsWidget from '../../components/cardsWidget';
-import { VCentered_ST } from '../../components/layouts';
+import CardsWidget from "../../components/cardsWidget";
+import { VCentered_ST } from "../../components/layouts";
 
 export default function Search(props) {
   return (
     <Layout>
       <Main>
-        <H1>
-          <div>Zadelis</div>
-          <span>На прокат бери - деньги береги.</span>
-          {/*укр: В оренду забирай - грошi зберiгай. */}
-        </H1>
+        <H1 name="Zadelis" slogan="На прокат бери - деньги береги."></H1>
         <SearchBar />
         <SearchFilters />
         <VCentered_ST>
-         <CardsWidget {...props} posts={[1, 2, 3]} />
+          <CardsWidget {...props} posts={[1, 2, 3]} />
         </VCentered_ST>
       </Main>
     </Layout>
   );
 }
-
-
-
-
 
 // posts will be populated at build time by getStaticProps()
 

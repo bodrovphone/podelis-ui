@@ -13,7 +13,7 @@ import {
   PeriodWrapper_ST,
   FormWrapper,
   FormButtonsWrapper_ST,
-  Label_ST
+  Label_ST,
 } from "./styles";
 
 const Form = (props) => {
@@ -117,33 +117,33 @@ const Form = (props) => {
       }) => (
         <Form_ST onSubmit={handleSubmit}>
           <FormWrapper>
-          <MsgInput_ST
-            type="text"
-            placeholder="Буровая установка"
-            name="description"
-            onChange={handleChange}
-            onBlur={handleBlur}
-            value={values.description}
-            ref={msgTextRef}
-          />
+            <MsgInput_ST
+              type="text"
+              placeholder="Буровая установка"
+              name="description"
+              onChange={handleChange}
+              onBlur={handleBlur}
+              value={values.description}
+              ref={msgTextRef}
+            />
 
-          <FormButtonsWrapper_ST>
-            <Label_ST>
-              <ButtonPhoto_ST>
-                <Images size={16} color="black" />
-              </ButtonPhoto_ST>
-              <input
-                type="file"
-                name="photo"
-                multiple
-                onChange={handleImageChange}
-              />
-            </Label_ST>
-            <ButtonSubmit_ST type="submit" disabled={isSubmitting}>
-              Отправить
-              <ChevronDoubleRight size={16} color="black" />
-            </ButtonSubmit_ST>
-          </FormButtonsWrapper_ST>
+            <FormButtonsWrapper_ST>
+              <Label_ST>
+                <ButtonPhoto_ST>
+                  <Images size={16} color="black" />
+                </ButtonPhoto_ST>
+                <input
+                  type="file"
+                  name="photo"
+                  multiple
+                  onChange={handleImageChange}
+                />
+              </Label_ST>
+              <ButtonSubmit_ST type="submit" disabled={isSubmitting}>
+                Отправить
+                <ChevronDoubleRight size={16} color="black" />
+              </ButtonSubmit_ST>
+            </FormButtonsWrapper_ST>
           </FormWrapper>
           {state.error}
           <PeriodWrapper_ST>
