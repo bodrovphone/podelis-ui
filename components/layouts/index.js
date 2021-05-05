@@ -11,6 +11,7 @@ import {
   TwoColumns,
   TwoColumnsWrap,
   VCentered_ST,
+  Button_ST,
 } from "./styles";
 
 const Layout = (props) => (
@@ -34,6 +35,8 @@ const Description = (props) => (
   <Description_ST {...props}>{props.children}</Description_ST>
 );
 
+const Button = (props) => <Button_ST>{props.children}</Button_ST>;
+
 const Centered = ({ children }) => <Centered_ST>{children}</Centered_ST>;
 
 export {
@@ -46,6 +49,7 @@ export {
   H1,
   H2,
   Main,
+  Button,
 };
 
 export default Layout;

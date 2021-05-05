@@ -1,6 +1,6 @@
 import React, { useState } from "react";
 import { Formik } from "formik";
-import { Button_ST } from "../loadMore/styles";
+import { Button } from "../layouts/";
 
 import {
   Form_ST,
@@ -71,21 +71,21 @@ const AuthenticateForm = (props) => {
         <Form_ST onSubmit={handleSubmit}>
           <SocialWrapper_ST>
             <div>
-              <Button_ST type="button">
+              <Button type="button">
                 <span>
                   <Img_ST src="../img/FB-big-logo.png" />
                   Вход с Facebook
                   <i>&gt;&gt;</i>
                 </span>
-              </Button_ST>
+              </Button>
 
-              <Button_ST type="button">
+              <Button type="button">
                 <span>
                   <Img_ST src="../img/G-big-logo.png" />
                   Вход с Google
                   <i>&gt;&gt;</i>
                 </span>
-              </Button_ST>
+              </Button>
             </div>
           </SocialWrapper_ST>
           <Label_ST>
@@ -141,12 +141,12 @@ const AuthenticateForm = (props) => {
               </a>
             </CheckboxLabel_ST>
             <div>
-              <Button_ST type="submit" disabled={isSubmitting}>
+              <Button type="submit" disabled={isSubmitting}>
                 <span>
                   Регистрация
                   <i>&gt;&gt;</i>
                 </span>
-              </Button_ST>
+              </Button>
             </div>
           </SubmitWrapper_ST>
         </Form_ST>

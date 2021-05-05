@@ -11,7 +11,7 @@ import {
   SaveWrapper_ST,
 } from "./styles";
 
-import { Button_ST } from "../loadMore/styles";
+import { Button } from "../layouts";
 
 const Settings = (props) => {
   return (
@@ -84,12 +84,12 @@ const Settings = (props) => {
             </Group_ST>
 
             <SaveWrapper_ST>
-              <Button_ST type="button">
+              <Button type="button">
                 <span>
                   Сохранить
                   <i>&gt;&gt;</i>
                 </span>
-              </Button_ST>
+              </Button>
             </SaveWrapper_ST>
 
             <Group_ST>
