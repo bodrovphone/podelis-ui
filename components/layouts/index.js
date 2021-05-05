@@ -22,7 +22,12 @@ const Layout = (props) => (
 
 const Main = ({ children }) => <Main_ST>{children}</Main_ST>;
 
-const H1 = (props) => <H1_ST {...props} />;
+const H1 = (props) => (
+  <H1_ST {...props}>
+    <div>{props.name}</div>
+    <span>{props.slogan}</span>
+  </H1_ST>
+);
 const H2 = (props) => <H2_ST {...props} />;
 
 const Description = (props) => (
