@@ -32,7 +32,7 @@ const TopNav = () => {
               <NavItemSpan className="navHomeSpan">Главная</NavItemSpan>
             </NavItemLink>
           </Link>
-          <Link href="/">
+          <Link href="/favourites">
             <NavItemLink>
               <Heart />
               <NavItemSpan>Закладки</NavItemSpan>
