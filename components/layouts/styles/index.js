@@ -18,6 +18,7 @@ export const Main_ST = styled.main`
   line-height: 150%;
   font-size: 1.1em;
   padding: 8px;
+  font-family: "zadelis-font";
 
   @media ${device.mobileXL} {
     padding: 5em 3em 2em 3em;

@@ -35,7 +35,7 @@ const SideBar = () => {
           <SbItemSpan>Категории</SbItemSpan>
         </SbLink>
       </Link>
-      <Link href="/">
+      <Link href="/privacy-policy">
         <SbLink>
           <PencilSquare size={22} />
           <SbItemSpan>
