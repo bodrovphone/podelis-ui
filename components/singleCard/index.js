@@ -1,23 +1,36 @@
-import React from 'react';
-import Link from 'next/link';
-import PropTypes from 'prop-types';
-import { GeoAlt, Cash, Bookmarks, BookmarksFill } from 'react-bootstrap-icons';
+import React from "react";
+import Link from "next/link";
+import PropTypes from "prop-types";
+import { GeoAlt, Cash, Bookmarks, BookmarksFill } from "react-bootstrap-icons";
 
-import { CardWrapper, CardDetails, CardImage, CardTitle } from './styles';
+import { CardWrapper, CardDetails, CardImage, CardTitle } from "./styles";
 
-const SingleCard = ({id, imageSrc, title, details }) => {
+const SingleCard = ({ id, imageSrc, title, details }) => {
   // I only need randomizer and MyBook for styling purpose
 
   const randomizer = Math.floor(Math.random() * 2) + 1;
-  const MyBook = randomizer > 1 ? 
-  <Bookmarks onClick={(e) => {
-    e.preventDefault();
-    console.log('keep me in bookmarks')
-  }} className='bookmark' size={20} color="royalblue" /> 
-  : <BookmarksFill onClick={(e) => {
-    e.preventDefault();
-    console.log('keep me in bookmarks')
-  }} className='bookmark' size={20} color="royalblue" />;
+  const MyBook =
+    randomizer > 1 ? (
+      <Bookmarks
+        onClick={(e) => {
+          e.preventDefault();
+          console.log("keep me in bookmarks");
+        }}
+        className="bookmark"
+        size={20}
+        color="royalblue"
+      />
+    ) : (
+      <BookmarksFill
+        onClick={(e) => {
+          e.preventDefault();
+          console.log("keep me in bookmarks");
+        }}
+        className="bookmark"
+        size={20}
+        color="royalblue"
+      />
+    );
 
   return (
     <CardWrapper>
@@ -26,9 +39,7 @@ const SingleCard = ({id, imageSrc, title, details }) => {
           <CardImage>
             <img src={imageSrc}></img>
           </CardImage>
-          <CardTitle>
-            {title}
-          </CardTitle>
+          <CardTitle>{title}</CardTitle>
           <CardDetails>
             <div className="price">
               <Cash />
@@ -43,13 +54,13 @@ const SingleCard = ({id, imageSrc, title, details }) => {
         </a>
       </Link>
     </CardWrapper>
-  )
-}
+  );
+};
 
 SingleCard.propTypes = {
   id: PropTypes.string.isRequired,
   title: PropTypes.string.isRequired,
-  imageSrc: PropTypes.string
+  imageSrc: PropTypes.string,
 };
 
 export default SingleCard;
