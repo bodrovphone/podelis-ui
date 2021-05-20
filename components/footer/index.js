@@ -8,22 +8,22 @@ const Footer = () => (
     <Grid_ST>
       <GridBlock_ST>
         <GridItem_ST>Владельцам</GridItem_ST>
-        <GridItem href="/">Почему Zadelis?</GridItem>
-        <GridItem href="/">Делай деньги</GridItem>
-        <GridItem href="/">Безопасность</GridItem>
+        <GridItem href="/about">Почему Zadelis?</GridItem>
+        <GridItem href="/blog/3">Делай деньги</GridItem>
+        <GridItem href="/security#owners">Безопасность</GridItem>
       </GridBlock_ST>
       <GridBlock_ST>
         <GridItem_ST>Арендателям</GridItem_ST>
-        <GridItem href="/">Почему Zadelis?</GridItem>
-        <GridItem href="/">Ищем и находим</GridItem>
-        <GridItem href="/">Вперед за сокровищами</GridItem>
-        <GridItem href="/">Безопасность</GridItem>
+        <GridItem href="/about">Почему Zadelis?</GridItem>
+        <GridItem href="/blog/1">Ищем и находим</GridItem>
+        <GridItem href="/blog/2">Вперед за сокровищами</GridItem>
+        <GridItem href="/security#tenant">Безопасность</GridItem>
       </GridBlock_ST>
       <GridBlock_ST>
         <GridItem_ST>Инфо</GridItem_ST>
-        <GridItem href="/">Политика конфиденциальности</GridItem>
-        <GridItem href="/">Правила сервиса</GridItem>
-        <GridItem href="/">Пользовательское соглашение</GridItem>
+        <GridItem href="/privacy-policy">Политика конфиденциальности</GridItem>
+        <GridItem href="/rules">Правила сервиса</GridItem>
+        <GridItem href="/privacy-policy">Пользовательское соглашение</GridItem>
       </GridBlock_ST>
       <GridBlock_ST>
         <GridItem_ST>Обратная связь</GridItem_ST>

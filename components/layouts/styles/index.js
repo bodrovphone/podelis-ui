@@ -18,6 +18,7 @@ export const Main_ST = styled.main`
   line-height: 150%;
   font-size: 1.1em;
   padding: 8px;
+  font-family: "zadelis-font";
 
   @media ${device.mobileXL} {
     padding: 5em 3em 2em 3em;
@@ -173,4 +174,115 @@ export const Button_ST = styled.button`
     transform: translateY(4px);
     outline: none;
   }
+`;
+
+export const H3_ST = styled.h3`
+  font-size: 16px;
+  color: #565353;
+`;
+
+export const UL_ST = styled.ul`
+  display: grid;
+  grid-gap: 30px 20px;
+  /* grid-template-columns: repeat(auto-fill, minmax(280px, 1fr)); */
+
+  margin: 0;
+  padding: 0;
+  li {
+    list-style: none;
+    display: flex;
+    flex-direction: column;
+    gap: 35px;
+
+    @media ${device.mobileXL} {
+      flex-direction: row;
+
+      &:nth-last-of-type(2n + 1) {
+        flex-direction: row-reverse;
+      }
+    }
+  }
+
+  li p {
+    padding-left: 24px;
+  }
+`;
+
+export const Paper_ST = styled.div`
+  position: relative;
+  padding: 5px;
+  border-radius: 12px;
+
+  @media ${device.mobileXL} {
+    width: 50%;
+  }
+
+  background-color: #fff;
+  background-image: linear-gradient(
+      90deg,
+      transparent 19px,
+      #abced4 19px,
+      #abced4 21px,
+      transparent 21px
+    ),
+    linear-gradient(#eee 0.1em, transparent 0.1em);
+  background-size: 100% 1.2em;
+  background-position: 0% 2%;
+
+  &::after {
+    content: "";
+    position: absolute;
+    top: 100%;
+    left: 0;
+    height: 20px;
+    width: 100%;
+    background: url(${"img/rip.svg"}) bottom center;
+    background-size: 150%;
+  }
+`;
+
+export const IMG_CIRCLE_WRAPPER_ST = styled.div`
+  /* &:first-of-type {
+    order: 2;
+  }
+
+  &:nth-of-type(2) {
+    order: 3;
+  }
+
+  &:nth-of-type(3) {
+    order: 6;
+  }
+
+  &:nth-of-type(4) {
+    order: 7;
+  }
+
+  &:nth-of-type(5) {
+    order: 10;
+  }
+
+  &:nth-of-type(6) {
+    order: 11;
+  }
+
+  &:nth-of-type(7) {
+    order: 14;
+  } */
+
+  display: inline-block;
+  position: relative;
+  border-radius: 50%;
+  overflow: hidden;
+  width: 300px;
+  height: 250px;
+  margin: auto;
+`;
+
+export const IMG_CICRLE_ST = styled.img`
+  position: absolute;
+  object-fit: cover;
+  object-position: center;
+  width: 100%;
+  height: 100%;
 `;
