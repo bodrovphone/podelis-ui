@@ -184,28 +184,52 @@ export const H3_ST = styled.h3`
 export const UL_ST = styled.ul`
   display: grid;
   grid-gap: 30px 20px;
-  grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+  /* grid-template-columns: repeat(auto-fill, minmax(280px, 1fr)); */
 
+  margin: 0;
+  padding: 0;
   li {
-    position: relative;
-    padding: 5px;
-    border-radius: 12px;
-    list-style-position: inside;
+    list-style: none;
+    display: flex;
+    flex-direction: column;
+    gap: 35px;
 
-    background-color: #fff;
-    background-image: linear-gradient(
-        90deg,
-        transparent 19px,
-        #abced4 19px,
-        #abced4 21px,
-        transparent 21px
-      ),
-      linear-gradient(#eee 0.1em, transparent 0.1em);
-    background-size: 100% 1.4em;
-    background-position: 0% 2%;
+    @media ${device.mobileXL} {
+      flex-direction: row;
+
+      &:nth-last-of-type(2n + 1) {
+        flex-direction: row-reverse;
+      }
+    }
   }
 
-  li::after {
+  li p {
+    padding-left: 24px;
+  }
+`;
+
+export const Paper_ST = styled.div`
+  position: relative;
+  padding: 5px;
+  border-radius: 12px;
+
+  @media ${device.mobileXL} {
+    width: 50%;
+  }
+
+  background-color: #fff;
+  background-image: linear-gradient(
+      90deg,
+      transparent 19px,
+      #abced4 19px,
+      #abced4 21px,
+      transparent 21px
+    ),
+    linear-gradient(#eee 0.1em, transparent 0.1em);
+  background-size: 100% 1.2em;
+  background-position: 0% 2%;
+
+  &::after {
     content: "";
     position: absolute;
     top: 100%;
@@ -214,38 +238,6 @@ export const UL_ST = styled.ul`
     width: 100%;
     background: url(${"img/rip.svg"}) bottom center;
     background-size: 150%;
-  }
-
-  /* li:first-of-type {
-    order: 1;
-  }
-
-  li:nth-of-type(2) {
-    order: 4;
-  }
-
-  li:nth-of-type(3) {
-    order: 5;
-  }
-
-  li:nth-of-type(4) {
-    order: 8;
-  }
-
-  li:nth-of-type(5) {
-    order: 9;
-  }
-
-  li:nth-of-type(6) {
-    order: 12;
-  }
-
-  li:nth-of-type(7) {
-    order: 13;
-  } */
-
-  li p {
-    padding-left: 24px;
   }
 `;
 
