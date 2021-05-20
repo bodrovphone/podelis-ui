@@ -3,6 +3,7 @@ import { Input_ST, InputWrapper_ST } from "./styles";
 import Typed from "typed.js";
 import { Button } from "../layouts";
 import ReactTooltip from "react-tooltip";
+import Link from "next/link";
 
 const SearchBar = () => {
   const searchInput = useRef(null);
@@ -45,7 +46,9 @@ const SearchBar = () => {
 
       <Button type="button">
         <span>
-          Поиск
+          <Link href="search">
+            <a>Поиск</a>
+          </Link>
           <i>&gt;&gt;</i>
         </span>
       </Button>

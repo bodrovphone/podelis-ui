@@ -44,7 +44,7 @@ const SideBar = () => {
           </SbItemSpan>
         </SbLink>
       </Link>
-      <Link href="/">
+      <Link href="/about">
         <SbLink>
           <InfoCircle size={22} />
           <SbItemSpan>О нас</SbItemSpan>
