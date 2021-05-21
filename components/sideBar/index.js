@@ -29,10 +29,10 @@ const SideBar = () => {
           <SbItemSpan>Сообщения</SbItemSpan>
         </SbLink>
       </Link>
-      <Link href="/">
+      <Link href="/sitemap">
         <SbLink>
           <Diagram3 size={22} />
-          <SbItemSpan>Категории</SbItemSpan>
+          <SbItemSpan>Карта сайта</SbItemSpan>
         </SbLink>
       </Link>
       <Link href="/privacy-policy">
