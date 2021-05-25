@@ -58,7 +58,7 @@ const TopNav = () => {
               <NavItemSpan>Профиль</NavItemSpan>
             </NavItemLink>
           </Link>
-          <Link href="/">
+          <Link href="/profile">
             <NavItemLink className="navMessages">
               <ChatDots />
               <NavItemSpan>Сообщения</NavItemSpan>
