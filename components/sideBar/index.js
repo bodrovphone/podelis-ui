@@ -9,6 +9,7 @@ import {
   InfoCircle,
 } from "react-bootstrap-icons";
 import { SideBarContext, SideBarDispatch } from "../../context/sideBar.context";
+import ThemeSwitcher from "../ThemeSwitcher";
 
 const SideBar = () => {
   const { navState } = useContext(SideBarContext);
@@ -50,6 +51,7 @@ const SideBar = () => {
           <SbItemSpan>О нас</SbItemSpan>
         </SbLink>
       </Link>
+      <ThemeSwitcher />
       <NavLang>
         <span className="optLang">UK</span>
         <div>&#124;</div>
