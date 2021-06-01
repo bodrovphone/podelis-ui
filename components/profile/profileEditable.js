@@ -9,18 +9,14 @@ import {
   Overlay_ST,
   ContactInfo_ST,
 } from "./styles";
-
-import { H2 } from "../layouts";
-
-import { Button } from "../layouts";
-
-import theme from "../styles/theme";
-
+import { withTheme } from "styled-components";
+import { H2, Button } from "../layouts";
 import { Camera, Pencil } from "react-bootstrap-icons";
 
 const ProfileEditable = ({
   name,
   avatarUrl = "http://www.gravatar.com/avatar/?d=mp",
+  theme,
 }) => {
   const [state, setState] = useState({
     name,
@@ -96,4 +92,4 @@ const ProfileEditable = ({
   );
 };
 
-export default ProfileEditable;
+export default withTheme(ProfileEditable);
