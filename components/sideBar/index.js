@@ -9,7 +9,7 @@ import {
   InfoCircle,
 } from "react-bootstrap-icons";
 import { SideBarContext, SideBarDispatch } from "../../context/sideBar.context";
-import ThemeSwitcher from "../ThemeSwitcher";
+import ThemeSwitcher from "../themeSwitcher";
 
 const SideBar = () => {
   const { navState } = useContext(SideBarContext);

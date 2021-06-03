@@ -95,9 +95,3 @@ export const Input_ST = styled.input`
   border: none;
   background: #fafbfb;
 `;
-
-export const Posts_ST = styled.div``;
-
-export const Messages_ST = styled.div``;
-
-export const Settings_ST = styled.div``;
