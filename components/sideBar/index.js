@@ -24,7 +24,7 @@ const SideBar = () => {
           <SbItemSpan>Профиль</SbItemSpan>
         </SbLink>
       </Link>
-      <Link href="/authenticate">
+      <Link href="/messages">
         <SbLink>
           <ChatDots size={22} />
           <SbItemSpan>Сообщения</SbItemSpan>
