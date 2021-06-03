@@ -14,9 +14,6 @@ import {
   VCentered_ST,
   Button_ST,
   UL_ST,
-  IMG_CIRCLE_WRAPPER_ST,
-  IMG_CICRLE_ST,
-  Paper_ST,
 } from "./styles";
 
 const Layout = (props) => (
@@ -44,15 +41,8 @@ const Description = (props) => (
 const Button = (props) => <Button_ST>{props.children}</Button_ST>;
 
 const Centered = ({ children }) => <Centered_ST>{children}</Centered_ST>;
-const Paper = ({ children }) => <Paper_ST>{children}</Paper_ST>;
 
 const UL = ({ children }) => <UL_ST>{children}</UL_ST>;
-
-const ImgCircle = ({ src }) => (
-  <IMG_CIRCLE_WRAPPER_ST>
-    <IMG_CICRLE_ST src={src} />
-  </IMG_CIRCLE_WRAPPER_ST>
-);
 
 export {
   TwoColumnsDesktop,
@@ -67,8 +57,6 @@ export {
   Main,
   Button,
   UL,
-  ImgCircle,
-  Paper,
 };
 
 export default Layout;

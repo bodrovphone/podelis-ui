@@ -1,13 +1,7 @@
-import Layout, {
-  Main,
-  H1,
-  H2,
-  H3,
-  UL,
-  ImgCircle,
-  Paper,
-} from "../components/layouts";
+import Layout, { Main, H1, H2, H3, UL } from "../components/layouts";
 import Footer from "../components/footer";
+import ImgCircle from "../components/imgCircle";
+import Paper from "../components/paper";
 
 function AddForm({ data }) {
   return (
