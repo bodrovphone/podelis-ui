@@ -1,22 +1,46 @@
 import styled from "styled-components";
+import { device } from "../../styles/media";
 
 export const MessagesWrapper_ST = styled.div`
   display: flex;
   flex-direction: column;
   font-family: "zadelisR-font";
+  max-width: 568px;
+  margin: auto;
+  a {
+    text-decoration: none;
+    color: inherit;
+  }
 `;
 
 export const MessageContainer_ST = styled.div`
   display: flex;
   justify-content: space-between;
-  margin: 5px 0;
-  align-items: center;
+  margin: 10px 0;
+  align-items: flex-start;
+  position: relative;
+  &:before {
+    content: "";
+    width: 90%;
+    height: 1px;
+    background: rgb(126, 126, 128);
+    background: linear-gradient(
+      90deg,
+      rgba(126, 126, 128, 1) 0%,
+      rgba(219, 220, 221, 1) 54%,
+      rgba(249, 253, 254, 1) 100%
+    );
+    position: absolute;
+    top: 0px;
+    left: 10px;
+  }
 `;
 
 export const Date_ST = styled.span`
+  margin: 5px 0;
   display: block;
-  font-family: "zadelisR-font";
-  font-weight: 500;
+  font-family: monospace, "zadelisR-font";
+  font-weight: 600;
 `;
 
 export const PostThumbnail_ST = styled.img`
@@ -26,7 +50,11 @@ export const PostThumbnail_ST = styled.img`
 
 export const MessageText_ST = styled.div`
   color: grey;
-  padding: 3px 7px;
+  padding: 3px 10px;
+
+  @media ${device.tablet} {
+    padding: 3px 30px;
+  }
 `;
 
 export const ProfileMini_ST = styled.div`
@@ -138,6 +166,8 @@ export const FormWrapper = styled.div`
 export const Form_ST = styled.form`
   width: 100%;
   padding-bottom: 50px;
+  max-width: 435px;
+  margin: auto;
 `;
 
 export const Label_ST = styled.label`
@@ -156,8 +186,8 @@ export const AdPreview_ST = styled.img`
 `;
 
 export const PeriodWrapper_ST = styled.div`
-  width: 65%;
-  margin: 20px auto 0 0;
+  width: 100%;
+  margin: auto;
   display: flex;
   align-items: baseline;
   flex-wrap: wrap;

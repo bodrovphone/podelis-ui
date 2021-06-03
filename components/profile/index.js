@@ -11,14 +11,28 @@ const ProfileDetails = ({
   rating,
 }) => (
   <ProfileWrapper>
-    <StarRatings
-      rating={rating}
-      starRatedColor="gold"
-      numberOfStars={5}
-      name="rating"
-      starDimension="10px"
-      starSpacing=".5px"
-    />
+    {rating ? (
+      <StarRatings
+        rating={rating}
+        starRatedColor="gold"
+        numberOfStars={5}
+        name="rating"
+        starDimension="10px"
+        starSpacing=".5px"
+      />
+    ) : (
+      <div style={{ visibility: "hidden" }}>
+        <StarRatings
+          rating={rating}
+          starRatedColor="gold"
+          numberOfStars={5}
+          name="rating"
+          starDimension="10px"
+          starSpacing=".5px"
+          style={{ visibility: "hidden" }}
+        />
+      </div>
+    )}
     <Avatar src={avatarUrl} data-tip="на сайте с Апреля 2021" />
     <ReactTooltip type="info" delayShow={700} />
 

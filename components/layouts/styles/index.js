@@ -37,7 +37,7 @@ export const Main_ST = styled.main`
 
 export const H1_ST = styled.h1`
   margin: 22px 0;
-  font-size: 3em;
+  font-size: ${(props) => props.size || "3em"};
   color: ${(props) => props.theme.colors.rareMedium};
   font-family: "zadelis-font";
   & div {
