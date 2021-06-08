@@ -138,7 +138,7 @@ const Form = (props) => {
           <Label_ST>
             Город
             <Location_ST
-              apiKey={process.env.GOOGLE_API_KEY}
+              apiKey={process.env.NEXT_PUBLIC_GOOGLE_API_KEY}
               onPlaceSelected={({ formatted_address }) => {
                 const cityFromAddress =
                   formatted_address &&
