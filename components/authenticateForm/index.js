@@ -143,7 +143,7 @@ const AuthenticateForm = (props) => {
             <div>
               <Button type="submit" disabled={isSubmitting}>
                 <span>
-                  Регистрация
+                  Регистрация/Вход
                   <i>&gt;&gt;</i>
                 </span>
               </Button>

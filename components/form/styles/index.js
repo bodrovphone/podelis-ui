@@ -1,4 +1,5 @@
 import styled from "styled-components";
+import Autocomplete from "react-google-autocomplete";
 
 const Form_ST = styled.form`
   width: 100%;
@@ -16,6 +17,34 @@ const Label_ST = styled.label`
 `;
 
 const Input_ST = styled.input`
+  width: 70%;
+  outline: none;
+  padding: 5px 7px;
+  border-radius: 0 10px 0 10px;
+  border: 2px solid ${(props) => props.theme.colors.solt};
+  height: 35px;
+  box-shadow: ${(props) => props.theme.shadows.logoHeader};
+  appearance: none;
+  background: ${(props) => props.theme.colors.wellDone};
+  text-align: center;
+  font-family: "zadelis-font";
+  font-size: 1em;
+
+  ::placeholder {
+    text-align: center;
+  }
+
+  &:focus {
+    background-color: ${(props) => props.theme.colors.solt};
+    border: 2px solid ${(props) => props.theme.colors.mediumWell};
+
+    ::placeholder {
+      color: transparent;
+    }
+  }
+`;
+
+const Location_ST = styled(Autocomplete)`
   width: 70%;
   outline: none;
   padding: 5px 7px;
@@ -246,6 +275,7 @@ const ButtonSubmit_ST = styled.button`
 export {
   Form_ST,
   Input_ST,
+  Location_ST,
   InputRange_ST,
   Label_ST,
   PeriodWrapper_ST,
