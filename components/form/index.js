@@ -16,6 +16,7 @@ import {
   AdPreview_ST,
   ButtonPhoto_ST,
   ButtonSubmit_ST,
+  Location_ST,
 } from "./styles";
 
 const Form = (props) => {
@@ -24,6 +25,8 @@ const Form = (props) => {
     imagePreviewUrls: [],
     error: "",
   });
+
+  const [city, setCity] = useState("");
 
   const resizeFile = (file) =>
     new Promise((resolve) => {
@@ -130,6 +133,26 @@ const Form = (props) => {
               onChange={handleChange}
               onBlur={handleBlur}
               value={values.description}
+            />
+          </Label_ST>
+          <Label_ST>
+            Город
+            <Location_ST
+              apiKey={process.env.NEXT_PUBLIC_GOOGLE_API_KEY}
+              onPlaceSelected={({ formatted_address }) => {
+                const cityFromAddress =
+                  formatted_address &&
+                  formatted_address.substring(
+                    0,
+                    formatted_address.indexOf(",")
+                  );
+                cityFromAddress && setCity(cityFromAddress);
+              }}
+              value={city}
+              language="ru"
+              onChange={(e) => {
+                setCity(e.currentTarget.value);
+              }}
             />
           </Label_ST>
           <Label_ST>
