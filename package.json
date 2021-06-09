@@ -11,6 +11,7 @@
   "dependencies": {
     "classnames": "2.3.1",
     "formik": "2.2.6",
+    "mongodb": "^3.6.9",
     "next": "10.0.2",
     "next-compose-plugins": "2.2.1",
     "node-fetch": "2.6.1",

@@ -1,8 +1,7 @@
-import styled, { keyframes } from 'styled-components';
-import { device } from '../../styles/media';
-import { List } from 'react-bootstrap-icons';
-import { rotate } from '../../styles/animations';
-
+import styled, { keyframes } from "styled-components";
+import { device } from "../../styles/media";
+import { List } from "react-bootstrap-icons";
+import { rotate } from "../../styles/animations";
 
 // Base elements
 export const Nav = styled.nav`
@@ -12,14 +11,14 @@ export const Nav = styled.nav`
   display: grid;
   grid-template-columns: 4fr 4fr 4fr 4fr 2fr 1fr;
   margin: 0 auto;
-  font-family: 'zadelis-font';
+  font-family: "zadelis-font";
 
-  @media ${device.mobileXL} { 
+  @media ${device.mobileXL} {
     max-width: 90%;
   }
 
-  @media ${device.laptop} { 
-    grid-template-columns: repeat(6, 2fr);
+  @media ${device.laptop} {
+    grid-template-columns: repeat(7, 2fr);
   }
 `;
 
@@ -28,16 +27,16 @@ export const LinksWrapper = styled.div`
   bottom: 0;
   left: 0;
   width: inherit;
-  background: ${props => props.theme.gradinets.skyBlueToWhite};
+  background: ${(props) => props.theme.gradinets.skyBlueToWhite};
   z-index: 300;
-  @media ${device.mobileXL} { 
+  @media ${device.mobileXL} {
     top: 0px;
     bottom: unset;
-    background: ${props => props.theme.colors.mediumWell};
-    background: ${props => props.theme.gradinets.skyWhiteToBlue};
+    background: ${(props) => props.theme.colors.mediumWell};
+    background: ${(props) => props.theme.gradinets.skyWhiteToBlue};
   }
 
-  @media ${device.tablet} { 
+  @media ${device.tablet} {
     box-shadow: 0 2px 2px #80808012;
   }
 `;
@@ -50,11 +49,11 @@ export const NavItemLink = styled.a`
   padding: 8px;
 
     &:hover span {
-      color: ${props => props.theme.colors.rare};
+      color: ${(props) => props.theme.colors.rare};
     }
 
     &:hover svg {
-      fill: ${props => props.theme.colors.mediumRare} !important;
+      fill: ${(props) => props.theme.colors.mediumRare} !important;
     }
 
     &.navProfile,
@@ -69,9 +68,6 @@ export const NavItemLink = styled.a`
 
   /* hide search icon on big screens */
   @media ${device.laptop} {
-    &.navSearch {
-        display: none;
-      }
 
     &.navProfile,
     &.navMessages {
@@ -87,11 +83,11 @@ export const NavItemLink = styled.a`
   &:not(:last-of-type) svg {
     width: 18px;
     height: 18px;
-    fill: ${props => props.theme.colors.rare};
+    fill: ${(props) => props.theme.colors.rare};
 
     @media ${device.laptop} { 
-      width: 26px;
-      height: 26px;
+      width: 20px;
+      height: 20px;
     }
   }
 
@@ -103,26 +99,25 @@ export const NavItemLink = styled.a`
 
 export const NavItemSpan = styled.span`
   display: block;
-  color: ${props => props.theme.colors.medium};
+  color: ${(props) => props.theme.colors.medium};
   font-size: 0.8em;
   margin-top: 3px;
 
-  @media ${device.mobileXL} { 
-   padding-bottom: 5px;
-   font-size: 1em;
+  @media ${device.mobileXL} {
+    padding-bottom: 5px;
+    font-size: 1em;
   }
 `;
 
-
 // Icons
 export const ListIcon = styled(List)`
-  width: 23px;
-  height: 23px;
-  fill: ${props => props.theme.colors.rare};
+  width: 20px;
+  height: 20px;
+  fill: ${(props) => props.theme.colors.rare};
   align-self: center;
-  
-  @media ${device.laptop} { 
+
+  @media ${device.laptop} {
     width: 26px;
     height: 26px;
-    }
+  }
 `;
