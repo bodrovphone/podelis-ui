@@ -13,7 +13,7 @@ const MetaHead = () => (
       name="description"
       content="Сервис объявлений аренды. Экономь, наслаждайся сейчас тем, что покупать не стоит."
     ></meta>
-    <link href="main.css" rel="stylesheet" />
+    <link href="/main.css" rel="stylesheet" />
   </Head>
 );
 

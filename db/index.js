@@ -1,5 +1,6 @@
 const MongoClient = require("mongodb").MongoClient;
 
+// wrap this shit into wrapper to be able to make calls to API and don't make connection?
 export default async function getData(collection, query = {}) {
   const client = await MongoClient.connect(process.env.MONGO_DB_URI, {
     useNewUrlParser: true,

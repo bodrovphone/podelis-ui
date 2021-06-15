@@ -9,15 +9,15 @@ const Footer = () => (
       <GridBlock_ST>
         <GridItem_ST>Владельцам</GridItem_ST>
         <GridItem href="/about">Почему Zadelis?</GridItem>
-        <GridItem href="/blog/3">Делай деньги</GridItem>
-        <GridItem href="/security#owners">Безопасность</GridItem>
+        <GridItem href="/blog/make-money">Делай деньги</GridItem>
+        <GridItem href="/security-owner">Безопасность</GridItem>
       </GridBlock_ST>
       <GridBlock_ST>
         <GridItem_ST>Арендателям</GridItem_ST>
         <GridItem href="/about">Почему Zadelis?</GridItem>
-        <GridItem href="/blog/1">Ищем и находим</GridItem>
-        <GridItem href="/blog/2">Вперед за сокровищами</GridItem>
-        <GridItem href="/security#tenant">Безопасность</GridItem>
+        <GridItem href="/blog/seek-find">Ищем и находим</GridItem>
+        <GridItem href="/blog/go-for-it">Вперед за сокровищами</GridItem>
+        <GridItem href="/blog/security-sharer">Безопасность</GridItem>
       </GridBlock_ST>
       <GridBlock_ST>
         <GridItem_ST>Инфо</GridItem_ST>
