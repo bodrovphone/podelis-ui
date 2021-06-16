@@ -1,11 +1,11 @@
 import styled from "styled-components";
 import Autocomplete from "react-google-autocomplete";
 
-const Form_ST = styled.form`
+const Form = styled.form`
   width: 100%;
 `;
 
-const Label_ST = styled.label`
+const Label = styled.label`
   display: flex;
   flex-direction: column;
   margin: 20px auto;
@@ -16,7 +16,7 @@ const Label_ST = styled.label`
   }
 `;
 
-const Input_ST = styled.input`
+const Input = styled.input`
   width: 70%;
   outline: none;
   padding: 5px 7px;
@@ -44,7 +44,7 @@ const Input_ST = styled.input`
   }
 `;
 
-const Location_ST = styled(Autocomplete)`
+const Location = styled(Autocomplete)`
   width: 70%;
   outline: none;
   padding: 5px 7px;
@@ -72,12 +72,12 @@ const Location_ST = styled(Autocomplete)`
   }
 `;
 
-const InputRange_ST = styled.input`
+const InputRange = styled.input`
   width: 90%;
-  margin: 20px 0;
+  margin: 20px 0 5px 0;
 `;
 
-const TextArea_ST = styled.textarea`
+const TextArea = styled.textarea`
   width: 70%;
   height: 150px;
   outline: none;
@@ -105,7 +105,7 @@ const TextArea_ST = styled.textarea`
   }
 `;
 
-const PeriodWrapper_ST = styled.div`
+const PeriodWrapper = styled.div`
   width: 90%;
   margin: 0 auto;
   display: flex;
@@ -113,20 +113,20 @@ const PeriodWrapper_ST = styled.div`
   flex-wrap: wrap;
 `;
 
-const CheckboxWrapper_ST = styled.div`
+const CheckboxWrapper = styled.div`
   width: 20%;
   display: flex;
   flex-direction: column;
   align-items: center;
 `;
-const LabelPeriod_ST = styled.label`
+const LabelPeriod = styled.label`
   display: flex;
   flex-direction: column;
-  margin: 20px 0;
+  margin: 10px 0;
   width: 50%;
 `;
 
-const InputPeriod_ST = styled.input`
+const InputPeriod = styled.input`
   width: 90%;
   outline: none;
   padding: 5px 7px;
@@ -154,7 +154,7 @@ const InputPeriod_ST = styled.input`
   }
 `;
 
-const CheckBoxLabel_ST = styled.label`
+const CheckBoxLabel = styled.label`
   position: relative;
   display: inline-block;
   width: 43px;
@@ -194,7 +194,7 @@ const CheckBoxLabel_ST = styled.label`
   }
 
   input:checked + span {
-    background-color: #2196f3;
+    background-color: ${(props) => props.color || "#2196f3"};
   }
 
   input:focus + span {
@@ -208,14 +208,14 @@ const CheckBoxLabel_ST = styled.label`
   }
 `;
 
-const AdPreview_ST = styled.img`
+const AdPreview = styled.img`
   width: 30%;
   max-width: 200px;
   max-height: 400px;
   margin: 6px;
 `;
 
-const ButtonPhoto_ST = styled.span`
+const ButtonPhoto = styled.span`
   appearance: button;
   -moz-appearance: button;
   -webkit-appearance: button;
@@ -243,7 +243,7 @@ const ButtonPhoto_ST = styled.span`
   }
 `;
 
-const ButtonSubmit_ST = styled.button`
+const ButtonSubmit = styled.button`
   appearance: button;
   -moz-appearance: button;
   -webkit-appearance: button;
@@ -272,19 +272,28 @@ const ButtonSubmit_ST = styled.button`
     box-shadow: 0 11px 5px 0 rgba(0, 0, 0, 0.2);
   }
 `;
-export {
-  Form_ST,
-  Input_ST,
-  Location_ST,
-  InputRange_ST,
-  Label_ST,
-  PeriodWrapper_ST,
-  TextArea_ST,
-  CheckboxWrapper_ST,
-  LabelPeriod_ST,
-  InputPeriod_ST,
-  CheckBoxLabel_ST,
-  AdPreview_ST,
-  ButtonPhoto_ST,
-  ButtonSubmit_ST,
+
+const ConditionsLabel = styled.div`
+  display: flex;
+  margin: 0 auto;
+  gap: 20px;
+  width: 90%;
+`;
+
+export default {
+  Form,
+  Input,
+  Location,
+  InputRange,
+  Label,
+  PeriodWrapper,
+  TextArea,
+  CheckboxWrapper,
+  LabelPeriod,
+  InputPeriod,
+  CheckBoxLabel,
+  AdPreview,
+  ButtonPhoto,
+  ButtonSubmit,
+  ConditionsLabel,
 };
