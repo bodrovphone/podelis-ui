@@ -2,6 +2,7 @@ import React from "react";
 import { Footer_ST, Grid_ST, GridBlock_ST, GridItem_ST } from "./styles";
 import GridItem from "./gridItem";
 import { Envelope } from "react-bootstrap-icons";
+import Image from "next/image";
 
 const Footer = () => (
   <Footer_ST>
@@ -9,15 +10,15 @@ const Footer = () => (
       <GridBlock_ST>
         <GridItem_ST>Владельцам</GridItem_ST>
         <GridItem href="/about">Почему Zadelis?</GridItem>
-        <GridItem href="/blog/3">Делай деньги</GridItem>
-        <GridItem href="/security#owners">Безопасность</GridItem>
+        <GridItem href="/blog/make-money">Делай деньги</GridItem>
+        <GridItem href="/security-owner">Безопасность</GridItem>
       </GridBlock_ST>
       <GridBlock_ST>
         <GridItem_ST>Арендателям</GridItem_ST>
         <GridItem href="/about">Почему Zadelis?</GridItem>
-        <GridItem href="/blog/1">Ищем и находим</GridItem>
-        <GridItem href="/blog/2">Вперед за сокровищами</GridItem>
-        <GridItem href="/security#tenant">Безопасность</GridItem>
+        <GridItem href="/blog/seek-find">Ищем и находим</GridItem>
+        <GridItem href="/blog/go-for-it">Вперед за сокровищами</GridItem>
+        <GridItem href="/blog/security-sharer">Безопасность</GridItem>
       </GridBlock_ST>
       <GridBlock_ST>
         <GridItem_ST>Инфо</GridItem_ST>
@@ -36,10 +37,20 @@ const Footer = () => (
               <Envelope size={32} color="black" />
             </a>
             <a href="viber://add?number=12345678">
-              <img src="img/viber-logo.svg" />
+              <Image
+                src="/img/viber-logo.svg"
+                alt="Picture of viber messanger"
+                width={32}
+                height={32}
+              />
             </a>
             <a href="https://telegram.me/YourUsernameHere">
-              <img src="img/telegram-logo.svg" />
+              <Image
+                src="/img/telegram-logo.svg"
+                alt="Picture of viber messanger"
+                width={32}
+                height={32}
+              />
             </a>
           </div>
         </address>

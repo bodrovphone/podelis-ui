@@ -1,6 +1,7 @@
 import React from "react";
 import { About_ST, Content_ST, Social_ST } from "./styles";
 import Logo from "../logo";
+import Image from "next/image";
 
 const AboutZadelis = () => (
   <About_ST>
@@ -21,9 +22,12 @@ const AboutZadelis = () => (
         rel="external"
         href="https://www.instagram.com/explore/tags/zadelis/"
       >
-        <img
-          src="../img/instagram-logo.png"
+        <Image
+          src="/img/instagram-logo.png"
           alt="Facebook Logo"
+          className="image"
+          width={42}
+          height={42}
         />
       </a>
       <a
@@ -31,9 +35,12 @@ const AboutZadelis = () => (
         rel="external"
         href="https://www.facebook.com/hashtag/zadelis"
       >
-        <img
-          src="../img/facebook-logo.png"
+        <Image
+          src="/img/facebook-logo.png"
           alt="Instagram Logo"
+          className="image"
+          width={42}
+          height={42}
         />
       </a>
       <a
@@ -41,9 +48,12 @@ const AboutZadelis = () => (
         rel="external"
         href="https://twitter.com/hashtag/zadelis"
       >
-        <img
-          src="../img/twitter-logo.png"
+        <Image
+          src="/img/twitter-logo.png"
           alt="Twitter Logo"
+          className="image"
+          width={42}
+          height={42}
         />
       </a>
     </Social_ST>

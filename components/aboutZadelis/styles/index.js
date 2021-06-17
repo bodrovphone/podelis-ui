@@ -21,10 +21,7 @@ export const Social_ST = styled.div`
   margin: 20px auto;
   text-align: center;
 
-  img {
-    width: 48px;
-    height: 48px;
-    background-color: transparent;
-    margin-left: 10px;
+  a {
+    margin-right: 10px;
   }
 `;

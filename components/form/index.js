@@ -1,22 +1,8 @@
-import { Formik } from "formik";
+import { Formik, Field } from "formik";
 import { useState } from "react";
 import Resizer from "react-image-file-resizer";
 import { Images, ChevronDoubleRight } from "react-bootstrap-icons";
-import {
-  Form_ST,
-  Input_ST,
-  Label_ST,
-  TextArea_ST,
-  PeriodWrapper_ST,
-  CheckboxWrapper_ST,
-  LabelPeriod_ST,
-  InputPeriod_ST,
-  CheckBoxLabel_ST,
-  InputRange_ST,
-  AdPreview_ST,
-  ButtonPhoto_ST,
-  ButtonSubmit_ST,
-} from "./styles";
+import ST from "./styles";
 
 const Form = (props) => {
   const [state, setState] = useState({
@@ -24,6 +10,8 @@ const Form = (props) => {
     imagePreviewUrls: [],
     error: "",
   });
+
+  const [city, setCity] = useState("");
 
   const resizeFile = (file) =>
     new Promise((resolve) => {
@@ -80,6 +68,9 @@ const Form = (props) => {
         price: "",
         period: 1,
         units: true,
+        conditions: [],
+        deposit: "",
+        pledge: "",
       }}
       validate={(values) => {
         const errors = {};
@@ -109,10 +100,29 @@ const Form = (props) => {
         isSubmitting,
         /* and other goodies */
       }) => (
-        <Form_ST onSubmit={handleSubmit}>
-          <Label_ST>
+        <ST.Form onSubmit={handleSubmit}>
+          <ST.Label>
+            <ST.ButtonPhoto>
+              фото
+              <Images size="24" color="black" />
+            </ST.ButtonPhoto>
+            <input
+              type="file"
+              name="photo"
+              multiple
+              onChange={handleImageChange}
+              accept="image/*"
+            />
+          </ST.Label>
+          <ST.PeriodWrapper>
+            {state.imagePreviewUrls &&
+              state.imagePreviewUrls.map((preview, i) => (
+                <ST.AdPreview key={i} src={preview} />
+              ))}
+          </ST.PeriodWrapper>
+          <ST.Label>
             Название
-            <Input_ST
+            <ST.Input
               type="text"
               placeholder="Буровая установка"
               name="title"
@@ -120,10 +130,10 @@ const Form = (props) => {
               onBlur={handleBlur}
               value={values.title}
             />
-          </Label_ST>
-          <Label_ST>
+          </ST.Label>
+          <ST.Label>
             Описание
-            <TextArea_ST
+            <ST.TextArea
               type="text"
               placeholder="Буровая установка"
               name="description"
@@ -131,10 +141,30 @@ const Form = (props) => {
               onBlur={handleBlur}
               value={values.description}
             />
-          </Label_ST>
-          <Label_ST>
+          </ST.Label>
+          <ST.Label>
+            Город
+            <ST.Location
+              apiKey={process.env.NEXT_PUBLIC_GOOGLE_API_KEY}
+              onPlaceSelected={({ formatted_address }) => {
+                const cityFromAddress =
+                  formatted_address &&
+                  formatted_address.substring(
+                    0,
+                    formatted_address.indexOf(",")
+                  );
+                cityFromAddress && setCity(cityFromAddress);
+              }}
+              value={city}
+              language="ru"
+              onChange={(e) => {
+                setCity(e.currentTarget.value);
+              }}
+            />
+          </ST.Label>
+          <ST.Label>
             Цена
-            <Input_ST
+            <ST.Input
               type="number"
               name="price"
               placeholder="0"
@@ -142,18 +172,18 @@ const Form = (props) => {
               onBlur={handleBlur}
               value={values.price}
             />
-          </Label_ST>
-          <PeriodWrapper_ST>
-            <LabelPeriod_ST>
+          </ST.Label>
+          <ST.PeriodWrapper>
+            <ST.LabelPeriod>
               Период
-              <InputPeriod_ST
+              <ST.InputPeriod
                 type="number"
                 name="period"
                 onChange={handleChange}
                 onBlur={handleBlur}
                 value={values.period}
               />
-              <InputRange_ST
+              <ST.InputRange
                 type="range"
                 min="1"
                 max={values.units ? "30" : "24"}
@@ -162,10 +192,10 @@ const Form = (props) => {
                 onBlur={handleBlur}
                 value={values.period}
               />
-            </LabelPeriod_ST>
-            <CheckboxWrapper_ST>
+            </ST.LabelPeriod>
+            <ST.CheckboxWrapper>
               {values.units ? "дни" : "часы"}
-              <CheckBoxLabel_ST>
+              <ST.CheckBoxLabel>
                 <input
                   type="checkbox"
                   name="units"
@@ -173,34 +203,61 @@ const Form = (props) => {
                   checked={values.units}
                 />
                 <span />
-              </CheckBoxLabel_ST>
-            </CheckboxWrapper_ST>
-          </PeriodWrapper_ST>
-          <Label_ST>
-            <ButtonPhoto_ST>
-              Добавить фото
-              <Images size={16} color="black" />
-            </ButtonPhoto_ST>
-            <input
-              type="file"
-              name="photo"
-              multiple
-              onChange={handleImageChange}
-            />
-          </Label_ST>
+              </ST.CheckBoxLabel>
+            </ST.CheckboxWrapper>
+          </ST.PeriodWrapper>
+
+          <ST.ConditionsLabel>
+            <ST.CheckBoxLabel color="#05668d">
+              <Field type="checkbox" name="conditions" value="deposit" />
+              <span />
+              Залог
+            </ST.CheckBoxLabel>
+
+            <ST.CheckBoxLabel color="#f7d6e0">
+              <Field type="checkbox" name="conditions" value="terms" />
+              <span />
+              Договор
+            </ST.CheckBoxLabel>
+            <ST.CheckBoxLabel color="#faf3dd">
+              <Field type="checkbox" name="conditions" value="pledge" />
+              <span />
+              Другое
+            </ST.CheckBoxLabel>
+          </ST.ConditionsLabel>
+          {values.conditions.includes("deposit") && (
+            <ST.Label>
+              Залог (грн)
+              <ST.Input
+                type="number"
+                name="deposit"
+                placeholder="укажите сумму залога"
+                onChange={handleChange}
+                onBlur={handleBlur}
+                value={values.deposit}
+              />
+            </ST.Label>
+          )}
+          {values.conditions.includes("pledge") && (
+            <ST.Label>
+              Укажите ваши условия
+              <ST.Input
+                type="text"
+                name="pledge"
+                placeholder="например: водительские права"
+                onChange={handleChange}
+                onBlur={handleBlur}
+                value={values.pledge}
+              />
+            </ST.Label>
+          )}
           {state.error}
-          <PeriodWrapper_ST>
-            {state.imagePreviewUrls &&
-              state.imagePreviewUrls.map((preview, i) => (
-                <AdPreview_ST key={i} src={preview} />
-              ))}
-          </PeriodWrapper_ST>
           {errors.title && touched.title && errors.title}
-          <ButtonSubmit_ST type="submit" disabled={isSubmitting}>
+          <ST.ButtonSubmit type="submit" disabled={isSubmitting}>
             Отправить
             <ChevronDoubleRight size={16} color="black" />
-          </ButtonSubmit_ST>
-        </Form_ST>
+          </ST.ButtonSubmit>
+        </ST.Form>
       )}
     </Formik>
   );

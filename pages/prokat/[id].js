@@ -1,4 +1,5 @@
 import { useRouter } from "next/router";
+import Image from "next/image";
 
 import Layout, {
   Main,
@@ -45,13 +46,19 @@ const Prokat = (props) => {
             <ProkatDescription description="Прекрасный проектор для просмотра фильмов с друзъями. Предлогаем разные модели. Простой в управлении. 4k качество ктор для просмотра фильмов с друзъями. Предлогактор для просмотра фильмов с друзъями. Прекрасный проектор для просмотра фильмов с друзъями. Предлогаем разные модели. Простой в управлении. 4k качество ктор для просмотра фильмов с друзъями. Предлогактор для просмотра фильмов с друзъями." />
 
             <ContactOwnerWrapper>
-              <img src="../img/chat.png" />
-              <img src="../img/call.png" />
-              <img
+              <Image src="/img/chat.png" width={75} height={75} />
+              <Image src="/img/call.png" width={75} height={75} />
+              <Image
                 styles={{ fill: "red" }}
-                src="../img/viber-icon-colored.svg"
+                src="/img/viber-icon-colored.svg"
+                width={75}
+                height={75}
               />
-              <img src="../img/telegram-icon-colored.svg" />
+              <Image
+                src="/img/telegram-icon-colored.svg"
+                width={75}
+                height={75}
+              />
             </ContactOwnerWrapper>
           </Section_ST>
         </TwoColumnsDesktop>
