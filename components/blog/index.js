@@ -24,11 +24,10 @@ const Recommendations = (recommended) => {
 
 const Blog = ({ data }) =>
   data.blocks.map(({ text, image, recommended }, index) => (
-    <ST.Blog>
+    <ST.Blog key={index}>
       {ReactHtmlParser(text)}
       {image && (
         <Image
-          key={index}
           src={image}
           alt="Picture of money"
           width={650}

@@ -2,6 +2,7 @@ import React from "react";
 import { Footer_ST, Grid_ST, GridBlock_ST, GridItem_ST } from "./styles";
 import GridItem from "./gridItem";
 import { Envelope } from "react-bootstrap-icons";
+import Image from "next/image";
 
 const Footer = () => (
   <Footer_ST>
@@ -36,10 +37,20 @@ const Footer = () => (
               <Envelope size={32} color="black" />
             </a>
             <a href="viber://add?number=12345678">
-              <img src="img/viber-logo.svg" />
+              <Image
+                src="/img/viber-logo.svg"
+                alt="Picture of viber messanger"
+                width={32}
+                height={32}
+              />
             </a>
             <a href="https://telegram.me/YourUsernameHere">
-              <img src="img/telegram-logo.svg" />
+              <Image
+                src="/img/telegram-logo.svg"
+                alt="Picture of viber messanger"
+                width={32}
+                height={32}
+              />
             </a>
           </div>
         </address>
