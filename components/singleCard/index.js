@@ -2,6 +2,7 @@ import React from "react";
 import Link from "next/link";
 import PropTypes from "prop-types";
 import { GeoAlt, Cash, Bookmarks, BookmarksFill } from "react-bootstrap-icons";
+import Image from "next/image";
 
 import { CardWrapper, CardDetails, CardImage, CardTitle } from "./styles";
 
@@ -37,7 +38,13 @@ const SingleCard = ({ id, imageSrc, title, details }) => {
       <Link href={`/prokat/${id}`}>
         <a>
           <CardImage>
-            <img src={imageSrc}></img>
+            <Image
+              src="/img/sample_product_image.webp"
+              width="100%"
+              height="100%"
+              layout="responsive"
+              priotiy={true}
+            />
           </CardImage>
           <CardTitle>{title}</CardTitle>
           <CardDetails>
