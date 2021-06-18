@@ -5,7 +5,7 @@ import { device } from "../../styles/media";
 const swipeS = swipeRight("-52%", "-52%");
 const swipeM = swipeRight("-17%", "-17%");
 
-export const Categories_ST = styled.div`
+const Categories = styled.div`
   width: 100%;
   margin-bottom: 20px;
   overflow: scroll;
@@ -15,7 +15,7 @@ export const Categories_ST = styled.div`
   }
 `;
 
-export const Mask_ST = styled.div`
+const Mask = styled.div`
   overflow: scroll;
   display: flex;
   width: 205%;
@@ -34,7 +34,7 @@ export const Mask_ST = styled.div`
   }
 `;
 
-export const Image_ST = styled.div`
+const Image = styled.div`
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -53,3 +53,9 @@ export const Image_ST = styled.div`
     background-color: ${(props) => props.theme.colors.rareMedium};
   }
 `;
+
+export default {
+  Categories,
+  Mask,
+  Image,
+};

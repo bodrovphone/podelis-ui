@@ -1,5 +1,5 @@
 import React, { useContext } from "react";
-import { ThemeWrapper_ST } from "./styles";
+import ST from "./styles";
 import {
   ThemeSwitcherContext,
   ThemeSwitcherDispatch,
@@ -30,13 +30,13 @@ const ThemeSwitcher = () => {
   };
 
   return (
-    <ThemeWrapper_ST onClick={(e) => e.stopPropagation()}>
+    <ST.ThemeWrapper onClick={(e) => e.stopPropagation()}>
       <DarkModeToggle
         onChange={toggle}
         checked={userTheme === darkTheme}
         size={60}
       />
-    </ThemeWrapper_ST>
+    </ST.ThemeWrapper>
   );
 };
 

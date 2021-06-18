@@ -1,17 +1,8 @@
 import { Formik, Form } from "formik";
 
-import {
-  Radio_ST,
-  Label_ST,
-  SettingWrapper_ST,
-  SettingTitle_ST,
-  Group_ST,
-  CheckMark_ST,
-  ButtonSetting_ST,
-  SaveWrapper_ST,
-} from "./styles";
+import ST from "./styles";
 
-import { Button } from "../layouts";
+import LT from "../layouts";
 
 const Settings = (props) => {
   return (
@@ -49,61 +40,61 @@ const Settings = (props) => {
         /* and other goodies */
       }) => (
         <Form onSubmit={handleSubmit}>
-          <SettingWrapper_ST>
-            <Group_ST>
-              <SettingTitle_ST>Уведомления по email</SettingTitle_ST>
-              <Label_ST>
+          <ST.SettingWrapper>
+            <ST.Group>
+              <ST.SettingTitle>Уведомления по email</ST.SettingTitle>
+              <ST.Label>
                 Частые
-                <Radio_ST type="radio" name="notify" value="Notify" />
-                <CheckMark_ST />
-              </Label_ST>
-              <Label_ST>
+                <ST.Radio type="radio" name="notify" value="Notify" />
+                <ST.CheckMark />
+              </ST.Label>
+              <ST.Label>
                 Изредка
-                <Radio_ST type="radio" name="notify" value="Notify-Rare" />
-                <CheckMark_ST />
-              </Label_ST>
-              <Label_ST>
+                <ST.Radio type="radio" name="notify" value="Notify-Rare" />
+                <ST.CheckMark />
+              </ST.Label>
+              <ST.Label>
                 Никогда
-                <Radio_ST type="radio" name="notify" value="Notify-None" />
-                <CheckMark_ST />
-              </Label_ST>
-            </Group_ST>
+                <ST.Radio type="radio" name="notify" value="Notify-None" />
+                <ST.CheckMark />
+              </ST.Label>
+            </ST.Group>
 
-            <Group_ST>
-              <SettingTitle_ST>Номер телефона</SettingTitle_ST>
-              <Label_ST>
+            <ST.Group>
+              <ST.SettingTitle>Номер телефона</ST.SettingTitle>
+              <ST.Label>
                 Показывать
-                <Radio_ST type="radio" name="tel" value="public" />
-                <CheckMark_ST />
-              </Label_ST>
-              <Label_ST>
+                <ST.Radio type="radio" name="tel" value="public" />
+                <ST.CheckMark />
+              </ST.Label>
+              <ST.Label>
                 Скрывать
-                <Radio_ST type="radio" name="tel" value="private" />
-                <CheckMark_ST />
-              </Label_ST>
-            </Group_ST>
+                <ST.Radio type="radio" name="tel" value="private" />
+                <ST.CheckMark />
+              </ST.Label>
+            </ST.Group>
 
-            <SaveWrapper_ST>
-              <Button type="button">
+            <ST.SaveWrapper>
+              <LT.Button type="button">
                 <span>
                   Сохранить
                   <i>&gt;&gt;</i>
                 </span>
-              </Button>
-            </SaveWrapper_ST>
+              </LT.Button>
+            </ST.SaveWrapper>
 
-            <Group_ST>
-              <SettingTitle_ST>Сбросить пароль</SettingTitle_ST>
-              <ButtonSetting_ST type="button">Сброс пароля</ButtonSetting_ST>
-            </Group_ST>
+            <ST.Group>
+              <ST.SettingTitle>Сбросить пароль</ST.SettingTitle>
+              <ST.ButtonSetting type="button">Сброс пароля</ST.ButtonSetting>
+            </ST.Group>
 
-            <Group_ST>
-              <SettingTitle_ST>Удалить акаунт</SettingTitle_ST>
-              <ButtonSetting_ST type="button" delete>
+            <ST.Group>
+              <ST.SettingTitle>Удалить акаунт</ST.SettingTitle>
+              <ST.ButtonSetting type="button" delete>
                 Удалить акаунт
-              </ButtonSetting_ST>
-            </Group_ST>
-          </SettingWrapper_ST>
+              </ST.ButtonSetting>
+            </ST.Group>
+          </ST.SettingWrapper>
         </Form>
       )}
     </Formik>

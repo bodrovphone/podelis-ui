@@ -1,6 +1,6 @@
 import styled from "styled-components";
 
-export const About_ST = styled.section`
+const About = styled.section`
   height: 300px;
   background: ${(props) => props.theme.colors.solt};
   width: 100%;
@@ -9,7 +9,7 @@ export const About_ST = styled.section`
   position: relative;
 `;
 
-export const Content_ST = styled.div`
+const Content = styled.div`
   font-size: 1.1em;
   text-align: center;
   line-height: 1.5em;
@@ -17,7 +17,7 @@ export const Content_ST = styled.div`
   font-family: "zadelis-font-italic";
 `;
 
-export const Social_ST = styled.div`
+const Social = styled.div`
   margin: 20px auto;
   text-align: center;
 
@@ -25,3 +25,9 @@ export const Social_ST = styled.div`
     margin-right: 10px;
   }
 `;
+
+export default {
+  About,
+  Content,
+  Social,
+};

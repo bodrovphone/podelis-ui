@@ -1,7 +1,7 @@
 import React, { useRef, useEffect } from "react";
-import { Input_ST, InputWrapper_ST } from "./styles";
+import ST from "./styles";
 import Typed from "typed.js";
-import { Button } from "../layouts";
+import LT from "../layouts";
 import ReactTooltip from "react-tooltip";
 import Link from "next/link";
 
@@ -36,23 +36,23 @@ const SearchBar = () => {
   }, []);
 
   return (
-    <InputWrapper_ST>
-      <Input_ST
+    <ST.InputWrapper>
+      <ST.Input
         ref={searchInput}
         type="text"
         data-tip="начните ввод в строке поиска"
       />
       <ReactTooltip type="light" />
 
-      <Button type="button">
+      <LT.Button type="button">
         <span>
           <Link href="search">
             <a>Поиск</a>
           </Link>
           <i>&gt;&gt;</i>
         </span>
-      </Button>
-    </InputWrapper_ST>
+      </LT.Button>
+    </ST.InputWrapper>
   );
 };
 

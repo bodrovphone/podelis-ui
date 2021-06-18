@@ -1,7 +1,6 @@
 import styled from "styled-components";
-import { device } from "../../styles/media";
 
-export const Logo_ST = styled.div`
+const Logo = styled.div`
   box-sizing: border-box;
   font-family: "zadelis-font";
   border-radius: 50%;
@@ -22,3 +21,7 @@ export const Logo_ST = styled.div`
     transform: rotate(360deg);
   }
 `;
+
+export default {
+  Logo,
+};

@@ -1,14 +1,14 @@
-import Layout, { Main, H1, H2 } from "../components/layouts";
+import LT from "../components/layouts";
 import Footer from "../components/footer";
 import Sitemap from "../components/sitemap";
 
 function AddForm({ data }) {
   return (
-    <Layout>
-      <Main>
-        <H1 name="Zadelis" slogan="На прокат бери - деньги береги."></H1>
+    <LT.Layout>
+      <LT.Main>
+        <LT.H1 name="Zadelis" slogan="На прокат бери - деньги береги."></LT.H1>
 
-        <H2>Карта сайта</H2>
+        <LT.H2>Карта сайта</LT.H2>
 
         <Sitemap
           labelMain="Основные"
@@ -58,10 +58,10 @@ function AddForm({ data }) {
             { name: "Детски Мир", url: "/search/forKids", offers: 1 },
           ]}
         />
-      </Main>
+      </LT.Main>
 
       <Footer />
-    </Layout>
+    </LT.Layout>
   );
 }
 

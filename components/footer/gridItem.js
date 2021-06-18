@@ -1,12 +1,12 @@
 import React from "react";
 import Link from "next/link";
-import { GridItem_ST } from "./styles";
+import ST from "./styles";
 
 const GridItem = ({ href, children }) => (
   <Link href={href}>
-    <GridItem_ST>
+    <ST.GridItem>
       <a>{children}</a>
-    </GridItem_ST>
+    </ST.GridItem>
   </Link>
 );
 

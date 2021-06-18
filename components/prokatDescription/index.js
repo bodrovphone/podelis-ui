@@ -1,8 +1,8 @@
 import React from "react";
-import { Description_ST } from "./styles";
+import ST from "./styles";
 
 const ProkatDescription = ({ description }) => (
-  <Description_ST>{description}</Description_ST>
+  <ST.Description>{description}</ST.Description>
 );
 
 export default ProkatDescription;

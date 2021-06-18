@@ -1,4 +1,4 @@
-import Layout, { Main, H1, Description, Centered } from "../components/layouts";
+import LT from "../components/layouts";
 import SearchBar from "../components/searchBar";
 import CategoriesWidget from "../components/categoriesWidget";
 import CardsWidget from "../components/cardsWidget";
@@ -9,9 +9,9 @@ import GetSocial from "../components/getSocial";
 
 export default function Home(props) {
   return (
-    <Layout>
-      <Main>
-        <H1 name="Zadelis" slogan="На прокат бери - деньги береги."></H1>
+    <LT.Layout>
+      <LT.Main>
+        <LT.H1 name="Zadelis" slogan="На прокат бери - деньги береги." />
 
         <CategoriesWidget
           categories={[
@@ -24,7 +24,7 @@ export default function Home(props) {
           ]}
         />
 
-        <Description>
+        <LT.Description>
           <span>
             Простой и удобный шаринг-сервис для тебя. Арендуй поблизости.
             Пользуйся тем что нужно, не покупая. Тут возможно еще текст - более
@@ -34,7 +34,7 @@ export default function Home(props) {
               поставить заманчивую картинку и ... чтобы текст интриговал
             </span>
           </span>
-        </Description>
+        </LT.Description>
 
         <p>Тут у меня будут thumbnails с картинками основных категорий ?</p>
 
@@ -60,14 +60,14 @@ export default function Home(props) {
           more recently with desktop publishing software like Aldus PageMaker
           including versions of Lorem Ipsum.
         </div>
-      </Main>
+      </LT.Main>
 
       <AboutZadelis />
 
       <GetSocial />
 
-      <Centered>
-        <Description>
+      <LT.Centered>
+        <LT.Description>
           <span>
             Простой и удобный шаринг-сервис для тебя. Арендуй поблизости.
             Пользуйся тем что нужно, не покупая. Тут возможно еще текст - более
@@ -77,9 +77,9 @@ export default function Home(props) {
               поставить заманчивую картинку и ... чтобы текст интриговал
             </span>
           </span>
-        </Description>
-      </Centered>
+        </LT.Description>
+      </LT.Centered>
       <Footer />
-    </Layout>
+    </LT.Layout>
   );
 }

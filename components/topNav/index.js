@@ -2,13 +2,7 @@ import React, { useContext } from "react";
 import { SideBarContext, SideBarDispatch } from "../../context/sideBar.context";
 import Link from "next/link";
 // https://icons.getbootstrap.com/#usage
-import {
-  NavItemLink,
-  Nav,
-  NavItemSpan,
-  LinksWrapper,
-  ListIcon,
-} from "./styles";
+import ST from "./styles";
 import {
   HouseDoor,
   Heart,
@@ -24,51 +18,54 @@ const TopNav = () => {
   const { toggleNav } = useContext(SideBarDispatch);
   return (
     <>
-      <LinksWrapper>
-        <Nav>
+      <ST.LinksWrapper>
+        <ST.Nav>
           <Link href="/">
-            <NavItemLink className="navHome">
+            <ST.NavItemLink className="navHome">
               <HouseDoor />
-              <NavItemSpan className="navHomeSpan">Главная</NavItemSpan>
-            </NavItemLink>
+              <ST.NavItemSpan className="navHomeSpan">Главная</ST.NavItemSpan>
+            </ST.NavItemLink>
           </Link>
           <Link href="/favourites">
-            <NavItemLink>
+            <ST.NavItemLink>
               <Heart />
-              <NavItemSpan>Закладки</NavItemSpan>
-            </NavItemLink>
+              <ST.NavItemSpan>Закладки</ST.NavItemSpan>
+            </ST.NavItemLink>
           </Link>
           <Link href="/add">
-            <NavItemLink>
+            <ST.NavItemLink>
               <ArrowUpCircle />
-              <NavItemSpan>Добавить</NavItemSpan>
-            </NavItemLink>
+              <ST.NavItemSpan>Добавить</ST.NavItemSpan>
+            </ST.NavItemLink>
           </Link>
 
           <Link href="/search">
-            <NavItemLink className="navSearch">
+            <ST.NavItemLink className="navSearch">
               <Search />
-              <NavItemSpan>Поиск</NavItemSpan>
-            </NavItemLink>
+              <ST.NavItemSpan>Поиск</ST.NavItemSpan>
+            </ST.NavItemLink>
           </Link>
 
           <Link href="/profile">
-            <NavItemLink className="navProfile">
+            <ST.NavItemLink className="navProfile">
               <Person />
-              <NavItemSpan>Профиль</NavItemSpan>
-            </NavItemLink>
+              <ST.NavItemSpan>Профиль</ST.NavItemSpan>
+            </ST.NavItemLink>
           </Link>
           <Link href="/messages">
-            <NavItemLink className="navMessages">
+            <ST.NavItemLink className="navMessages">
               <ChatDots />
-              <NavItemSpan>Сообщения</NavItemSpan>
-            </NavItemLink>
+              <ST.NavItemSpan>Сообщения</ST.NavItemSpan>
+            </ST.NavItemLink>
           </Link>
-          <NavItemLink className="NavMenu" onClick={() => toggleNav(!navState)}>
-            <ListIcon />
-          </NavItemLink>
-        </Nav>
-      </LinksWrapper>
+          <ST.NavItemLink
+            className="NavMenu"
+            onClick={() => toggleNav(!navState)}
+          >
+            <ST.ListIcon />
+          </ST.NavItemLink>
+        </ST.Nav>
+      </ST.LinksWrapper>
       <SideBar />
     </>
   );

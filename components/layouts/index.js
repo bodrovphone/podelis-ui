@@ -1,20 +1,7 @@
 import React from "react";
 import Container from "./container";
 import Head from "./head";
-import {
-  Main_ST,
-  H1_ST,
-  H2_ST,
-  H3_ST,
-  Description_ST,
-  Centered_ST,
-  TwoColumnsDesktop,
-  TwoColumns,
-  TwoColumnsWrap,
-  VCentered_ST,
-  Button_ST,
-  UL_ST,
-} from "./styles";
+import ST from "./styles";
 
 const Layout = (props) => (
   <>
@@ -23,33 +10,33 @@ const Layout = (props) => (
   </>
 );
 
-const Main = ({ children }) => <Main_ST>{children}</Main_ST>;
+const Main = ({ children }) => <ST.Main>{children}</ST.Main>;
 
 const H1 = (props) => (
-  <H1_ST {...props}>
+  <ST.H1 {...props}>
     <div>{props.name}</div>
     <span>{props.slogan}</span>
-  </H1_ST>
+  </ST.H1>
 );
-const H2 = (props) => <H2_ST {...props} />;
-const H3 = (props) => <H3_ST {...props} />;
+const H2 = (props) => <ST.H2 {...props} />;
+const H3 = (props) => <ST.H3 {...props} />;
 
 const Description = (props) => (
-  <Description_ST {...props}>{props.children}</Description_ST>
+  <ST.Description {...props}>{props.children}</ST.Description>
 );
 
-const Button = (props) => <Button_ST>{props.children}</Button_ST>;
+const Button = (props) => <ST.Button>{props.children}</ST.Button>;
 
-const Centered = ({ children }) => <Centered_ST>{children}</Centered_ST>;
+const Centered = ({ children }) => <ST.Centered>{children}</ST.Centered>;
 
-const UL = ({ children }) => <UL_ST>{children}</UL_ST>;
+const UL = ({ children }) => <ST.UL>{children}</ST.UL>;
 
-export {
-  TwoColumnsDesktop,
-  TwoColumns,
-  TwoColumnsWrap,
+export default {
+  TwoColumnsDesktop: ST.TwoColumnsDesktop,
+  TwoColumns: ST.TwoColumns,
+  TwoColumnsWrap: ST.TwoColumnsWrap,
   Centered,
-  VCentered_ST,
+  VCentered: ST.VCentered,
   Description,
   H1,
   H2,
@@ -57,6 +44,5 @@ export {
   Main,
   Button,
   UL,
+  Layout,
 };
-
-export default Layout;

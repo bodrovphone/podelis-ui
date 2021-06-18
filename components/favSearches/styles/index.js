@@ -1,7 +1,7 @@
 import styled from "styled-components";
 import { device } from "../../styles/media";
 
-export const FavSearchesContainer_ST = styled.div`
+const FavSearchesContainer = styled.div`
   display: flex;
   flex-direction: column;
   gap: 30px;
@@ -13,7 +13,7 @@ export const FavSearchesContainer_ST = styled.div`
   }
 `;
 
-export const Query_ST = styled.div`
+const Query = styled.div`
   a {
     display: flex;
     align-items: center;
@@ -24,7 +24,7 @@ export const Query_ST = styled.div`
   }
 `;
 
-export const SearchContainer_ST = styled.div`
+const SearchContainer = styled.div`
   box-shadow: ${(props) => props.theme.shadows.logoHeader};
   border-radius: 0 10px 0 10px;
   font-family: "zadelis-font";
@@ -38,7 +38,7 @@ export const SearchContainer_ST = styled.div`
   margin: auto;
 `;
 
-export const Meta_ST = styled.div`
+const Meta = styled.div`
   display: flex;
   gap: 5px;
   padding-left: 10px;
@@ -55,9 +55,17 @@ export const Meta_ST = styled.div`
   }
 `;
 
-export const New_ST = styled.div`
+const New = styled.div`
   margin-left: auto;
   svg {
     position: static !important;
   }
 `;
+
+export default {
+  FavSearchesContainer,
+  Query,
+  SearchContainer,
+  Meta,
+  New,
+};

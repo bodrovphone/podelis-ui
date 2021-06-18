@@ -1,6 +1,6 @@
 import React from "react";
-import { Logo_ST } from "./styles";
+import ST from "./styles";
 
-const Logo = () => <Logo_ST>Z</Logo_ST>;
+const Logo = () => <ST.Logo>Z</ST.Logo>;
 
 export default Logo;

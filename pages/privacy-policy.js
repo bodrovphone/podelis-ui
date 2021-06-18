@@ -1,13 +1,12 @@
-import Layout, { Main, H1 } from "../components/layouts";
+import LT from "../components/layouts";
 import Footer from "../components/footer";
-import { H2 } from "../components/layouts";
 
 function AddForm({ data }) {
   return (
-    <Layout>
-      <Main>
-        <H1 name="Zadelis" slogan="На прокат бери - деньги береги."></H1>
-        <H2>ПОЛІТИКА КОНФІДЕНЦІЙНОСТІ</H2>
+    <LT.Layout>
+      <LT.Main>
+        <LT.H1 name="Zadelis" slogan="На прокат бери - деньги береги."></LT.H1>
+        <LT.H2>ПОЛІТИКА КОНФІДЕНЦІЙНОСТІ</LT.H2>
 
         <div>
           <p>
@@ -470,9 +469,9 @@ function AddForm({ data }) {
 
           <p>&nbsp;</p>
         </div>
-      </Main>
+      </LT.Main>
       <Footer />
-    </Layout>
+    </LT.Layout>
   );
 }
 

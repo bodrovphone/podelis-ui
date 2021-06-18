@@ -1,18 +1,8 @@
 import React, { useState } from "react";
 import { Formik } from "formik";
-import { Button } from "../layouts/";
+import LT from "../layouts";
 
-import {
-  Form_ST,
-  Label_ST,
-  Input_ST,
-  SocialWrapper_ST,
-  SubmitWrapper_ST,
-  Img_ST,
-  CheckboxLabel_ST,
-  Checkbox_ST,
-  Error_ST,
-} from "./styles";
+import ST from "./styles";
 
 const AuthenticateForm = (props) => {
   // const [state, setState] = useState({
@@ -23,7 +13,7 @@ const AuthenticateForm = (props) => {
   // });
 
   const handleError = (touched, err) => {
-    return touched && err ? <Error_ST>{err}</Error_ST> : "";
+    return touched && err ? <ST.Error>{err}</ST.Error> : "";
   };
 
   return (
@@ -68,30 +58,30 @@ const AuthenticateForm = (props) => {
         isSubmitting,
         /* and other goodies */
       }) => (
-        <Form_ST onSubmit={handleSubmit}>
-          <SocialWrapper_ST>
+        <ST.Form onSubmit={handleSubmit}>
+          <ST.SocialWrapper>
             <div>
-              <Button type="button">
+              <LT.Button type="button">
                 <span>
-                  <Img_ST src="../img/FB-big-logo.png" />
+                  <ST.Img src="../img/FB-big-logo.png" />
                   Вход с Facebook
                   <i>&gt;&gt;</i>
                 </span>
-              </Button>
+              </LT.Button>
 
-              <Button type="button">
+              <LT.Button type="button">
                 <span>
-                  <Img_ST src="../img/G-big-logo.png" />
+                  <ST.Img src="../img/G-big-logo.png" />
                   Вход с Google
                   <i>&gt;&gt;</i>
                 </span>
-              </Button>
+              </LT.Button>
             </div>
-          </SocialWrapper_ST>
-          <Label_ST>
+          </ST.SocialWrapper>
+          <ST.Label>
             Имя
             {handleError(touched.userName, errors.userName)}
-            <Input_ST
+            <ST.Input
               type="text"
               placeholder="Павел Мороз"
               name="userName"
@@ -99,11 +89,11 @@ const AuthenticateForm = (props) => {
               onBlur={handleBlur}
               value={values.userName}
             />
-          </Label_ST>
-          <Label_ST>
+          </ST.Label>
+          <ST.Label>
             Email
             {handleError(touched.email, errors.email)}
-            <Input_ST
+            <ST.Input
               type="email"
               placeholder="my_name@gmail.com"
               name="email"
@@ -111,11 +101,11 @@ const AuthenticateForm = (props) => {
               onBlur={handleBlur}
               value={values.email}
             />
-          </Label_ST>
-          <Label_ST>
+          </ST.Label>
+          <ST.Label>
             Пароль
             {handleError(touched.password, errors.password)}
-            <Input_ST
+            <ST.Input
               type="password"
               name="password"
               placeholder="***********"
@@ -123,12 +113,12 @@ const AuthenticateForm = (props) => {
               onBlur={handleBlur}
               value={values.password}
             />
-          </Label_ST>
-          <SubmitWrapper_ST>
-            <CheckboxLabel_ST>
+          </ST.Label>
+          <ST.SubmitWrapper>
+            <ST.CheckboxLabel>
               {handleError(touched.agreedTerms, errors.agreedTerms)}
               <span>
-                <Checkbox_ST
+                <ST.Checkbox
                   name="agreedTerms"
                   checked={values.agreedTerms}
                   onChange={handleChange}
@@ -139,17 +129,17 @@ const AuthenticateForm = (props) => {
               <a href={process.env.NEXT_PUBLIC_TERMS_URL} target="_blank">
                 &#171;Правилами web сервиса&#187;.
               </a>
-            </CheckboxLabel_ST>
+            </ST.CheckboxLabel>
             <div>
-              <Button type="submit" disabled={isSubmitting}>
+              <LT.Button type="submit" disabled={isSubmitting}>
                 <span>
                   Регистрация/Вход
                   <i>&gt;&gt;</i>
                 </span>
-              </Button>
+              </LT.Button>
             </div>
-          </SubmitWrapper_ST>
-        </Form_ST>
+          </ST.SubmitWrapper>
+        </ST.Form>
       )}
     </Formik>
   );

@@ -1,6 +1,6 @@
 import styled from "styled-components";
 
-export const Details_ST = styled.div`
+const Details = styled.div`
   display: flex;
   justify-content: space-between;
   align-items: flex-end;
@@ -11,7 +11,7 @@ export const Details_ST = styled.div`
   }
 `;
 
-export const ContactOwnerWrapper = styled.div`
+const ContactOwnerWrapper = styled.div`
   display: flex;
   justify-content: space-evenly;
   margin: 10px auto;
@@ -25,3 +25,8 @@ export const ContactOwnerWrapper = styled.div`
     height: 26px;
   }
 `;
+
+export default {
+  Details,
+  ContactOwnerWrapper,
+};

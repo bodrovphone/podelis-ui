@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from "react";
-import { Cards_ST } from "./styles";
+import ST from "./styles";
 import SingleCard from "../singleCard";
 // defaultTopPosts will be replaced with getStaticProps and fetch to API during build time
 // when we have it on backend
@@ -34,7 +34,7 @@ const CardsWidget = (props) => {
       .catch((error) => console.log(error));
   }, []);
 
-  return <Cards_ST>{[...posts]}</Cards_ST>;
+  return <ST.Cards>{[...posts]}</ST.Cards>;
 };
 
 export default CardsWidget;

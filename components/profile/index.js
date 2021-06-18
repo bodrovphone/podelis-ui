@@ -1,5 +1,5 @@
 import React from "react";
-import { ProfileWrapper, Avatar, Name } from "./styles";
+import ST from "./styles";
 import StarRatings from "react-star-ratings";
 import ProfileContext from "./profileContext";
 import ProfileEditable from "./profileEditable";
@@ -10,7 +10,7 @@ const ProfileDetails = ({
   avatarUrl = "http://www.gravatar.com/avatar/?d=mp",
   rating,
 }) => (
-  <ProfileWrapper>
+  <ST.ProfileWrapper>
     {rating ? (
       <StarRatings
         rating={rating}
@@ -33,11 +33,11 @@ const ProfileDetails = ({
         />
       </div>
     )}
-    <Avatar src={avatarUrl} data-tip="на сайте с Апреля 2021" />
+    <ST.AvatarImage src={avatarUrl} data-tip="на сайте с Апреля 2021" />
     <ReactTooltip type="info" delayShow={700} />
 
-    <Name>{name}</Name>
-  </ProfileWrapper>
+    <ST.Name>{name}</ST.Name>
+  </ST.ProfileWrapper>
 );
 
 export default ProfileDetails;

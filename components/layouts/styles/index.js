@@ -1,7 +1,7 @@
 import styled from "styled-components";
 import { device } from "../../styles/media";
 
-export const Wrapper = styled.div`
+const Wrapper = styled.div`
   width: 100%;
   min-height: 100vh;
   transition: width ease 2s;
@@ -14,7 +14,7 @@ export const Wrapper = styled.div`
   }
 `;
 
-export const Main_ST = styled.main`
+const Main = styled.main`
   line-height: 150%;
   font-size: 1.1em;
   padding: 8px;
@@ -35,7 +35,7 @@ export const Main_ST = styled.main`
   }
 `;
 
-export const H1_ST = styled.h1`
+const H1 = styled.h1`
   margin: 22px 0;
   font-size: ${(props) => props.size || "3em"};
   color: ${(props) => props.theme.colors.rareMedium};
@@ -51,13 +51,13 @@ export const H1_ST = styled.h1`
   }
 `;
 
-export const H2_ST = styled.h2`
+const H2 = styled.h2`
   width: 100%;
   color: #c5c5c5;
   padding: 20px 0 0 50px;
 `;
 
-export const Description_ST = styled.div`
+const Description = styled.div`
   .text-truncated {
     display: none;
   }
@@ -69,7 +69,7 @@ export const Description_ST = styled.div`
   }
 `;
 
-export const Centered_ST = styled.div`
+const Centered = styled.div`
   line-height: 150%;
   font-size: 1.1em;
   padding: 8px;
@@ -89,7 +89,7 @@ export const Centered_ST = styled.div`
   }
 `;
 
-export const TwoColumnsWrap = styled.div`
+const TwoColumnsWrap = styled.div`
   display: flex;
   flex-direction: column;
   justify-content: space-between;
@@ -103,14 +103,14 @@ export const TwoColumnsWrap = styled.div`
   }
 `;
 
-export const TwoColumns = styled.div`
+const TwoColumns = styled.div`
   display: flex;
   flex-direction: row;
   justify-content: space-between;
   align-items: end;
 `;
 
-export const TwoColumnsDesktop = styled.div`
+const TwoColumnsDesktop = styled.div`
   display: flex;
   flex-direction: column;
   justify-content: space-between;
@@ -121,12 +121,12 @@ export const TwoColumnsDesktop = styled.div`
   }
 `;
 
-export const VCentered_ST = styled.div`
+const VCentered = styled.div`
   margin: 15px 0;
   padding: 10px 0 50px 0;
 `;
 
-export const Button_ST = styled.button`
+const Button = styled.button`
   display: inline-block;
   padding: 10px 18px;
   font-size: 16px;
@@ -176,12 +176,12 @@ export const Button_ST = styled.button`
   }
 `;
 
-export const H3_ST = styled.h3`
+const H3 = styled.h3`
   font-size: 16px;
   color: #565353;
 `;
 
-export const UL_ST = styled.ul`
+const UL = styled.ul`
   display: grid;
   grid-gap: 30px 20px;
   /* grid-template-columns: repeat(auto-fill, minmax(280px, 1fr)); */
@@ -207,3 +207,19 @@ export const UL_ST = styled.ul`
     padding-left: 24px;
   }
 `;
+
+export default {
+  Wrapper,
+  Main,
+  H1,
+  H2,
+  Description,
+  Centered,
+  VCentered,
+  Button,
+  H3,
+  UL,
+  TwoColumnsWrap,
+  TwoColumnsDesktop,
+  TwoColumns,
+};

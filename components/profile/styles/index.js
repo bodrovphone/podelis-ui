@@ -1,21 +1,21 @@
 import styled from "styled-components";
 
-export const ProfileWrapper = styled.div`
+const ProfileWrapper = styled.div`
   display: flex;
   flex-direction: column;
   align-items: center;
 `;
 
-export const Avatar = styled.img`
+const AvatarImage = styled.img`
   width: 50px;
   height: auto;
 `;
 
-export const Name = styled.div`
+const Name = styled.div`
   font-size: 14px;
 `;
 
-export const ProfileWrapper_ST = styled.div`
+const WrapperEditable = styled.div`
   display: flex;
   gap: 10px 14px;
   align-items: end;
@@ -28,13 +28,13 @@ export const ProfileWrapper_ST = styled.div`
   }
 `;
 
-export const Avatar_ST = styled.div`
+const Avatar = styled.div`
   display: flex;
   /* flex-direction: column;
   justify-content: center; */
 `;
 
-export const AvatarContainer_ST = styled.div`
+const AvatarContainer = styled.div`
   position: relative;
   width: 100%;
   max-width: 80px;
@@ -57,12 +57,12 @@ export const AvatarContainer_ST = styled.div`
   }
 `;
 
-export const Image_ST = styled.img`
+const Image = styled.img`
   width: 100%;
   height: auto;
 `;
 
-export const Overlay_ST = styled.div`
+const Overlay = styled.div`
   position: absolute;
   top: 0;
   bottom: 0;
@@ -75,7 +75,7 @@ export const Overlay_ST = styled.div`
   background-color: white;
 `;
 
-export const ContactInfo_ST = styled.div`
+const ContactInfo = styled.div`
   display: flex;
   flex-direction: column;
   justify-content: space-around;
@@ -83,15 +83,29 @@ export const ContactInfo_ST = styled.div`
   font-size: 1.2em;
 `;
 
-export const Field_ST = styled.div`
+const Field = styled.div`
   display: flex;
   align-items: center;
 `;
 
-export const Input_ST = styled.input`
+const Input = styled.input`
   font-size: 14px;
   appearance: none;
   outline: none;
   border: none;
   background: #fafbfb;
 `;
+
+export default {
+  WrapperEditable,
+  Avatar,
+  AvatarContainer,
+  Image,
+  Overlay,
+  ContactInfo,
+  Field,
+  Input,
+  ProfileWrapper,
+  AvatarImage,
+  Name,
+};

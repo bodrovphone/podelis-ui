@@ -1,5 +1,5 @@
-import { StyledWrapper_ST } from "./styles";
-import { H3 } from "../layouts";
+import ST from "./styles";
+import LT from "../layouts";
 import Link from "next/link";
 import { Tag } from "react-bootstrap-icons";
 
@@ -21,16 +21,16 @@ const SiteMap = ({ links, categories, labelMain, labelSecondary }) => {
   };
 
   return (
-    <StyledWrapper_ST>
+    <ST.StyledWrapper>
       <div>
-        <H3>{labelMain}</H3>
+        <LT.H3>{labelMain}</LT.H3>
         <ul>{renderLinks(links)}</ul>
       </div>
       <div>
-        <H3>{labelSecondary}</H3>
+        <LT.H3>{labelSecondary}</LT.H3>
         <ul>{renderLinks(categories)}</ul>
       </div>
-    </StyledWrapper_ST>
+    </ST.StyledWrapper>
   );
 };
 

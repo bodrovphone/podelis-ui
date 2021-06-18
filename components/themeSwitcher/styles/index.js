@@ -1,5 +1,9 @@
 import styled from "styled-components";
 
-export const ThemeWrapper_ST = styled.div`
+const ThemeWrapper = styled.div`
   margin: 0 auto;
 `;
+
+export default {
+  ThemeWrapper,
+};

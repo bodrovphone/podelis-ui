@@ -1,7 +1,7 @@
 import styled from "styled-components";
 import { device } from "../../styles/media";
 
-export const Paper_ST = styled.div`
+const Paper = styled.div`
   position: relative;
   padding: 5px;
   border-radius: 12px;
@@ -33,3 +33,7 @@ export const Paper_ST = styled.div`
     background-size: 150%;
   }
 `;
+
+export default {
+  Paper,
+};

@@ -1,7 +1,7 @@
 import styled from "styled-components";
 import { device } from "../../styles/media";
 
-export const Footer_ST = styled.footer`
+const Footer = styled.footer`
   background: ${(props) => props.theme.colors.wellDone};
   width: 100%;
   padding: 25px 8px 80px 8px;
@@ -14,7 +14,7 @@ export const Footer_ST = styled.footer`
   }
 `;
 
-export const Grid_ST = styled.div`
+const Grid = styled.div`
   display: grid;
   grid-template-columns: repeat(1, 1fr);
   grid-row-gap: 20px;
@@ -34,7 +34,7 @@ export const Grid_ST = styled.div`
   }
 `;
 
-export const GridBlock_ST = styled.ul`
+const GridBlock = styled.ul`
   line-height: 30px;
   margin: 0;
   color: ${(props) => props.theme.colors.medium};
@@ -52,7 +52,7 @@ export const GridBlock_ST = styled.ul`
   }
 `;
 
-export const GridItem_ST = styled.li`
+const GridItem = styled.li`
   :first-child {
     list-style: none;
     font-weight: bold;
@@ -72,3 +72,10 @@ export const GridItem_ST = styled.li`
     color: ${(props) => props.theme.colors.rare};
   }
 `;
+
+export default {
+  Footer,
+  Grid,
+  GridBlock,
+  GridItem,
+};

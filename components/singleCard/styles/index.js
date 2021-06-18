@@ -1,7 +1,7 @@
 import styled from "styled-components";
 import { device } from "../../styles/media";
 
-export const CardWrapper = styled.div`
+const CardWrapper = styled.div`
   display: flex;
   flex-direction: column;
   padding: 5px;
@@ -22,7 +22,7 @@ export const CardWrapper = styled.div`
   }
 `;
 
-export const CardDetails = styled.div`
+const CardDetails = styled.div`
   padding: 10px 0;
   margin-left: 5px;
   font-size: 0.9em;
@@ -41,14 +41,14 @@ export const CardDetails = styled.div`
   }
 `;
 
-export const CardImage = styled.div`
+const CardImage = styled.div`
   img {
     width: 100%;
     height: auto;
   }
 `;
 
-export const CardTitle = styled.h3`
+const CardTitle = styled.h3`
   font-size: 0.9em;
   font-weight: 500;
   vertical-align: bottom;
@@ -74,8 +74,16 @@ export const CardTitle = styled.h3`
   }
 `;
 
-export const Section_ST = styled.section`
+const Section = styled.section`
   @media ${device.tablet} {
     width: 40%;
   }
 `;
+
+export default {
+  CardWrapper,
+  CardDetails,
+  CardImage,
+  CardTitle,
+  Section,
+};

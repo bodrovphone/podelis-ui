@@ -1,14 +1,14 @@
 import ReactHtmlParser from "react-html-parser";
 import Image from "next/image";
 import Link from "next/link";
-import { H3 } from "../layouts";
+import LT from "../layouts";
 import ST from "./styles";
 
 const Recommendations = (recommended) => {
   return (
     recommended && (
       <ST.Recommended>
-        <H3>P.s. Рекомендуем к прочтению:</H3>
+        <LT.H3>P.s. Рекомендуем к прочтению:</LT.H3>
         {recommended.map((item, index) => (
           <li key={index}>
             <Link href={item.path}>

@@ -4,17 +4,7 @@ import { useState } from "react";
 import Resizer from "react-image-file-resizer";
 import { Images, ChevronDoubleRight } from "react-bootstrap-icons";
 
-import {
-  Form_ST,
-  MsgInput_ST,
-  ButtonPhoto_ST,
-  ButtonSubmit_ST,
-  AdPreview_ST,
-  PeriodWrapper_ST,
-  FormWrapper,
-  FormButtonsWrapper_ST,
-  Label_ST,
-} from "./styles";
+import ST from "./styles";
 
 const Form = (props) => {
   const [state, setState] = useState({
@@ -115,9 +105,9 @@ const Form = (props) => {
         isSubmitting,
         /* and other goodies */
       }) => (
-        <Form_ST onSubmit={handleSubmit}>
-          <FormWrapper>
-            <MsgInput_ST
+        <ST.Form onSubmit={handleSubmit}>
+          <ST.FormWrapper>
+            <ST.MsgInput
               type="text"
               placeholder="Буровая установка"
               name="description"
@@ -127,33 +117,33 @@ const Form = (props) => {
               ref={msgTextRef}
             />
 
-            <FormButtonsWrapper_ST>
-              <Label_ST>
-                <ButtonPhoto_ST>
+            <ST.FormButtonsWrapper>
+              <ST.Label>
+                <ST.ButtonPhoto>
                   <Images size={16} color="black" />
-                </ButtonPhoto_ST>
+                </ST.ButtonPhoto>
                 <input
                   type="file"
                   name="photo"
                   multiple
                   onChange={handleImageChange}
                 />
-              </Label_ST>
-              <ButtonSubmit_ST type="submit" disabled={isSubmitting}>
+              </ST.Label>
+              <ST.ButtonSubmit type="submit" disabled={isSubmitting}>
                 Отправить
                 <ChevronDoubleRight size={16} color="black" />
-              </ButtonSubmit_ST>
-            </FormButtonsWrapper_ST>
-          </FormWrapper>
+              </ST.ButtonSubmit>
+            </ST.FormButtonsWrapper>
+          </ST.FormWrapper>
           {state.error}
-          <PeriodWrapper_ST>
+          <ST.PeriodWrapper>
             {state.imagePreviewUrls &&
               state.imagePreviewUrls.map((preview, i) => (
-                <AdPreview_ST key={i} src={preview} />
+                <ST.AdPreview key={i} src={preview} />
               ))}
-          </PeriodWrapper_ST>
+          </ST.PeriodWrapper>
           {errors.title && touched.title && errors.title}
-        </Form_ST>
+        </ST.Form>
       )}
     </Formik>
   );
