@@ -4,7 +4,7 @@ import { List } from "react-bootstrap-icons";
 import { rotate } from "../../styles/animations";
 
 // Base elements
-export const Nav = styled.nav`
+const Nav = styled.nav`
   width: 100%;
   padding: 10px 0;
   color: white;
@@ -22,7 +22,7 @@ export const Nav = styled.nav`
   }
 `;
 
-export const LinksWrapper = styled.div`
+const LinksWrapper = styled.div`
   position: fixed;
   bottom: 0;
   left: 0;
@@ -41,7 +41,7 @@ export const LinksWrapper = styled.div`
   }
 `;
 
-export const NavItemLink = styled.a`
+const NavItemLink = styled.a`
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -97,7 +97,7 @@ export const NavItemLink = styled.a`
 
 `;
 
-export const NavItemSpan = styled.span`
+const NavItemSpan = styled.span`
   display: block;
   color: ${(props) => props.theme.colors.medium};
   font-size: 0.8em;
@@ -110,7 +110,7 @@ export const NavItemSpan = styled.span`
 `;
 
 // Icons
-export const ListIcon = styled(List)`
+const ListIcon = styled(List)`
   width: 20px;
   height: 20px;
   fill: ${(props) => props.theme.colors.rare};
@@ -121,3 +121,11 @@ export const ListIcon = styled(List)`
     height: 26px;
   }
 `;
+
+export default {
+  Nav,
+  LinksWrapper,
+  NavItemLink,
+  NavItemSpan,
+  ListIcon,
+};

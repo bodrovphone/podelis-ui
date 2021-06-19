@@ -1,50 +1,53 @@
-import styled from 'styled-components';
-import { device } from '../../styles/media';
+import styled from "styled-components";
+import { device } from "../../styles/media";
 
-export const InputWrapper_ST = styled.div`
+const InputWrapper = styled.div`
   display: flex;
   flex-direction: column;
-    align-items: center;
+  align-items: center;
   justify-content: space-between;
-    gap: 12px;
+  gap: 12px;
 
   span {
     width: 100%;
   }
 
-  @media ${device.mobileS} { 
+  @media ${device.mobileS} {
     flex-direction: row;
     gap: 0;
     justify-content: space-around;
   }
 `;
 
-export const Input_ST = styled.input`
-width: 70%;
+const Input = styled.input`
+  width: 70%;
   outline: none;
   padding: 5px 7px;
   border-radius: 0 10px 0 10px;
-  border: 2px solid ${props => props.theme.colors.solt};
+  border: 2px solid ${(props) => props.theme.colors.solt};
   height: 35px;
-  box-shadow: ${props => props.theme.shadows.logoHeader};
+  box-shadow: ${(props) => props.theme.shadows.logoHeader};
   appearance: none;
-  background: ${props => props.theme.colors.wellDone};
+  background: ${(props) => props.theme.colors.wellDone};
   text-align: center;
-  font-family: 'zadelis-font';
+  font-family: "zadelis-font";
   font-size: 1em;
 
   ::placeholder {
-      text-align: center;
-    }
+    text-align: center;
+  }
 
   &:focus {
-    background-color: ${props => props.theme.colors.solt};
-    border: 2px solid ${props => props.theme.colors.mediumWell};
+    background-color: ${(props) => props.theme.colors.solt};
+    border: 2px solid ${(props) => props.theme.colors.mediumWell};
 
     ::placeholder {
       color: transparent;
     }
   }
-
-
 `;
+
+export default {
+  InputWrapper,
+  Input,
+};

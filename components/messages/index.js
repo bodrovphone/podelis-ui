@@ -1,14 +1,6 @@
 import React, { useState } from "react";
 import Link from "next/link";
-import {
-  MessagesWrapper_ST,
-  MessageContainer_ST,
-  PostThumbnail_ST,
-  MessageText_ST,
-  Date_ST,
-  ProfileMini_ST,
-  PictureWrapper_ST,
-} from "./styles";
+import ST from "./styles";
 import LoadMore from "../loadMore";
 import MsgForm from "./msgForm";
 import Profile from "../profile";
@@ -30,97 +22,97 @@ const LinkHOC = ({ children, links }) =>
 
 const Messages = ({ thread, links }) => {
   return (
-    <MessagesWrapper_ST>
+    <ST.MessagesWrapper>
       <LinkHOC links={links}>
-        <MessageContainer_ST>
-          <MessageText_ST>
-            <Date_ST>
+        <ST.MessageContainer>
+          <ST.MessageText>
+            <ST.Date>
               <TimeAgo date="June 1, 2021" formatter={formatter} />
-            </Date_ST>
+            </ST.Date>
             Я текст епта Добазарились хуле и вот мы приехали смотри какой текст
             чуть подлиннее и что будем теперь делать, ага? Ну вот думаем смотрим
             и пробуем это дерьмо пофиксим.
-          </MessageText_ST>
-          <PictureWrapper_ST>
-            <PostThumbnail_ST src="https://images.ua.prom.st/2139978779_w640_h640_proektor-xiaomi-mi.jpg" />
-            <ProfileMini_ST>
+          </ST.MessageText>
+          <ST.PictureWrapper>
+            <ST.PostThumbnail src="https://images.ua.prom.st/2139978779_w640_h640_proektor-xiaomi-mi.jpg" />
+            <ST.ProfileMini>
               <Profile name="Вы" />
-            </ProfileMini_ST>
-          </PictureWrapper_ST>
-        </MessageContainer_ST>
+            </ST.ProfileMini>
+          </ST.PictureWrapper>
+        </ST.MessageContainer>
       </LinkHOC>
 
       <LinkHOC links={links}>
-        <MessageContainer_ST>
-          <MessageText_ST>
-            <Date_ST>
+        <ST.MessageContainer>
+          <ST.MessageText>
+            <ST.Date>
               <TimeAgo date="May 28, 2021" formatter={formatter} />
-            </Date_ST>
+            </ST.Date>
             Ok пофиксим.
-          </MessageText_ST>
-          <PictureWrapper_ST>
-            <PostThumbnail_ST src="https://images.ua.prom.st/2139978779_w640_h640_proektor-xiaomi-mi.jpg" />
-            <ProfileMini_ST>
+          </ST.MessageText>
+          <ST.PictureWrapper>
+            <ST.PostThumbnail src="https://images.ua.prom.st/2139978779_w640_h640_proektor-xiaomi-mi.jpg" />
+            <ST.ProfileMini>
               <Profile name="Вася" rating={3.9} />
-            </ProfileMini_ST>
-          </PictureWrapper_ST>
-        </MessageContainer_ST>
+            </ST.ProfileMini>
+          </ST.PictureWrapper>
+        </ST.MessageContainer>
       </LinkHOC>
       <LinkHOC links={links}>
-        <MessageContainer_ST>
-          <MessageText_ST>
-            <Date_ST>
+        <ST.MessageContainer>
+          <ST.MessageText>
+            <ST.Date>
               <TimeAgo date="May 23, 2021" formatter={formatter} />
-            </Date_ST>
+            </ST.Date>
             Я текст епта Добазарились хуле и вот мы приехали смотри какой текст
             чуть подлиннее и что будем теперь делать, ага? Ну вот думаем смотрим
             и пробуем это дерьмо пофиксим.
-          </MessageText_ST>
-          <PictureWrapper_ST>
-            <PostThumbnail_ST src="https://images.ua.prom.st/2139978779_w640_h640_proektor-xiaomi-mi.jpg" />
-            <ProfileMini_ST>
+          </ST.MessageText>
+          <ST.PictureWrapper>
+            <ST.PostThumbnail src="https://images.ua.prom.st/2139978779_w640_h640_proektor-xiaomi-mi.jpg" />
+            <ST.ProfileMini>
               <Profile name="Вася" rating={3.9} />
-            </ProfileMini_ST>
-          </PictureWrapper_ST>
-        </MessageContainer_ST>
+            </ST.ProfileMini>
+          </ST.PictureWrapper>
+        </ST.MessageContainer>
       </LinkHOC>
       <LinkHOC links={links}>
-        <MessageContainer_ST>
-          <MessageText_ST>
-            <Date_ST>
+        <ST.MessageContainer>
+          <ST.MessageText>
+            <ST.Date>
               <TimeAgo date="May 23, 2021" formatter={formatter} />
-            </Date_ST>
+            </ST.Date>
             Я текст епта Добазарились хуле и вот мы приехали смотри какой текст
             чуть подлиннее и что будем теперь делать, ага? Ну вот думаем смотрим
             и пробуем это дерьмо пофиксим.
-          </MessageText_ST>
-          <PictureWrapper_ST>
-            <PostThumbnail_ST src="https://images.ua.prom.st/2139978779_w640_h640_proektor-xiaomi-mi.jpg" />
-            <ProfileMini_ST>
+          </ST.MessageText>
+          <ST.PictureWrapper>
+            <ST.PostThumbnail src="https://images.ua.prom.st/2139978779_w640_h640_proektor-xiaomi-mi.jpg" />
+            <ST.ProfileMini>
               <Profile name="Вася" rating={3.9} />
-            </ProfileMini_ST>
-          </PictureWrapper_ST>
-        </MessageContainer_ST>
+            </ST.ProfileMini>
+          </ST.PictureWrapper>
+        </ST.MessageContainer>
       </LinkHOC>
       <LinkHOC links={links}>
-        <MessageContainer_ST>
-          <MessageText_ST>
-            <Date_ST>
+        <ST.MessageContainer>
+          <ST.MessageText>
+            <ST.Date>
               <TimeAgo date="June 1, 2021" formatter={formatter} />
-            </Date_ST>
+            </ST.Date>
             Я текст епта Добазарились хуле и
-          </MessageText_ST>
-          <PictureWrapper_ST>
-            <PostThumbnail_ST src="https://images.ua.prom.st/2139978779_w640_h640_proektor-xiaomi-mi.jpg" />
-            <ProfileMini_ST>
+          </ST.MessageText>
+          <ST.PictureWrapper>
+            <ST.PostThumbnail src="https://images.ua.prom.st/2139978779_w640_h640_proektor-xiaomi-mi.jpg" />
+            <ST.ProfileMini>
               <Profile name="Вы" />
-            </ProfileMini_ST>
-          </PictureWrapper_ST>
-        </MessageContainer_ST>
+            </ST.ProfileMini>
+          </ST.PictureWrapper>
+        </ST.MessageContainer>
       </LinkHOC>
 
       {thread && <LoadMore />}
-    </MessagesWrapper_ST>
+    </ST.MessagesWrapper>
   );
 };
 

@@ -1,6 +1,6 @@
 import styled from "styled-components";
 
-export const Wrapper_ST = styled.div`
+const Wrapper = styled.div`
   margin: 30px auto;
   a {
     text-decoration: none;
@@ -9,7 +9,7 @@ export const Wrapper_ST = styled.div`
   }
 `;
 
-export const GoBack_ST = styled.button`
+const GoBack = styled.button`
   display: inline-block;
   padding: 10px 18px;
   font-size: 16px;
@@ -36,3 +36,8 @@ export const GoBack_ST = styled.button`
     outline: none;
   }
 `;
+
+export default {
+  Wrapper,
+  GoBack,
+};

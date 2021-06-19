@@ -1,22 +1,22 @@
 import React from "react";
-import { Categories_ST, Image_ST, Mask_ST } from "./styles";
+import ST from "./styles";
 import { translate } from "../../localization/categories";
 import GifPlayer from "../gifPlayer";
 
 const CategoriesWidget = ({ categories }) => (
-  <Categories_ST>
-    <Mask_ST>
+  <ST.Categories>
+    <ST.Mask>
       {categories.map((cat, index) => (
-        <Image_ST key={index}>
+        <ST.Image key={index}>
           <GifPlayer
             gif={`/img/categories/${cat}.gif`}
             still={`/img/categories/${cat}.png`}
           />
           <span>{translate[cat]["ru"]}</span>
-        </Image_ST>
+        </ST.Image>
       ))}
-    </Mask_ST>
-  </Categories_ST>
+    </ST.Mask>
+  </ST.Categories>
 );
 
 export default CategoriesWidget;

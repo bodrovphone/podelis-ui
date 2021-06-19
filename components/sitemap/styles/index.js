@@ -1,7 +1,7 @@
 import styled from "styled-components";
 import { device } from "../../styles/media";
 
-export const StyledWrapper_ST = styled.section`
+const StyledWrapper = styled.section`
   display: flex;
   margin: auto;
   flex-direction: column;
@@ -39,3 +39,7 @@ export const StyledWrapper_ST = styled.section`
     }
   }
 `;
+
+export default {
+  StyledWrapper,
+};

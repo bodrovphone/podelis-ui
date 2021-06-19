@@ -2,17 +2,17 @@ import styled from "styled-components";
 import { Field } from "formik";
 import { device } from "../../styles/media";
 
-export const SettingWrapper_ST = styled.div`
+const SettingWrapper = styled.div`
   margin: 0 auto;
 `;
 
-export const SaveWrapper_ST = styled.div`
+const SaveWrapper = styled.div`
   display: flex;
   justify-content: center;
   margin: 40px auto;
 `;
 
-export const Group_ST = styled.div`
+const Group = styled.div`
   display: flex;
   flex-wrap: wrap;
   justify-content: space-around;
@@ -20,14 +20,14 @@ export const Group_ST = styled.div`
   margin: 20px 0;
 `;
 
-export const Radio_ST = styled(Field)`
+const Radio = styled(Field)`
   /* custom radio */
   position: absolute;
   opacity: 0;
   cursor: pointer;
 `;
 
-export const CheckMark_ST = styled.span`
+const CheckMark = styled.span`
   /* custom radio */
   position: absolute;
   top: 0;
@@ -44,7 +44,7 @@ export const CheckMark_ST = styled.span`
   }
 `;
 
-export const Label_ST = styled.label`
+const Label = styled.label`
   align-items: center;
   display: flex;
 
@@ -79,13 +79,13 @@ export const Label_ST = styled.label`
   }
 `;
 
-export const SettingTitle_ST = styled.div`
+const SettingTitle = styled.div`
   width: 100%;
   font-family: "zadelisR-font";
   font-weight: bold;
 `;
 
-export const ButtonSetting_ST = styled.button`
+const ButtonSetting = styled.button`
   display: inline-block;
   padding: 5px;
   font-size: 16px;
@@ -134,3 +134,14 @@ export const ButtonSetting_ST = styled.button`
     outline: none;
   }
 `;
+
+export default {
+  SettingWrapper,
+  SaveWrapper,
+  Group,
+  Radio,
+  CheckMark,
+  Label,
+  SettingTitle,
+  ButtonSetting,
+};

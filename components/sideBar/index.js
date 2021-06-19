@@ -1,6 +1,6 @@
 import React, { useContext } from "react";
 import Link from "next/link";
-import { SbContainer, SbLink, SbItemSpan, Close, NavLang } from "./styles";
+import ST from "./styles";
 import {
   Person,
   ChatDots,
@@ -16,48 +16,48 @@ const SideBar = () => {
   const { toggleNav } = useContext(SideBarDispatch);
 
   return (
-    <SbContainer className={`${navState ? "active" : ""}`}>
-      <Close onClick={() => toggleNav(!navState)}>&times;</Close>
+    <ST.SbContainer className={`${navState ? "active" : ""}`}>
+      <ST.Close onClick={() => toggleNav(!navState)}>&times;</ST.Close>
       <Link href="/profile">
-        <SbLink>
+        <ST.SbLink>
           <Person size={22} />
-          <SbItemSpan>Профиль</SbItemSpan>
-        </SbLink>
+          <ST.SbItemSpan>Профиль</ST.SbItemSpan>
+        </ST.SbLink>
       </Link>
       <Link href="/messages">
-        <SbLink>
+        <ST.SbLink>
           <ChatDots size={22} />
-          <SbItemSpan>Сообщения</SbItemSpan>
-        </SbLink>
+          <ST.SbItemSpan>Сообщения</ST.SbItemSpan>
+        </ST.SbLink>
       </Link>
       <Link href="/sitemap">
-        <SbLink>
+        <ST.SbLink>
           <Diagram3 size={22} />
-          <SbItemSpan>Карта сайта</SbItemSpan>
-        </SbLink>
+          <ST.SbItemSpan>Карта сайта</ST.SbItemSpan>
+        </ST.SbLink>
       </Link>
       <Link href="/privacy-policy">
-        <SbLink>
+        <ST.SbLink>
           <PencilSquare size={22} />
-          <SbItemSpan>
+          <ST.SbItemSpan>
             Правила и<br />
             Условия
-          </SbItemSpan>
-        </SbLink>
+          </ST.SbItemSpan>
+        </ST.SbLink>
       </Link>
       <Link href="/about">
-        <SbLink>
+        <ST.SbLink>
           <InfoCircle size={22} />
-          <SbItemSpan>О нас</SbItemSpan>
-        </SbLink>
+          <ST.SbItemSpan>О нас</ST.SbItemSpan>
+        </ST.SbLink>
       </Link>
       <ThemeSwitcher />
-      <NavLang>
+      <ST.NavLang>
         <span className="optLang">UK</span>
         <div>&#124;</div>
         <span>RU</span>
-      </NavLang>
-    </SbContainer>
+      </ST.NavLang>
+    </ST.SbContainer>
   );
 };
 

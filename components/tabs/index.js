@@ -1,7 +1,7 @@
 import React, { useState } from "react";
 import Tab from "./tab";
 
-import { Tabs_ST, TabList_ST, TabContent_ST } from "./styles";
+import ST from "./styles";
 
 const Tabs = (props) => {
   const [state, setState] = useState({
@@ -16,8 +16,8 @@ const Tabs = (props) => {
   };
 
   return (
-    <Tabs_ST>
-      <TabList_ST>
+    <ST.Tabs>
+      <ST.TabList>
         {children.map((child) => {
           const { label } = child.props;
 
@@ -30,14 +30,14 @@ const Tabs = (props) => {
             />
           );
         })}
-      </TabList_ST>
-      <TabContent_ST>
+      </ST.TabList>
+      <ST.TabContent>
         {children.map((child) => {
           if (child.props.label !== activeTab) return undefined;
           return child.props.children;
         })}
-      </TabContent_ST>
-    </Tabs_ST>
+      </ST.TabContent>
+    </ST.Tabs>
   );
 };
 

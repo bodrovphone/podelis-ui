@@ -1,14 +1,14 @@
 import React, { useState } from "react";
 import SingleSearch from "./singleSearch";
 
-import { FavSearchesContainer_ST } from "./styles";
+import ST from "./styles";
 
 const FavSearches = (props) => (
-  <FavSearchesContainer_ST>
+  <ST.FavSearchesContainer>
     {props.queries.map((query) => (
       <SingleSearch query={query} />
     ))}
-  </FavSearchesContainer_ST>
+  </ST.FavSearchesContainer>
 );
 
 export default FavSearches;

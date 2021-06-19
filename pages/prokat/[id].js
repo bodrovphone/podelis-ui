@@ -1,20 +1,14 @@
 import { useRouter } from "next/router";
 import Image from "next/image";
 
-import Layout, {
-  Main,
-  H1,
-  TwoColumnsDesktop,
-  TwoColumns,
-} from "../../components/layouts";
+import LT from "../../components/layouts";
 import Footer from "../../components/footer";
 import ProkatGallery from "../../components/prokatGallery";
 import ProkatDescription from "../../components/prokatDescription";
 import Profile from "../../components/profile";
-import ProkatDetails, {
-  Section_ST,
-  ContactOwnerWrapper,
-} from "../../components/prokatDetails";
+import ProkatDetails from "../../components/prokatDetails";
+import ST from "../../components/prokatDetails/styles";
+import ST_ from "../../components/singleCard/styles";
 import ProkatTitle from "../../components/prokatTitle";
 
 const Prokat = (props) => {
@@ -29,23 +23,23 @@ const Prokat = (props) => {
   // }
 
   return (
-    <Layout>
-      <Main>
-        <H1 name="Zadelis" slogan="На прокат бери - деньги береги."></H1>
-        <TwoColumnsDesktop>
+    <LT.Layout>
+      <LT.Main>
+        <LT.H1 name="Zadelis" slogan="На прокат бери - деньги береги."></LT.H1>
+        <LT.TwoColumnsDesktop>
           <ProkatGallery />
-          <Section_ST>
+          <ST_.Section>
             <ProkatTitle title="Проектор XIAOMI Mi Smart mini Projector" />
-            <TwoColumns>
+            <LT.TwoColumns>
               <div>
                 <ProkatDetails price="300грн/день" location="Днепр" />
               </div>
               <Profile name="Вася" rating={3.9} />
-            </TwoColumns>
+            </LT.TwoColumns>
 
             <ProkatDescription description="Прекрасный проектор для просмотра фильмов с друзъями. Предлогаем разные модели. Простой в управлении. 4k качество ктор для просмотра фильмов с друзъями. Предлогактор для просмотра фильмов с друзъями. Прекрасный проектор для просмотра фильмов с друзъями. Предлогаем разные модели. Простой в управлении. 4k качество ктор для просмотра фильмов с друзъями. Предлогактор для просмотра фильмов с друзъями." />
 
-            <ContactOwnerWrapper>
+            <ST.ContactOwnerWrapper>
               <Image src="/img/chat.png" width={75} height={75} />
               <Image src="/img/call.png" width={75} height={75} />
               <Image
@@ -59,13 +53,13 @@ const Prokat = (props) => {
                 width={75}
                 height={75}
               />
-            </ContactOwnerWrapper>
-          </Section_ST>
-        </TwoColumnsDesktop>
-      </Main>
+            </ST.ContactOwnerWrapper>
+          </ST_.Section>
+        </LT.TwoColumnsDesktop>
+      </LT.Main>
 
       <Footer />
-    </Layout>
+    </LT.Layout>
   );
 };
 

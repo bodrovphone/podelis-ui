@@ -1,9 +1,9 @@
 import React from "react";
-import { Wrapper } from "./styles";
+import ST from "./styles";
 import Image from "next/image";
 
 const GetSocial = (props) => (
-  <Wrapper>
+  <ST.Wrapper>
     <Image
       src="/img/getSocial/getSocial-bycicle.jpg"
       alt="picture of bycicle"
@@ -31,7 +31,7 @@ const GetSocial = (props) => (
       height="100%"
       layout="responsive"
     />
-  </Wrapper>
+  </ST.Wrapper>
 );
 
 export default GetSocial;

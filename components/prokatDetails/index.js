@@ -1,11 +1,11 @@
 import React from "react";
-import { Details_ST, ContactOwnerWrapper } from "./styles";
-import { CardDetails, Section_ST } from "../../components/singleCard/styles";
+import ST from "./styles";
+import ST_ from "../../components/singleCard/styles";
 import { GeoAlt, Cash, Truck, Headset } from "react-bootstrap-icons";
 
 const ProkatDetails = ({ price, location }) => (
-  <Details_ST>
-    <CardDetails>
+  <ST.Details>
+    <ST_.CardDetails>
       <div className="location-bookmark">
         <GeoAlt />
         {location}
@@ -22,8 +22,13 @@ const ProkatDetails = ({ price, location }) => (
         <Headset />
         Всегда на связи
       </div>
-    </CardDetails>
-  </Details_ST>
+    </ST_.CardDetails>
+  </ST.Details>
 );
-export { Section_ST, ContactOwnerWrapper };
+
+// need this bullshit to be able to export as named exports :0 ? Can I fix it later? Maybe not.
+const ContactOwnerWrapper = ST.ContactOwnerWrapper;
+const Section = ST_.Section;
+
+export { Section, ContactOwnerWrapper };
 export default ProkatDetails;

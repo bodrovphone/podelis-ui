@@ -11,8 +11,8 @@ const DescriptionWrapper = styled.div`
   }
 `;
 
-const Description_ST = styled.article`
+const Description = styled.article`
   padding: 10px 0;
 `;
 
-export { DescriptionWrapper, Description_ST };
+export default { DescriptionWrapper, Description };

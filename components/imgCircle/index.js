@@ -1,9 +1,9 @@
-import { IMG_CIRCLE_WRAPPER_ST, IMG_CICRLE_ST } from "./styles";
+import ST from "./styles";
 
 const ImgCircle = ({ src }) => (
-  <IMG_CIRCLE_WRAPPER_ST>
-    <IMG_CICRLE_ST src={src} />
-  </IMG_CIRCLE_WRAPPER_ST>
+  <ST.Wrapper>
+    <ST.ImageCircle src={src} />
+  </ST.Wrapper>
 );
 
 export default ImgCircle;

@@ -1,10 +1,14 @@
-import styled from 'styled-components';
-import { device } from '../../styles/media';
+import styled from "styled-components";
+import { device } from "../../styles/media";
 
-export const GalleryWrapper = styled.div`
+const GalleryWrapper = styled.div`
   display: grid;
-  
-  @media ${device.tablet} { 
+
+  @media ${device.tablet} {
     width: 55%;
   }
 `;
+
+export default {
+  GalleryWrapper,
+};

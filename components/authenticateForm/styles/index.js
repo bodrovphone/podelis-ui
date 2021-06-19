@@ -1,12 +1,12 @@
 import styled from "styled-components";
 import { device } from "../../styles/media";
 
-const Form_ST = styled.form`
+const Form = styled.form`
   width: 100%;
   height: 100vh;
 `;
 
-const Label_ST = styled.label`
+const Label = styled.label`
   display: flex;
   flex-direction: column;
   margin: 20px auto;
@@ -17,7 +17,7 @@ const Label_ST = styled.label`
   }
 `;
 
-const Input_ST = styled.input`
+const Input = styled.input`
   width: 70%;
   outline: none;
   padding: 5px 7px;
@@ -45,7 +45,7 @@ const Input_ST = styled.input`
   }
 `;
 
-const SocialWrapper_ST = styled.div`
+const SocialWrapper = styled.div`
   width: 90%;
   margin: auto;
 
@@ -92,13 +92,13 @@ const SocialWrapper_ST = styled.div`
   }
 `;
 
-const Img_ST = styled.img`
+const Img = styled.img`
   max-width: 25px;
   height: auto;
   margin-right: 5px;
 `;
 
-const SubmitWrapper_ST = styled.div`
+const SubmitWrapper = styled.div`
   width: 90%;
   margin: 10px auto;
   display: flex;
@@ -111,7 +111,7 @@ const SubmitWrapper_ST = styled.div`
   }
 `;
 
-const CheckboxLabel_ST = styled.label`
+const CheckboxLabel = styled.label`
   font-size: 0.7em;
   display: flex;
   flex-direction: column;
@@ -125,20 +125,20 @@ const CheckboxLabel_ST = styled.label`
   }
 `;
 
-const Checkbox_ST = styled.input``;
+const Checkbox = styled.input``;
 
-const Error_ST = styled.span`
+const Error = styled.span`
   color: #ffa9b5;
 `;
 
-export {
-  Form_ST,
-  Label_ST,
-  Input_ST,
-  SocialWrapper_ST,
-  Img_ST,
-  SubmitWrapper_ST,
-  CheckboxLabel_ST,
-  Checkbox_ST,
-  Error_ST,
+export default {
+  Form,
+  Label,
+  Input,
+  SocialWrapper,
+  Img,
+  SubmitWrapper,
+  CheckboxLabel,
+  Checkbox,
+  Error,
 };

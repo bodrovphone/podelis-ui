@@ -1,7 +1,7 @@
 import styled from "styled-components";
 import { device } from "../../styles/media";
 
-export const SbContainer = styled.div`
+const SbContainer = styled.div`
   height: 100%;
   min-height: 100vh;
   z-index: 1;
@@ -35,7 +35,7 @@ export const SbContainer = styled.div`
   }
 `;
 
-export const SbLink = styled.a`
+const SbLink = styled.a`
   cursor: pointer;
   margin: 0 0 40px 25px;
   display: flex;
@@ -50,7 +50,7 @@ export const SbLink = styled.a`
   }
 `;
 
-export const SbItemSpan = styled.span`
+const SbItemSpan = styled.span`
   display: block;
   color: ${(props) => props.theme.colors.rareMedium};
   font-size: 1em;
@@ -58,7 +58,7 @@ export const SbItemSpan = styled.span`
 `;
 
 // TODO: This is going to be removed probably when I integrate context with clicking on the body
-export const Close = styled.button`
+const Close = styled.button`
   background: ${(props) => props.theme.colors.wellDone};
   width: 10em;
   outline: none;
@@ -73,7 +73,7 @@ export const Close = styled.button`
   }
 `;
 
-export const NavLang = styled.span`
+const NavLang = styled.span`
   display: flex;
   cursor: pointer;
   color: ${(props) => props.theme.colors.rare};
@@ -93,3 +93,10 @@ export const NavLang = styled.span`
     color: ${(props) => props.theme.colors.mediumWell};
   }
 `;
+export default {
+  SbContainer,
+  SbLink,
+  SbItemSpan,
+  Close,
+  NavLang,
+};

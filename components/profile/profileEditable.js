@@ -1,16 +1,7 @@
 import React, { useState } from "react";
-import {
-  ProfileWrapper_ST,
-  Avatar_ST,
-  AvatarContainer_ST,
-  Field_ST,
-  Input_ST,
-  Image_ST,
-  Overlay_ST,
-  ContactInfo_ST,
-} from "./styles";
+import ST from "./styles";
 import { withTheme } from "styled-components";
-import { H2, Button } from "../layouts";
+import LT from "../layouts";
 import { Camera, Pencil } from "react-bootstrap-icons";
 
 const ProfileEditable = ({
@@ -34,22 +25,22 @@ const ProfileEditable = ({
   };
 
   return (
-    <ProfileWrapper_ST>
-      <H2>Профиль</H2>
-      <Avatar_ST>
-        <AvatarContainer_ST>
-          <Image_ST src={avatarUrl} />
-          <Overlay_ST>
+    <ST.WrapperEditable>
+      <LT.H2>Профиль</LT.H2>
+      <ST.Avatar>
+        <ST.AvatarContainer>
+          <ST.Image src={avatarUrl} />
+          <ST.Overlay>
             <span>
               <Camera size={26} fill={theme.colors.mediumRare} />
             </span>
-          </Overlay_ST>
-        </AvatarContainer_ST>
-      </Avatar_ST>
-      <ContactInfo_ST>
-        <Field_ST>
+          </ST.Overlay>
+        </ST.AvatarContainer>
+      </ST.Avatar>
+      <ST.ContactInfo>
+        <ST.Field>
           <Pencil />
-          <Input_ST
+          <ST.Input
             type="text"
             name="name"
             value={state.name}
@@ -57,10 +48,10 @@ const ProfileEditable = ({
             maxLength="18"
             size={state.size}
           />
-        </Field_ST>
-        <Field_ST>
+        </ST.Field>
+        <ST.Field>
           <Pencil />
-          <Input_ST
+          <ST.Input
             type="tel"
             name="tel"
             pattern="^((\+)?3?8)?0[1-9]{2}[0-9 ]{7}"
@@ -69,10 +60,10 @@ const ProfileEditable = ({
             maxLength="18"
             size={14}
           />
-        </Field_ST>
-        <Field_ST>
+        </ST.Field>
+        <ST.Field>
           <Pencil />
-          <Input_ST
+          <ST.Input
             type="text"
             name="city"
             value={state.city}
@@ -80,15 +71,15 @@ const ProfileEditable = ({
             maxLength="18"
             size={18}
           />
-        </Field_ST>
-      </ContactInfo_ST>
-      <Button type="button">
+        </ST.Field>
+      </ST.ContactInfo>
+      <LT.Button type="button">
         <span>
           Сохранить
           <i>&gt;&gt;</i>
         </span>
-      </Button>
-    </ProfileWrapper_ST>
+      </LT.Button>
+    </ST.WrapperEditable>
   );
 };
 

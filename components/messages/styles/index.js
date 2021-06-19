@@ -1,7 +1,7 @@
 import styled from "styled-components";
 import { device } from "../../styles/media";
 
-export const MessagesWrapper_ST = styled.div`
+const MessagesWrapper = styled.div`
   display: flex;
   flex-direction: column;
   font-family: "zadelisR-font";
@@ -13,7 +13,7 @@ export const MessagesWrapper_ST = styled.div`
   }
 `;
 
-export const MessageContainer_ST = styled.div`
+const MessageContainer = styled.div`
   display: flex;
   justify-content: space-between;
   margin: 10px 0;
@@ -36,19 +36,19 @@ export const MessageContainer_ST = styled.div`
   }
 `;
 
-export const Date_ST = styled.span`
+const Date = styled.span`
   margin: 5px 0;
   display: block;
   font-family: monospace, "zadelisR-font";
   font-weight: 600;
 `;
 
-export const PostThumbnail_ST = styled.img`
+const PostThumbnail = styled.img`
   width: auto;
   height: 50px;
 `;
 
-export const MessageText_ST = styled.div`
+const MessageText = styled.div`
   color: grey;
   padding: 3px 10px;
 
@@ -57,11 +57,11 @@ export const MessageText_ST = styled.div`
   }
 `;
 
-export const ProfileMini_ST = styled.div`
+const ProfileMini = styled.div`
   min-width: 54px;
 `;
 
-export const MsgInput_ST = styled.textarea`
+const MsgInput = styled.textarea`
   width: 60%;
   outline: none;
   padding: 5px 7px;
@@ -88,14 +88,14 @@ export const MsgInput_ST = styled.textarea`
   }
 `;
 
-export const PictureWrapper_ST = styled.div`
+const PictureWrapper = styled.div`
   display: flex;
   justify-content: space-around;
   gap: 3px;
   align-items: center;
 `;
 
-export const ButtonPhoto_ST = styled.span`
+const ButtonPhoto = styled.span`
   appearance: button;
   -moz-appearance: button;
   -webkit-appearance: button;
@@ -124,7 +124,7 @@ export const ButtonPhoto_ST = styled.span`
   }
 `;
 
-export const ButtonSubmit_ST = styled.button`
+const ButtonSubmit = styled.button`
   appearance: button;
   -moz-appearance: button;
   -webkit-appearance: button;
@@ -152,25 +152,25 @@ export const ButtonSubmit_ST = styled.button`
   }
 `;
 
-export const FormButtonsWrapper_ST = styled.div`
+const FormButtonsWrapper = styled.div`
   display: flex;
   flex-direction: column;
   gap: 10px;
 `;
 
-export const FormWrapper = styled.div`
+const FormWrapper = styled.div`
   display: flex;
   gap: 10px;
 `;
 
-export const Form_ST = styled.form`
+const Form = styled.form`
   width: 100%;
   padding-bottom: 50px;
   max-width: 435px;
   margin: auto;
 `;
 
-export const Label_ST = styled.label`
+const Label = styled.label`
   display: flex;
   flex-direction: column;
   input[type="file"] {
@@ -178,14 +178,14 @@ export const Label_ST = styled.label`
   }
 `;
 
-export const AdPreview_ST = styled.img`
+const AdPreview = styled.img`
   width: 30%;
   max-width: 200px;
   max-height: 400px;
   margin: 6px;
 `;
 
-export const PeriodWrapper_ST = styled.div`
+const PeriodWrapper = styled.div`
   width: 100%;
   margin: auto;
   display: flex;
@@ -193,3 +193,22 @@ export const PeriodWrapper_ST = styled.div`
   flex-wrap: wrap;
   gap: 5px;
 `;
+
+export default {
+  MessagesWrapper,
+  MessageContainer,
+  Date,
+  PostThumbnail,
+  MessageText,
+  ProfileMini,
+  MsgInput,
+  PictureWrapper,
+  ButtonPhoto,
+  ButtonSubmit,
+  FormButtonsWrapper,
+  Form,
+  Label,
+  AdPreview,
+  PeriodWrapper,
+  FormWrapper,
+};

@@ -4,7 +4,7 @@ import PropTypes from "prop-types";
 import { GeoAlt, Cash, Bookmarks, BookmarksFill } from "react-bootstrap-icons";
 import Image from "next/image";
 
-import { CardWrapper, CardDetails, CardImage, CardTitle } from "./styles";
+import ST from "./styles";
 
 const SingleCard = ({ id, imageSrc, title, details }) => {
   // I only need randomizer and MyBook for styling purpose
@@ -34,20 +34,20 @@ const SingleCard = ({ id, imageSrc, title, details }) => {
     );
 
   return (
-    <CardWrapper>
+    <ST.CardWrapper>
       <Link href={`/prokat/${id}`}>
         <a>
-          <CardImage>
+          <ST.CardImage>
             <Image
               src="/img/sample_product_image.webp"
               width="100%"
               height="100%"
               layout="responsive"
-              priotiy={true}
+              priotiy="true"
             />
-          </CardImage>
-          <CardTitle>{title}</CardTitle>
-          <CardDetails>
+          </ST.CardImage>
+          <ST.CardTitle>{title}</ST.CardTitle>
+          <ST.CardDetails>
             <div className="price">
               <Cash />
               300грн/день
@@ -57,10 +57,10 @@ const SingleCard = ({ id, imageSrc, title, details }) => {
               <div className="location">Днепр</div>
               {MyBook}
             </div>
-          </CardDetails>
+          </ST.CardDetails>
         </a>
       </Link>
-    </CardWrapper>
+    </ST.CardWrapper>
   );
 };
 

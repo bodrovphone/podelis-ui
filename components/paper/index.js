@@ -1,5 +1,5 @@
-import { Paper_ST } from "./styles";
+import ST from "./styles";
 
-const Paper = ({ children }) => <Paper_ST>{children}</Paper_ST>;
+const Paper = ({ children }) => <ST.Paper>{children}</ST.Paper>;
 
 export default Paper;

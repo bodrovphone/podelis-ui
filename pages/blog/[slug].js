@@ -1,4 +1,4 @@
-import Layout, { Main, H1, H2 } from "../../components/layouts";
+import LT from "../../components/layouts";
 import Footer from "../../components/footer";
 import getData from "../../db";
 import RenderBlog from "../../components/blog";
@@ -6,14 +6,14 @@ import RenderBlog from "../../components/blog";
 function Blog(props) {
   const { data } = props;
   return (
-    <Layout>
-      <Main>
-        <H1 name="Zadelis" slogan="На прокат бери - деньги береги."></H1>
-        <H2>{data.title}</H2>
+    <LT.Layout>
+      <LT.Main>
+        <LT.H1 name="Zadelis" slogan="На прокат бери - деньги береги."></LT.H1>
+        <LT.H2>{data.title}</LT.H2>
         <RenderBlog {...props} />
-      </Main>
+      </LT.Main>
       <Footer />
-    </Layout>
+    </LT.Layout>
   );
 }
 

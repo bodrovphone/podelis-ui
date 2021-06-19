@@ -1,7 +1,7 @@
 import styled from "styled-components";
 import { device } from "../../styles/media";
 
-export const Cards_ST = styled.section`
+const Cards = styled.section`
   display: grid;
   grid-template-columns: repeat(2, 1fr);
   grid-gap: 20px 10px;
@@ -19,3 +19,5 @@ export const Cards_ST = styled.section`
     grid-template-columns: repeat(5, 1fr);
   }
 `;
+
+export default { Cards };

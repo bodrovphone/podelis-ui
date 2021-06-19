@@ -1,12 +1,12 @@
 import React from "react";
-import { About_ST, Content_ST, Social_ST } from "./styles";
+import ST from "./styles";
 import Logo from "../logo";
 import Image from "next/image";
 
 const AboutZadelis = () => (
-  <About_ST>
+  <ST.About>
     <Logo />
-    <Content_ST>
+    <ST.Content>
       Zadils - Простой и удобный шаринг-сервис.
       <br />
       Арендуй поблизости.
@@ -15,8 +15,8 @@ const AboutZadelis = () => (
       <br />
       Сдавай в аренду вещи и зарабатывай.
       <br />
-    </Content_ST>
-    <Social_ST>
+    </ST.Content>
+    <ST.Social>
       <a
         target="_blank"
         rel="external"
@@ -56,8 +56,8 @@ const AboutZadelis = () => (
           height={42}
         />
       </a>
-    </Social_ST>
-  </About_ST>
+    </ST.Social>
+  </ST.About>
 );
 
 export default AboutZadelis;
