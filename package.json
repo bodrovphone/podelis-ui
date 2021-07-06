@@ -9,6 +9,7 @@
     "deploy": "nvm use && serverless"
   },
   "dependencies": {
+    "axios": "^0.21.1",
     "classnames": "2.3.1",
     "formik": "2.2.6",
     "mongodb": "^3.6.9",
