@@ -3,6 +3,8 @@ import { useState } from "react";
 import Resizer from "react-image-file-resizer";
 import { Images, ChevronDoubleRight } from "react-bootstrap-icons";
 import ST from "./styles";
+import axios from "axios";
+import { useRouter } from "next/router";
 
 const Form = (props) => {
   const [state, setState] = useState({
@@ -12,6 +14,8 @@ const Form = (props) => {
   });
 
   const [city, setCity] = useState("");
+
+  const router = useRouter();
 
   const resizeFile = (file) =>
     new Promise((resolve) => {
@@ -83,11 +87,23 @@ const Form = (props) => {
         // }
         return errors;
       }}
-      onSubmit={(values, { setSubmitting }) => {
-        setTimeout(() => {
-          alert(JSON.stringify(values, null, 2));
+      onSubmit={async (values, { setSubmitting }) => {
+        // const { title, description, price, period, units, conditions, pledge, deposit } = values;
+        // from states : files , city
+
+        const response = await axios.post("/api/post-prokat", {
+          payload: {
+            ...values,
+            city,
+            files: state.files,
+            dateCreated: new Date().toISOString().split("T")[0],
+          },
+        });
+
+        if (response.status === 200) {
           setSubmitting(false);
-        }, 400);
+          setTimeout(() => router.push(`/prokat/${response.data}`), 1000);
+        }
       }}
     >
       {({
