@@ -14,7 +14,12 @@ export default async function getData(collection, query = {}) {
     .project({ _id: 0 })
     .toArray();
 
+<<<<<<< Updated upstream
   client.close();
+=======
+  // since Next Triggers this concurrently I need to find a way to close the connection only when it is not in use by other processes
+  // await client.close();
+>>>>>>> Stashed changes
 
   return data;
 }

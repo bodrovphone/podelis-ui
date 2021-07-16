@@ -6,7 +6,8 @@
     "dev": "next dev",
     "build": "next build",
     "start": "next start",
-    "deploy": "nvm use && serverless"
+    "deploy": "nvm use && serverless",
+    "test": "jest"
   },
   "dependencies": {
     "classnames": "2.3.1",
@@ -14,6 +15,7 @@
     "mongodb": "^3.6.9",
     "next": "10.0.2",
     "next-compose-plugins": "2.2.1",
+    "next-page-tester": "^0.27.0",
     "node-fetch": "2.6.1",
     "prop-types": "15.7.2",
     "react": "17.0.2",
@@ -33,6 +35,11 @@
     "typed.js": "2.0.12"
   },
   "devDependencies": {
-    "babel-plugin-styled-components": "1.12.0"
+    "@testing-library/jest-dom": "^5.14.1",
+    "@testing-library/react": "^12.0.0",
+    "babel-jest": "^27.0.6",
+    "babel-plugin-styled-components": "1.12.0",
+    "jest": "^27.0.6",
+    "jest-canvas-mock": "^2.3.1"
   }
 }
