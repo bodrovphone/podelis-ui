@@ -7,7 +7,7 @@
     "build": "next build",
     "start": "next start",
     "deploy": "nvm use && serverless",
-    "test": "jest"
+    "test": "jest --watch"
   },
   "dependencies": {
     "classnames": "2.3.1",
@@ -15,7 +15,6 @@
     "mongodb": "^3.6.9",
     "next": "10.0.2",
     "next-compose-plugins": "2.2.1",
-    "next-page-tester": "^0.27.0",
     "node-fetch": "2.6.1",
     "prop-types": "15.7.2",
     "react": "17.0.2",
@@ -40,6 +39,23 @@
     "babel-jest": "^27.0.6",
     "babel-plugin-styled-components": "1.12.0",
     "jest": "^27.0.6",
-    "jest-canvas-mock": "^2.3.1"
-  }
+    "jest-canvas-mock": "^2.3.1",
+    "next-page-tester": "^0.27.0"
+  },
+  "jest": {"testEnvironment": "jsdom",
+  "setupFilesAfterEnv": ["./__tests__/config/jest.setup.js"],
+  "setupFiles": ["jest-canvas-mock"],
+  "collectCoverageFrom": [
+    "**/*.{js,jsx,ts,tsx}",
+    "!**/*.d.ts",
+    "!**/node_modules/**"
+  ],
+  "testPathIgnorePatterns": ["/node_modules/", "/.next/", "/__tests__/config/"],
+  "transformIgnorePatterns": [
+    "/node_modules/",
+    "^.+\\.module\\.(css|sass|scss)$"
+  ],
+  "moduleNameMapper": {
+    "^.+\\.module\\.(css|sass|scss)$": "identity-obj-proxy"
+  }}
 }

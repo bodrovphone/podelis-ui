@@ -3,7 +3,7 @@ import "@testing-library/jest-dom/extend-expect";
 // Using render and screen from test-utils.js instead of
 // @testing-library/react
 
-import { render, screen } from "../test-utils";
+import { render, screen } from "../config/test-utils";
 import AboutZadelis from "../../components/aboutZadelis";
 
 describe("AboutZadelis", () => {
