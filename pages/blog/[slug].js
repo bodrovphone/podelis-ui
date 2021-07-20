@@ -1,6 +1,6 @@
 import LT from "../../components/layouts";
 import Footer from "../../components/footer";
-import getData from "../../db";
+import { getData } from "../../db";
 import RenderBlog from "../../components/blog";
 
 function Blog(props) {
