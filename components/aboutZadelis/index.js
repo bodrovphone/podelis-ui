@@ -3,8 +3,8 @@ import ST from "./styles";
 import Logo from "../logo";
 import Image from "next/image";
 
-const AboutZadelis = () => (
-  <ST.About>
+const AboutZadelis = (props) => (
+  <ST.About {...props}>
     <Logo />
     <ST.Content>
       Zadils - Простой и удобный шаринг-сервис.

@@ -3,8 +3,8 @@ import ST from "./styles";
 import { translate } from "../../localization/categories";
 import GifPlayer from "../gifPlayer";
 
-const CategoriesWidget = ({ categories }) => (
-  <ST.Categories>
+const CategoriesWidget = ({ categories, ...props }) => (
+  <ST.Categories {...props}>
     <ST.Mask>
       {categories.map((cat, index) => (
         <ST.Image key={index}>

@@ -5,7 +5,7 @@ import LT from "../layouts";
 import ReactTooltip from "react-tooltip";
 import Link from "next/link";
 
-const SearchBar = () => {
+const SearchBar = (props) => {
   const searchInput = useRef(null);
   //  I need second useEffect becase it runs only once
   useEffect(() => {
@@ -36,7 +36,7 @@ const SearchBar = () => {
   }, []);
 
   return (
-    <ST.InputWrapper>
+    <ST.InputWrapper {...props}>
       <ST.Input
         ref={searchInput}
         type="text"
@@ -46,7 +46,7 @@ const SearchBar = () => {
 
       <LT.Button type="button">
         <span>
-          <Link href="search">
+          <Link href="/search">
             <a>Поиск</a>
           </Link>
           <i>&gt;&gt;</i>

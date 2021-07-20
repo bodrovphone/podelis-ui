@@ -1,22 +1,32 @@
 import React from "react";
 import "@testing-library/jest-dom/extend-expect";
-// Using render and screen from test-utils.js instead of
-// @testing-library/react
 
-import { render, screen } from "../config/test-utils";
+import { render } from "../config/test-utils";
 import AboutZadelis from "../../components/aboutZadelis";
 
 describe("AboutZadelis", () => {
-  it("should render AboutZadelis", () => {
-    render(<AboutZadelis />);
+  it("should render logo", () => {
+    const { getByText } = render(<AboutZadelis />);
 
-    const heading = screen.getByText(
-      /Zadils - Простой и удобный шаринг-сервис\./i
-    );
+    const logo = getByText("Z", { exact: true });
 
-    // we can only use toBeInTheDocument because it was imported
-    // in the jest.setup.js and configured in jest.config.js
-    expect(heading).toMatchSnapshot();
-    // .toBeInTheDocument();
+    expect(logo).toBeInTheDocument();
+  });
+
+  it("should render slogan", () => {
+    const { getByText } = render(<AboutZadelis />);
+
+    const slogan = getByText(/Zadils - Простой и удобный шаринг-сервис\./i);
+
+    expect(slogan).toMatchSnapshot();
+  });
+
+  it("should render 3 social media logos", () => {
+    const { container } = render(<AboutZadelis />);
+
+    // the reason of this weird selector is that next Image component duplicates them for optimization purpose.
+    const logos = container.querySelectorAll("img:not([aria-hidden])");
+
+    expect(logos.length).toBe(3);
   });
 });

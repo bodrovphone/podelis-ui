@@ -3,7 +3,7 @@ import ST from "./styles";
 import Image from "next/image";
 
 const GetSocial = (props) => (
-  <ST.Wrapper>
+  <ST.Wrapper {...props}>
     <Image
       src="/img/getSocial/getSocial-bycicle.jpg"
       alt="picture of bycicle"

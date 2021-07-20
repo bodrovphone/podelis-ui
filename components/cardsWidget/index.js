@@ -5,11 +5,12 @@ import SingleCard from "../singleCard";
 // when we have it on backend
 import defaultTopPosts from "./defaultTopPosts";
 
-const CardsWidget = (props) => {
+const CardsWidget = ({ own, ...props }) => {
   const [posts, setPosts] = useState(defaultTopPosts);
 
   useEffect(() => {
-    if (props.own) {
+    // what the hell is this?
+    if (own) {
       return {};
     }
     fetch("https://jsonplaceholder.typicode.com/posts")
@@ -34,7 +35,7 @@ const CardsWidget = (props) => {
       .catch((error) => console.log(error));
   }, []);
 
-  return <ST.Cards>{[...posts]}</ST.Cards>;
+  return <ST.Cards {...props}>{[...posts]}</ST.Cards>;
 };
 
 export default CardsWidget;
