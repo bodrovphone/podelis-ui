@@ -25,7 +25,7 @@ const Description = (props) => (
   <ST.Description {...props}>{props.children}</ST.Description>
 );
 
-const Button = (props) => <ST.Button>{props.children}</ST.Button>;
+const Button = (props) => <ST.Button {...props}>{props.children}</ST.Button>;
 
 const Centered = ({ children }) => <ST.Centered>{children}</ST.Centered>;
 

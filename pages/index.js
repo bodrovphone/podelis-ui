@@ -11,9 +11,14 @@ export default function Home(props) {
   return (
     <LT.Layout>
       <LT.Main>
-        <LT.H1 name="Zadelis" slogan="На прокат бери - деньги береги." />
+        <LT.H1
+          data-testid="H1"
+          name="Zadelis"
+          slogan="На прокат бери - деньги береги."
+        />
 
         <CategoriesWidget
+          data-testid="cat-widget"
           categories={[
             "clothes",
             "tools",
@@ -45,10 +50,10 @@ export default function Home(props) {
           я уже начал думать, неплохо
         </p>
 
-        <SearchBar />
+        <SearchBar data-testid="searchbar" />
 
-        <CardsWidget {...props} posts={[1, 2, 3]} />
-        <LoadMore />
+        <CardsWidget {...props} posts={[1, 2, 3]} data-testid="cardsWidget" />
+        <LoadMore data-testid="loadMore" />
         <div>
           Lorem Ipsum is simply dummy text of the printing and typesetting
           industry. Lorem Ipsum has been the industry's standard dummy text ever
@@ -62,9 +67,9 @@ export default function Home(props) {
         </div>
       </LT.Main>
 
-      <AboutZadelis />
+      <AboutZadelis data-testid="aboutZadelis" />
 
-      <GetSocial />
+      <GetSocial data-testid="getSocial" />
 
       <LT.Centered>
         <LT.Description>

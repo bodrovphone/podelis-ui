@@ -3,7 +3,7 @@ import { ThemeProvider } from "styled-components";
 import themes from "../components/styles/theme";
 import { SideBarProvider } from "../context/sideBar.context";
 import { ThemeSwitcherProvider } from "../context/themeSwitcher.context";
-import "react-image-gallery/styles/css/image-gallery.css";
+// import "react-image-gallery/styles/css/image-gallery.css";
 
 const Zadelis = ({ Component, pageProps }) => {
   const [userTheme, toggleTheme] = useState(

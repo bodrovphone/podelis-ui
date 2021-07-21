@@ -3,8 +3,8 @@ import ST from "./styles";
 import LT from "../layouts";
 import Link from "next/link";
 
-const LoadMore = ({ href = "test" }) => (
-  <ST.LoadMore>
+const LoadMore = ({ href = "/test", ...props }) => (
+  <ST.LoadMore {...props}>
     <LT.Button>
       <span>
         <Link href={href}>

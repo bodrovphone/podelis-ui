@@ -20,8 +20,6 @@ export async function getData(collection, query = {}) {
     .project({ _id: 0 })
     .toArray();
 
-  // await client.close();
-
   return data;
 }
 

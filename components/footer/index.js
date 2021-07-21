@@ -5,7 +5,7 @@ import { Envelope } from "react-bootstrap-icons";
 import Image from "next/image";
 
 const Footer = () => (
-  <ST.Footer>
+  <ST.Footer data-testid="footer">
     <ST.Grid>
       <ST.GridBlock>
         <ST.GridItem>Владельцам</ST.GridItem>
