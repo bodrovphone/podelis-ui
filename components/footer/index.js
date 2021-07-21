@@ -11,13 +11,13 @@ const Footer = () => (
         <ST.GridItem>Владельцам</ST.GridItem>
         <GridItem href="/about">Почему Zadelis?</GridItem>
         <GridItem href="/blog/make-money">Делай деньги</GridItem>
-        <GridItem href="/security-owner">Безопасность</GridItem>
+        <GridItem href="/blog/go-for-it">Вперед за сокровищами</GridItem>
+        <GridItem href="/blog/security-owner">Безопасность</GridItem>
       </ST.GridBlock>
       <ST.GridBlock>
         <ST.GridItem>Арендателям</ST.GridItem>
         <GridItem href="/about">Почему Zadelis?</GridItem>
         <GridItem href="/blog/seek-find">Ищем и находим</GridItem>
-        <GridItem href="/blog/go-for-it">Вперед за сокровищами</GridItem>
         <GridItem href="/blog/security-sharer">Безопасность</GridItem>
       </ST.GridBlock>
       <ST.GridBlock>
