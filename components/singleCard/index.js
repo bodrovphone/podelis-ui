@@ -39,7 +39,7 @@ const SingleCard = ({ id, imageSrc, title, details }) => {
         <a>
           <ST.CardImage>
             <Image
-              src="/img/sample_product_image.webp"
+              src={imageSrc || "/img/no_image.png"}
               width="100%"
               height="100%"
               layout="responsive"

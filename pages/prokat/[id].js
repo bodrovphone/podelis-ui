@@ -1,4 +1,4 @@
-import { useRouter } from "next/router";
+import { useEffect, useState } from "react";
 import Image from "next/image";
 
 import LT from "../../components/layouts";
@@ -11,33 +11,42 @@ import ST from "../../components/prokatDetails/styles";
 import ST_ from "../../components/singleCard/styles";
 import ProkatTitle from "../../components/prokatTitle";
 
-const Prokat = (props) => {
-  const router = useRouter();
-  const { id } = router.query;
-  console.log("date from props: ", props.date);
-  console.log("id from router: ", id);
+import { getData } from "../../db";
+import { ObjectID } from "mongodb";
 
-  // this will run if used altogether with getStaticPaths + getStaticProps
-  // if (router.isFallback) {
-  //   return <div>Загружаю...</div>
-  // }
+const Prokat = (props) => {
+  // const router = useRouter();
+  // const { id } = router.query;
+
+  // Add fallback component here
+  if (!props.prokat || props.error) {
+    return <span>Fallback Component Goes here</span>;
+  }
+
+  const { prokat } = props;
+  const { title, description, files } = prokat;
 
   return (
     <LT.Layout>
       <LT.Main>
         <LT.H1 name="Zadelis" slogan="На прокат бери - деньги береги."></LT.H1>
         <LT.TwoColumnsDesktop>
-          <ProkatGallery />
+          <ProkatGallery
+            images={files.map((file) => ({
+              original: file,
+              thumbnail: file,
+            }))}
+          />
           <ST_.Section>
-            <ProkatTitle title="Проектор XIAOMI Mi Smart mini Projector" />
+            <ProkatTitle title={title} />
             <LT.TwoColumns>
               <div>
-                <ProkatDetails price="300грн/день" location="Днепр" />
+                <ProkatDetails {...prokat} />
               </div>
-              <Profile name="Вася" rating={3.9} />
+              <Profile _id="60fc8a4ddcff9692f32534dc" />
             </LT.TwoColumns>
 
-            <ProkatDescription description="Прекрасный проектор для просмотра фильмов с друзъями. Предлогаем разные модели. Простой в управлении. 4k качество ктор для просмотра фильмов с друзъями. Предлогактор для просмотра фильмов с друзъями. Прекрасный проектор для просмотра фильмов с друзъями. Предлогаем разные модели. Простой в управлении. 4k качество ктор для просмотра фильмов с друзъями. Предлогактор для просмотра фильмов с друзъями." />
+            <ProkatDescription description={description} />
 
             <ST.ContactOwnerWrapper>
               <Image src="/img/chat.png" width={75} height={75} />
@@ -63,28 +72,32 @@ const Prokat = (props) => {
   );
 };
 
-// export async function getStaticPaths() {
-//   return {
-//     paths:
-//       [
-//         { params: { id: '90' } },
-//         { params: { id: '91' } },
-//         { params: { id: '92' } }
-//     ],
-//     fallback: true,
-//   }
-// }
-
-// export async function getStaticProps({ params }) {
-//   return {
-//     props: { prokat: params.id || 'test' }
-//   }
-// }
-
-export async function getServerSideProps(context) {
+export async function getStaticPaths() {
+  const prokats = await getData("prokats", {}, true);
+  const prokatRoutes = prokats.map((prokat) => ({
+    params: { id: prokat._id.toString() },
+  }));
   return {
-    props: { date: new Date().toISOString() },
+    paths: prokatRoutes,
+    fallback: true,
   };
+}
+
+export async function getStaticProps({ params }) {
+  try {
+    const prokatArray = await getData("prokats", { _id: ObjectID(params.id) });
+    const prokat = prokatArray[0];
+    prokat.id = prokat._id.toString();
+    delete prokat._id;
+
+    return {
+      props: { prokat },
+    };
+  } catch (error) {
+    return {
+      props: { error: true },
+    };
+  }
 }
 
 export default Prokat;
