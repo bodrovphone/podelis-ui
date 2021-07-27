@@ -7,6 +7,8 @@ import LoadMore from "../components/loadMore";
 import Footer from "../components/footer";
 import GetSocial from "../components/getSocial";
 
+import { getData } from "../db";
+
 export default function Home(props) {
   return (
     <LT.Layout>
@@ -52,7 +54,7 @@ export default function Home(props) {
 
         <SearchBar data-testid="searchbar" />
 
-        <CardsWidget {...props} posts={[1, 2, 3]} data-testid="cardsWidget" />
+        <CardsWidget {...props} data-testid="cardsWidget" />
         <LoadMore data-testid="loadMore" />
         <div>
           Lorem Ipsum is simply dummy text of the printing and typesetting
@@ -87,4 +89,20 @@ export default function Home(props) {
       <Footer />
     </LT.Layout>
   );
+}
+
+export async function getStaticProps() {
+  try {
+    const prokats = await getData("prokats");
+    // a good candidate for helper function
+    prokats.forEach((p) => (p._id = p._id.toString()));
+
+    return {
+      props: { prokats },
+    };
+  } catch (error) {
+    return {
+      props: { error: true },
+    };
+  }
 }

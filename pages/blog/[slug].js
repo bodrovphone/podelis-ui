@@ -19,6 +19,9 @@ function Blog(props) {
 
 export async function getStaticProps({ params }) {
   let data = await getData("blog", { slug: params.slug });
+  data.forEach((item) => {
+    delete item._id;
+  });
   return {
     props: {
       data: data[0],

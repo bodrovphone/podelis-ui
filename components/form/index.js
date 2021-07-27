@@ -52,7 +52,7 @@ const Form = (props) => {
             error = "Загрузить можно до 10 фотографий";
           }
           return {
-            files: [...prevState.files, image],
+            files: [...prevState.files, reader.result],
             imagePreviewUrls: [...prevState.imagePreviewUrls, image],
             error,
           };
@@ -91,7 +91,7 @@ const Form = (props) => {
         // const { title, description, price, period, units, conditions, pledge, deposit } = values;
         // from states : files , city
 
-        const response = await axios.post("/api/post-prokat", {
+        const response = await axios.post("/api/postProkat", {
           payload: {
             ...values,
             city,
