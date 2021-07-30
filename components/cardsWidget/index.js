@@ -4,7 +4,7 @@ import SingleCard from "../singleCard";
 // defaultTopPosts will be replaced with getStaticProps and fetch to API during build time
 // when we have it on backend
 
-const CardsWidget = ({ prokats }) => {
+const CardsWidget = ({ prokats, ...props }) => {
   //   {
   //     "_id" : "60e434c26aae48c2dbb9c55b",
   //     "title" : "Рука Лицо",
@@ -25,7 +25,7 @@ const CardsWidget = ({ prokats }) => {
 
   if (prokats) {
     return (
-      <ST.Cards>
+      <ST.Cards {...props}>
         {prokats.map(({ title, description, files = [], _id }) => (
           <SingleCard
             title={title}

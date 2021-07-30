@@ -1,38 +1,51 @@
 import React from "react";
 import SingleCard from "../singleCard";
 
+// {
+//     "_id" : "60e434c26aae48c2dbb9c55b",
+//     "title" : "Рука Лицо",
+//     "description" : "Отличное лица да и рука тоже сойдет.",
+//     "price" : 500,
+//     "period" : 4,
+//     "units" : false,
+//     "conditions" : [
+//         "deposit"
+//     ],
+//     "deposit" : 5000,
+//     "pledge" : "",
+//     "city" : "Днипро",
+//     "files" : ["data:url"
+//     ],
+//     "dateCreated" : "2021-07-06"
+// }
+
 const defaultTopPosts = [
-  <SingleCard
-    title="Проектор Xiomi"
-    description="Прекрасный проектор для просмотра фильмов с друзъями. Предлогаем разные модели. Простой в управлении. 4k качество..."
-    imageSrc="https://images.ua.prom.st/2139978779_w640_h640_proektor-xiaomi-mi.jpg"
-    id="fdsfks9werksdf"
-    key={"props.posts[0]"}
-  />,
-
-  <SingleCard
-    title="Проектор Xiomi sdfsdfpwj efpwiejf wfjw р Xiomi sdfsdf pwjefpw iejf w"
-    description="Прекрасный проектор для просмотра фильмов с друзъями. Предлогаем разные модели. Простой в управлении. 4k качество ктор для просмотра фильмов с друзъями. Предлогактор для просмотра фильмов с друзъями. Предлога"
-    imageSrc="https://images.ua.prom.st/2139978779_w640_h640_proektor-xiaomi-mi.jpg"
-    id="fdsfks9werksdf"
-    key={"props.posts[1]"}
-  />,
-
-  <SingleCard
-    title="Проектор Xiomi sdfsdfpwj efpwiejf wfjw р Xiomi sdfsdf pwj iejf wfjw р Xiomi sdfsdf pwj efpw iejf w"
-    description="Прекрасный проектор для просмотра фильмов с друзъями. Предлогаем разные модели. Простой в управлении. 4k качество..."
-    imageSrc="https://images.ua.prom.st/2139978779_w640_h640_proektor-xiaomi-mi.jpg"
-    id="fdsfks9werksdf"
-    key={"props.posts[2]"}
-  />,
-
-  <SingleCard
-    title="Проектор Xiomi"
-    description="Прекрасный проектор для просмотра фильмов с друзъями. Предлогаем разные модели. Простой в управлении. 4k качество..."
-    imageSrc="https://images.ua.prom.st/2139978779_w640_h640_proektor-xiaomi-mi.jpg"
-    id="fdsfks9werksdf"
-    key={"props.posts[3]"}
-  />,
+  {
+    title: "Проектор Xiomi",
+    description:
+      "Прекрасный проектор для просмотра фильмов с друзъями. Предлогаем разные модели. Простой в управлении. 4k качество...",
+    price: 500,
+    period: 4,
+    units: false,
+    conditions: ["deposit"],
+    pledge: "",
+    city: "Днепр",
+    files: ["/img/no_photo.png"],
+    _id: "60e434c26aae48c2dbb9c55b",
+  },
+  {
+    title: "Проектор Xiomi",
+    description:
+      "Прекрасный проектор для просмотра фильмов с друзъями. Предлогаем разные модели. Простой в управлении. 4k качество...",
+    price: 500,
+    period: 4,
+    units: false,
+    conditions: ["deposit"],
+    pledge: "",
+    city: "Днепр",
+    files: ["/img/no_photo.png"],
+    _id: "60e434c26aae48c2dbb9c55b",
+  },
 ];
 
 export default defaultTopPosts;
