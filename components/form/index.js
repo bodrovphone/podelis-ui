@@ -1,19 +1,53 @@
 import { Formik, Field } from "formik";
-import { useState } from "react";
+import { useReducer } from "react";
 import Resizer from "react-image-file-resizer";
 import { Images, ChevronDoubleRight } from "react-bootstrap-icons";
 import ST from "./styles";
 import axios from "axios";
 import { useRouter } from "next/router";
 
+const reducer = (state, { type, payload }) => {
+  // with slice(-2) I am limiting the number of images to be there up to 3
+  // with filter I am excluding duplicates
+  if (type === "ADD_IMAGE") {
+    return {
+      ...state,
+      images: [
+        ...state.images.filter((img) => img !== payload).slice(-2),
+        payload,
+      ],
+    };
+  }
+  if (type === "IMAGE_ERROR") {
+    return {
+      ...state,
+      error: payload,
+    };
+  }
+  if (type === "IMAGE_WARNING") {
+    return {
+      ...state,
+      warning: payload,
+    };
+  }
+  if (type === "UPDATE_CITY") {
+    return {
+      ...state,
+      city: payload,
+    };
+  }
+  return state;
+};
+
 const Form = (props) => {
-  const [state, setState] = useState({
-    files: [],
-    imagePreviewUrls: [],
+  const [state, dispatch] = useReducer(reducer, {
+    images: [],
     error: "",
+    warning: "",
+    city: "",
   });
 
-  const [city, setCity] = useState("");
+  const { images, error, warning, city } = state;
 
   const router = useRouter();
 
@@ -21,10 +55,10 @@ const Form = (props) => {
     new Promise((resolve) => {
       Resizer.imageFileResizer(
         file,
-        300,
-        300,
-        "JPEG",
-        100,
+        450,
+        450,
+        "PNG",
+        70,
         0,
         (uri) => {
           resolve(uri);
@@ -38,25 +72,25 @@ const Form = (props) => {
     // https://stackoverflow.com/questions/13975031/reading-multiple-files-with-javascript-filereader-api-one-at-a-time
 
     const files = e.currentTarget.files;
+
+    if (files.length > 3) {
+      dispatch({ type: "IMAGE_ERROR", payload: "Максимум фоток - 3 штуки..." });
+    }
+
     Object.keys(files).forEach(async (i) => {
       const file = files[i];
       const reader = new FileReader();
       // Resizing image and filling state
       const image = await resizeFile(file);
       reader.onloadend = (e) => {
-        setState((prevState) => {
-          let error;
-          if (prevState.files.length > 9) {
-            prevState.files.length = 9;
-            prevState.imagePreviewUrls.length = 9;
-            error = "Загрузить можно до 10 фотографий";
-          }
-          return {
-            files: [...prevState.files, reader.result],
-            imagePreviewUrls: [...prevState.imagePreviewUrls, image],
-            error,
-          };
-        });
+        if (images.length === 3) {
+          dispatch({
+            type: "IMAGE_WARNING",
+            payload: "Удаляю избыток фоток...",
+          });
+        }
+
+        dispatch({ type: "ADD_IMAGE", payload: image });
 
         // I will want to push the image to cloudFront through RestFul API request somewhere in this place
       };
@@ -94,8 +128,8 @@ const Form = (props) => {
         const response = await axios.post("/api/postProkat", {
           payload: {
             ...values,
-            city,
-            files: state.files,
+            city: city,
+            files: images,
             dateCreated: new Date().toISOString().split("T")[0],
           },
         });
@@ -131,8 +165,8 @@ const Form = (props) => {
             />
           </ST.Label>
           <ST.PeriodWrapper>
-            {state.imagePreviewUrls &&
-              state.imagePreviewUrls.map((preview, i) => (
+            {images &&
+              images.map((preview, i) => (
                 <ST.AdPreview key={i} src={preview} />
               ))}
           </ST.PeriodWrapper>
@@ -169,12 +203,13 @@ const Form = (props) => {
                     0,
                     formatted_address.indexOf(",")
                   );
-                cityFromAddress && setCity(cityFromAddress);
+                cityFromAddress &&
+                  dispatch({ type: "UPDATE_CITY", payload: cityFromAddress });
               }}
               value={city}
               language="ru"
-              onChange={(e) => {
-                setCity(e.currentTarget.value);
+              onChange={({ currentTarget }) => {
+                dispatch({ type: "UPDATE_CITY", payload: currentTarget.value });
               }}
             />
           </ST.Label>
@@ -267,7 +302,7 @@ const Form = (props) => {
               />
             </ST.Label>
           )}
-          {state.error}
+          {error}
           {errors.title && touched.title && errors.title}
           <ST.ButtonSubmit type="submit" disabled={isSubmitting}>
             Отправить
