@@ -6,48 +6,64 @@ import ST from "./styles";
 import axios from "axios";
 import { useRouter } from "next/router";
 
+const actions = {
+  ADD_IMAGE: "ADD_IMAGE",
+  IMAGE_ERROR: "IMAGE_ERROR",
+  IMAGE_WARNING: "IMAGE_WARNING",
+  UPDATE_CITY: "UPDATE_CITY",
+  FORM_SUBMITTED: "FORM_SUBMITTED",
+};
+
 const reducer = (state, { type, payload }) => {
   // with slice(-2) I am limiting the number of images to be there up to 3
   // with filter I am excluding duplicates
-  if (type === "ADD_IMAGE") {
+  if (type === actions.ADD_IMAGE) {
     return {
       ...state,
       images: [
-        ...state.images.filter((img) => img !== payload).slice(-2),
+        ...state.images.filter((img) => img !== payload).slice(-4),
         payload,
       ],
     };
   }
-  if (type === "IMAGE_ERROR") {
+  if (type === actions.IMAGE_ERROR) {
     return {
       ...state,
       error: payload,
     };
   }
-  if (type === "IMAGE_WARNING") {
+  if (type === actions.IMAGE_WARNING) {
     return {
       ...state,
       warning: payload,
     };
   }
-  if (type === "UPDATE_CITY") {
+  if (type === actions.UPDATE_CITY) {
     return {
       ...state,
       city: payload,
+    };
+  }
+  if (type === actions.FORM_SUBMITTED) {
+    return {
+      ...state,
+      submitted: true,
     };
   }
   return state;
 };
 
 const Form = (props) => {
+  // later on you would want to provide city as the default value from user personal data (a potential useMemo use?)
   const [state, dispatch] = useReducer(reducer, {
     images: [],
     error: "",
     warning: "",
     city: "",
+    submitted: false,
   });
 
-  const { images, error, warning, city } = state;
+  const { images, error, warning, city, submitted } = state;
 
   const router = useRouter();
 
@@ -58,7 +74,7 @@ const Form = (props) => {
         450,
         450,
         "PNG",
-        70,
+        100,
         0,
         (uri) => {
           resolve(uri);
@@ -66,6 +82,7 @@ const Form = (props) => {
         "base64"
       );
     });
+
   const handleImageChange = (e) => {
     e.preventDefault();
 
@@ -73,29 +90,41 @@ const Form = (props) => {
 
     const files = e.currentTarget.files;
 
-    if (files.length > 3) {
-      dispatch({ type: "IMAGE_ERROR", payload: "Максимум фоток - 3 штуки..." });
+    if (files.length > 5) {
+      dispatch({
+        type: actions.IMAGE_ERROR,
+        payload: "Лимит фото - 5 штук",
+      });
     }
+
+    // Resizing image and filling state
 
     Object.keys(files).forEach(async (i) => {
       const file = files[i];
       const reader = new FileReader();
-      // Resizing image and filling state
       const image = await resizeFile(file);
-      reader.onloadend = (e) => {
-        if (images.length === 3) {
+      reader.onloadend = () => {
+        if (images.length === 5) {
           dispatch({
-            type: "IMAGE_WARNING",
-            payload: "Удаляю избыток фоток...",
+            type: actions.IMAGE_WARNING,
+            payload: "Удаляю избыток фото...",
           });
         }
 
-        dispatch({ type: "ADD_IMAGE", payload: image });
+        dispatch({ type: actions.ADD_IMAGE, payload: image });
 
-        // I will want to push the image to cloudFront through RestFul API request somewhere in this place
+        // I will want to push the image to S3 through RestFul API request somewhere in this place
       };
       reader.readAsDataURL(file);
     });
+  };
+
+  const citySelectHandler = ({ formatted_address }) => {
+    const cityFromAddress =
+      formatted_address &&
+      formatted_address.substring(0, formatted_address.indexOf(","));
+    cityFromAddress &&
+      dispatch({ type: "UPDATE_CITY", payload: cityFromAddress });
   };
 
   return (
@@ -112,19 +141,17 @@ const Form = (props) => {
       }}
       validate={(values) => {
         const errors = {};
-        // if (!values.email) {
-        //   errors.email = "Required";
-        // } else if (
-        //   !/^[A-Z0-9._%+-]+@[A-Z0-9.-]+\.[A-Z]{2,}$/i.test(values.email)
-        // ) {
-        //   errors.email = "Invalid email address";
-        // }
+        if (!values.title) {
+          errors.title = "Обязательно для заполнения";
+        }
+        // obviously I can do that check dynamic
+        if (!values.description) {
+          errors.description = "Обязательно для заполнения";
+        }
         return errors;
       }}
       onSubmit={async (values, { setSubmitting }) => {
-        // const { title, description, price, period, units, conditions, pledge, deposit } = values;
-        // from states : files , city
-
+        // from states : images , city
         const response = await axios.post("/api/postProkat", {
           payload: {
             ...values,
@@ -135,8 +162,9 @@ const Form = (props) => {
         });
 
         if (response.status === 200) {
-          setSubmitting(false);
-          setTimeout(() => router.push(`/prokat/${response.data}`), 1000);
+          // ther is a bug in formik which is reproducible for me : https://github.com/formium/formik/issues/1957
+          dispatch({ type: actions.FORM_SUBMITTED });
+          router.push(`/prokat/${response.data}`);
         }
       }}
     >
@@ -148,168 +176,164 @@ const Form = (props) => {
         handleBlur,
         handleSubmit,
         isSubmitting,
-        /* and other goodies */
-      }) => (
-        <ST.Form onSubmit={handleSubmit}>
-          <ST.Label>
-            <ST.ButtonPhoto>
-              фото
-              <Images size="24" color="black" />
-            </ST.ButtonPhoto>
-            <input
-              type="file"
-              name="photo"
-              multiple
-              onChange={handleImageChange}
-              accept="image/*"
-            />
-          </ST.Label>
-          <ST.PeriodWrapper>
-            {images &&
-              images.map((preview, i) => (
-                <ST.AdPreview key={i} src={preview} />
-              ))}
-          </ST.PeriodWrapper>
-          <ST.Label>
-            Название
-            <ST.Input
-              type="text"
-              placeholder="Буровая установка"
-              name="title"
-              onChange={handleChange}
-              onBlur={handleBlur}
-              value={values.title}
-            />
-          </ST.Label>
-          <ST.Label>
-            Описание
-            <ST.TextArea
-              type="text"
-              placeholder="Буровая установка"
-              name="description"
-              onChange={handleChange}
-              onBlur={handleBlur}
-              value={values.description}
-            />
-          </ST.Label>
-          <ST.Label>
-            Город
-            <ST.Location
-              apiKey={process.env.NEXT_PUBLIC_GOOGLE_API_KEY}
-              onPlaceSelected={({ formatted_address }) => {
-                const cityFromAddress =
-                  formatted_address &&
-                  formatted_address.substring(
-                    0,
-                    formatted_address.indexOf(",")
-                  );
-                cityFromAddress &&
-                  dispatch({ type: "UPDATE_CITY", payload: cityFromAddress });
-              }}
-              value={city}
-              language="ru"
-              onChange={({ currentTarget }) => {
-                dispatch({ type: "UPDATE_CITY", payload: currentTarget.value });
-              }}
-            />
-          </ST.Label>
-          <ST.Label>
-            Цена
-            <ST.Input
-              type="number"
-              name="price"
-              placeholder="0"
-              onChange={handleChange}
-              onBlur={handleBlur}
-              value={values.price}
-            />
-          </ST.Label>
-          <ST.PeriodWrapper>
-            <ST.LabelPeriod>
-              Период
-              <ST.InputPeriod
-                type="number"
-                name="period"
-                onChange={handleChange}
-                onBlur={handleBlur}
-                value={values.period}
-              />
-              <ST.InputRange
-                type="range"
-                min="1"
-                max={values.units ? "30" : "24"}
-                name="period"
-                onChange={handleChange}
-                onBlur={handleBlur}
-                value={values.period}
-              />
-            </ST.LabelPeriod>
-            <ST.CheckboxWrapper>
-              {values.units ? "дни" : "часы"}
-              <ST.CheckBoxLabel>
-                <input
-                  type="checkbox"
-                  name="units"
-                  onChange={handleChange}
-                  checked={values.units}
-                />
-                <span />
-              </ST.CheckBoxLabel>
-            </ST.CheckboxWrapper>
-          </ST.PeriodWrapper>
-
-          <ST.ConditionsLabel>
-            <ST.CheckBoxLabel color="#05668d">
-              <Field type="checkbox" name="conditions" value="deposit" />
-              <span />
-              Залог
-            </ST.CheckBoxLabel>
-
-            <ST.CheckBoxLabel color="#f7d6e0">
-              <Field type="checkbox" name="conditions" value="terms" />
-              <span />
-              Договор
-            </ST.CheckBoxLabel>
-            <ST.CheckBoxLabel color="#faf3dd">
-              <Field type="checkbox" name="conditions" value="pledge" />
-              <span />
-              Другое
-            </ST.CheckBoxLabel>
-          </ST.ConditionsLabel>
-          {values.conditions.includes("deposit") && (
+      }) => {
+        return isSubmitting || submitted ? (
+          <span>Отправляю данные...</span>
+        ) : (
+          <ST.Form onSubmit={handleSubmit}>
             <ST.Label>
-              Залог (грн)
-              <ST.Input
-                type="number"
-                name="deposit"
-                placeholder="укажите сумму залога"
-                onChange={handleChange}
-                onBlur={handleBlur}
-                value={values.deposit}
+              <ST.ButtonPhoto>
+                фото
+                <Images size="24" color="black" />
+              </ST.ButtonPhoto>
+              <input
+                type="file"
+                name="photo"
+                multiple
+                onChange={handleImageChange}
+                accept="image/*"
               />
             </ST.Label>
-          )}
-          {values.conditions.includes("pledge") && (
+            <ST.PeriodWrapper>
+              {images &&
+                images.map((preview, i) => (
+                  <ST.AdPreview key={i} src={preview} />
+                ))}
+            </ST.PeriodWrapper>
             <ST.Label>
-              Укажите ваши условия
+              Название
+              {touched.title && errors.title}
               <ST.Input
                 type="text"
-                name="pledge"
-                placeholder="например: водительские права"
+                placeholder="Буровая установка"
+                name="title"
                 onChange={handleChange}
                 onBlur={handleBlur}
-                value={values.pledge}
+                value={values.title}
               />
             </ST.Label>
-          )}
-          {error}
-          {errors.title && touched.title && errors.title}
-          <ST.ButtonSubmit type="submit" disabled={isSubmitting}>
-            Отправить
-            <ChevronDoubleRight size={16} color="black" />
-          </ST.ButtonSubmit>
-        </ST.Form>
-      )}
+            <ST.Label>
+              Описание
+              <ST.TextArea
+                type="text"
+                placeholder="Буровая установка"
+                name="description"
+                onChange={handleChange}
+                onBlur={handleBlur}
+                value={values.description}
+              />
+            </ST.Label>
+            <ST.Label>
+              Город
+              <ST.Location
+                apiKey={process.env.NEXT_PUBLIC_GOOGLE_API_KEY}
+                onPlaceSelected={citySelectHandler}
+                value={city}
+                language="ru"
+                onChange={({ currentTarget }) => {
+                  dispatch({
+                    type: "UPDATE_CITY",
+                    payload: currentTarget.value,
+                  });
+                }}
+              />
+            </ST.Label>
+            <ST.Label>
+              Цена
+              <ST.Input
+                type="number"
+                name="price"
+                placeholder="0"
+                onChange={handleChange}
+                onBlur={handleBlur}
+                value={values.price}
+              />
+            </ST.Label>
+            <ST.PeriodWrapper>
+              <ST.LabelPeriod>
+                Период
+                <ST.InputPeriod
+                  type="number"
+                  name="period"
+                  onChange={handleChange}
+                  onBlur={handleBlur}
+                  value={values.period}
+                />
+                <ST.InputRange
+                  type="range"
+                  min="1"
+                  max={values.units ? "30" : "24"}
+                  name="period"
+                  onChange={handleChange}
+                  onBlur={handleBlur}
+                  value={values.period}
+                />
+              </ST.LabelPeriod>
+              <ST.CheckboxWrapper>
+                {values.units ? "дни" : "часы"}
+                <ST.CheckBoxLabel>
+                  <input
+                    type="checkbox"
+                    name="units"
+                    onChange={handleChange}
+                    checked={values.units}
+                  />
+                  <span />
+                </ST.CheckBoxLabel>
+              </ST.CheckboxWrapper>
+            </ST.PeriodWrapper>
+
+            <ST.ConditionsLabel>
+              <ST.CheckBoxLabel color="#05668d">
+                <Field type="checkbox" name="conditions" value="deposit" />
+                <span />
+                Залог
+              </ST.CheckBoxLabel>
+
+              <ST.CheckBoxLabel color="#f7d6e0">
+                <Field type="checkbox" name="conditions" value="terms" />
+                <span />
+                Договор
+              </ST.CheckBoxLabel>
+              <ST.CheckBoxLabel color="#faf3dd">
+                <Field type="checkbox" name="conditions" value="pledge" />
+                <span />
+                Другое
+              </ST.CheckBoxLabel>
+            </ST.ConditionsLabel>
+            {values.conditions.includes("deposit") && (
+              <ST.Label>
+                Залог (грн)
+                <ST.Input
+                  type="number"
+                  name="deposit"
+                  placeholder="укажите сумму залога"
+                  onChange={handleChange}
+                  onBlur={handleBlur}
+                  value={values.deposit}
+                />
+              </ST.Label>
+            )}
+            {values.conditions.includes("pledge") && (
+              <ST.Label>
+                Укажите ваши условия
+                <ST.Input
+                  type="text"
+                  name="pledge"
+                  placeholder="например: водительские права"
+                  onChange={handleChange}
+                  onBlur={handleBlur}
+                  value={values.pledge}
+                />
+              </ST.Label>
+            )}
+            <ST.ButtonSubmit type="submit" disabled={isSubmitting}>
+              Отправить
+              <ChevronDoubleRight size={16} color="black" />
+            </ST.ButtonSubmit>
+          </ST.Form>
+        );
+      }}
     </Formik>
   );
 };
