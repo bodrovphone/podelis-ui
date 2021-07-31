@@ -58,14 +58,15 @@ const H2 = styled.h2`
 `;
 
 const Description = styled.div`
-  .text-truncated {
-    display: none;
+  div {
+    margin-bottom: 10px;
+  }
+  span {
+    font-style: oblique;
   }
 
-  @media ${device.mobileXL} {
-    .text-truncated {
-      display: inline;
-    }
+  article {
+    margin-bottom: 20px;
   }
 `;
 
@@ -179,12 +180,12 @@ const Button = styled.button`
 const H3 = styled.h3`
   font-size: 16px;
   color: #565353;
+  text-align: ${({ centered }) => centered && "center"};
 `;
 
 const UL = styled.ul`
   display: grid;
   grid-gap: 30px 20px;
-  /* grid-template-columns: repeat(auto-fill, minmax(280px, 1fr)); */
 
   margin: 0;
   padding: 0;
