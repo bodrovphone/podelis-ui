@@ -1,7 +1,7 @@
 import { updateProkat } from "../../db";
 
 export default async function handler(req, res) {
-  if ((req.method === "POST") & req.body) {
+  if (req.method === "POST" && req.body) {
     // 2. check user
     // 3. post to mongo
     // 4. response with the satus (done)
