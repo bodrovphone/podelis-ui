@@ -6,7 +6,7 @@ function AddForm({ data }) {
   return (
     <LT.Layout>
       <LT.Main>
-        <LT.H1 name="Zadelis" slogan="На прокат бери - деньги береги."></LT.H1>
+        <LT.H1 name="Zadelis" slogan="На прокат бери - деньги береги." />
 
         <Form />
       </LT.Main>

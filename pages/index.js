@@ -109,7 +109,7 @@ export default function Home(props) {
 
 export async function getStaticProps() {
   try {
-    const prokats = await getData("prokats");
+    const prokats = await getData("prokats", {}, false, 10);
     // a good candidate for helper function
     prokats.forEach((p) => (p._id = p._id.toString()));
 
