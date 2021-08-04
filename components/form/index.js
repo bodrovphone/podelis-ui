@@ -6,7 +6,7 @@ import ST from "./styles";
 import axios from "axios";
 import { useRouter } from "next/router";
 
-const actions = {
+const ACTIONS = {
   ADD_IMAGE: "ADD_IMAGE",
   IMAGE_ERROR: "IMAGE_ERROR",
   IMAGE_WARNING: "IMAGE_WARNING",
@@ -14,37 +14,39 @@ const actions = {
   FORM_SUBMITTED: "FORM_SUBMITTED",
 };
 
+const IMAGE_TYPE = "png";
+
 const reducer = (state, { type, payload }) => {
-  // with slice(-2) I am limiting the number of images to be there up to 3
-  // with filter I am excluding duplicates
-  if (type === actions.ADD_IMAGE) {
+  if (type === ACTIONS.ADD_IMAGE) {
+    // slice(-3) limits the number of images up to 4
+    // filter() gets rid of duplicates
     return {
       ...state,
       images: [
-        ...state.images.filter((img) => img !== payload).slice(-4),
+        ...state.images.filter((img) => img !== payload).slice(-3),
         payload,
       ],
     };
   }
-  if (type === actions.IMAGE_ERROR) {
+  if (type === ACTIONS.IMAGE_ERROR) {
     return {
       ...state,
       error: payload,
     };
   }
-  if (type === actions.IMAGE_WARNING) {
+  if (type === ACTIONS.IMAGE_WARNING) {
     return {
       ...state,
       warning: payload,
     };
   }
-  if (type === actions.UPDATE_CITY) {
+  if (type === ACTIONS.UPDATE_CITY) {
     return {
       ...state,
       city: payload,
     };
   }
-  if (type === actions.FORM_SUBMITTED) {
+  if (type === ACTIONS.FORM_SUBMITTED) {
     return {
       ...state,
       submitted: true,
@@ -73,7 +75,7 @@ const Form = (props) => {
         file,
         450,
         450,
-        "PNG",
+        IMAGE_TYPE.toUpperCase(),
         100,
         0,
         (uri) => {
@@ -90,10 +92,10 @@ const Form = (props) => {
 
     const files = e.currentTarget.files;
 
-    if (files.length > 5) {
+    if (files.length > 4) {
       dispatch({
-        type: actions.IMAGE_ERROR,
-        payload: "Лимит фото - 5 штук",
+        type: ACTIONS.IMAGE_ERROR,
+        payload: "Лимит фото - 4 штук",
       });
     }
 
@@ -104,16 +106,13 @@ const Form = (props) => {
       const reader = new FileReader();
       const image = await resizeFile(file);
       reader.onloadend = () => {
-        if (images.length === 5) {
+        if (images.length > 4) {
           dispatch({
-            type: actions.IMAGE_WARNING,
+            type: ACTIONS.IMAGE_WARNING,
             payload: "Удаляю избыток фото...",
           });
         }
-
-        dispatch({ type: actions.ADD_IMAGE, payload: image });
-
-        // I will want to push the image to S3 through RestFul API request somewhere in this place
+        dispatch({ type: ACTIONS.ADD_IMAGE, payload: image });
       };
       reader.readAsDataURL(file);
     });
@@ -156,14 +155,41 @@ const Form = (props) => {
           payload: {
             ...values,
             city: city,
-            files: images,
             dateCreated: new Date().toISOString().split("T")[0],
           },
         });
 
         if (response.status === 200) {
+          try {
+            const postId = response.data;
+
+            const postImagesPomises = images.map((image, index) =>
+              axios.post("/api/postImage", {
+                image,
+                id: postId,
+                index,
+              })
+            );
+
+            const updatePostWithImagesPromise = axios.post(
+              "/api/updateProkat",
+              {
+                files: images.map((image, index) => {
+                  return `${process.env.NEXT_PUBLIC_CF_DOMAIN}/${postId}/${index}.${IMAGE_TYPE}`;
+                }),
+                _id: postId,
+              }
+            );
+
+            const results = await Promise.allSettled([
+              ...postImagesPomises,
+              updatePostWithImagesPromise,
+            ]);
+          } catch (error) {
+            console.error(error);
+          }
           // ther is a bug in formik which is reproducible for me : https://github.com/formium/formik/issues/1957
-          dispatch({ type: actions.FORM_SUBMITTED });
+          dispatch({ type: ACTIONS.FORM_SUBMITTED });
           router.push(`/prokat/${response.data}`);
         }
       }}
