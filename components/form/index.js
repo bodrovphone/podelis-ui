@@ -1,10 +1,11 @@
 import { Formik, Field } from "formik";
-import { useReducer } from "react";
+import { useReducer, useEffect, useRef } from "react";
 import Resizer from "react-image-file-resizer";
 import { Images, ChevronDoubleRight } from "react-bootstrap-icons";
 import ST from "./styles";
 import axios from "axios";
 import { useRouter } from "next/router";
+import { v4 as uuidv4 } from "uuid";
 
 const ACTIONS = {
   ADD_IMAGE: "ADD_IMAGE",
@@ -12,9 +13,11 @@ const ACTIONS = {
   IMAGE_WARNING: "IMAGE_WARNING",
   UPDATE_CITY: "UPDATE_CITY",
   FORM_SUBMITTED: "FORM_SUBMITTED",
+  UPLOADING_IMAGES: "UPLOADING_IMAGES",
+  IMAGES_UPLOADED: "IMAGES_UPLOADED",
 };
 
-const IMAGE_TYPE = "png";
+const IMAGE_EXT = "png";
 
 const reducer = (state, { type, payload }) => {
   if (type === ACTIONS.ADD_IMAGE) {
@@ -26,6 +29,8 @@ const reducer = (state, { type, payload }) => {
         ...state.images.filter((img) => img !== payload).slice(-3),
         payload,
       ],
+      // I need redo this when having imageDeletion feature
+      imagesCounter: state.images.length > 4 ? 4 : state.images.length + 1,
     };
   }
   if (type === ACTIONS.IMAGE_ERROR) {
@@ -52,22 +57,64 @@ const reducer = (state, { type, payload }) => {
       submitted: true,
     };
   }
+  if (type === ACTIONS.UPLOADING_IMAGES) {
+    return {
+      ...state,
+      uploading_images: true,
+    };
+  }
+  if (type === ACTIONS.IMAGES_UPLOADED) {
+    return {
+      ...state,
+      uploading_images: false,
+    };
+  }
   return state;
 };
 
 const Form = (props) => {
   // later on you would want to provide city as the default value from user personal data (a potential useMemo use?)
+  const imagesId = useRef(uuidv4());
+
   const [state, dispatch] = useReducer(reducer, {
     images: [],
     error: "",
     warning: "",
     city: "",
     submitted: false,
+    imagesCounter: 0,
+    uploading_images: false,
   });
 
-  const { images, error, warning, city, submitted } = state;
+  const {
+    images,
+    error,
+    warning,
+    city,
+    submitted,
+    imagesCounter,
+    uploading_images,
+  } = state;
 
   const router = useRouter();
+
+  // hopefully uuid will really be unique, otherwise I am in trouble here...
+  useEffect(async () => {
+    if (images.length) {
+      dispatch({ type: ACTIONS.UPLOADING_IMAGES });
+      const postImagesPomises = images.map((image, index) =>
+        axios.post("/api/postImage", {
+          image,
+          id: imagesId.current,
+          index,
+        })
+      );
+      try {
+        await Promise.allSettled([...postImagesPomises]);
+        dispatch({ type: ACTIONS.IMAGES_UPLOADED });
+      } catch (error) {}
+    }
+  }, [imagesCounter]);
 
   const resizeFile = (file) =>
     new Promise((resolve) => {
@@ -75,7 +122,7 @@ const Form = (props) => {
         file,
         450,
         450,
-        IMAGE_TYPE.toUpperCase(),
+        IMAGE_EXT.toUpperCase(),
         100,
         0,
         (uri) => {
@@ -149,46 +196,20 @@ const Form = (props) => {
         }
         return errors;
       }}
-      onSubmit={async (values, { setSubmitting }) => {
+      onSubmit={async (values) => {
         // from states : images , city
         const response = await axios.post("/api/postProkat", {
           payload: {
             ...values,
+            imagesId: imagesId.current,
+            imagesCounter,
+            imgExt: IMAGE_EXT,
             city: city,
             dateCreated: new Date().toISOString().split("T")[0],
           },
         });
 
         if (response.status === 200) {
-          try {
-            const postId = response.data;
-
-            const postImagesPomises = images.map((image, index) =>
-              axios.post("/api/postImage", {
-                image,
-                id: postId,
-                index,
-              })
-            );
-
-            const updatePostWithImagesPromise = axios.post(
-              "/api/updateProkat",
-              {
-                files: images.map((image, index) => {
-                  return `${process.env.NEXT_PUBLIC_CF_DOMAIN}/${postId}/${index}.${IMAGE_TYPE}`;
-                }),
-                _id: postId,
-              }
-            );
-
-            const results = await Promise.allSettled([
-              ...postImagesPomises,
-              updatePostWithImagesPromise,
-            ]);
-          } catch (error) {
-            console.error(error);
-          }
-          // ther is a bug in formik which is reproducible for me : https://github.com/formium/formik/issues/1957
           dispatch({ type: ACTIONS.FORM_SUBMITTED });
           router.push(`/prokat/${response.data}`);
         }
@@ -353,7 +374,10 @@ const Form = (props) => {
                 />
               </ST.Label>
             )}
-            <ST.ButtonSubmit type="submit" disabled={isSubmitting}>
+            <ST.ButtonSubmit
+              type="submit"
+              disabled={isSubmitting || uploading_images}
+            >
               Отправить
               <ChevronDoubleRight size={16} color="black" />
             </ST.ButtonSubmit>
