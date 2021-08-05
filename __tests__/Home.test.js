@@ -97,23 +97,24 @@ describe("getStaticProps", () => {
     expect(props).toMatchObject({ prokats: expect.any(Array) });
 
     const singleProkat = props.prokats[0];
-
     //   {
-    //     "_id" : "60e434c26aae48c2dbb9c55b",
-    //     "title" : "Рука Лицо",
-    //     "description" : "Отличное лица да и рука тоже сойдет.",
-    //     "price" : 500,
-    //     "period" : 4,
-    //     "units" : false,
+    //     "_id" : ObjectId("610c4a598cfdd03251194582"),
+    //     "title" : "Качественная машина",
+    //     "description" : "Test test test test Test test test test Test test test test Test test test test Test test test test Test test test test Test test test test Test test test test Test test test test Test test test test Test test test test Test test test test Test test test test Test test test test Test test test test Test test test test Test test test test Test test test test",
+    //     "price" : 123,
+    //     "period" : 12,
+    //     "units" : true,
     //     "conditions" : [
-    //         "deposit"
+    //         "deposit",
+    //         "terms"
     //     ],
     //     "deposit" : 5000,
     //     "pledge" : "",
+    //     "imagesId" : "cffa7d2c-dd94-49a6-9291-070c63278163",
+    //     "imagesCounter" : 2,
+    //     "imgExt" : "png",
     //     "city" : "Днипро",
-    //     "files" : ["data:url"
-    //     ],
-    //     "dateCreated" : "2021-07-06"
+    //     "dateCreated" : "2021-08-05"
     // }
 
     expect(singleProkat).toMatchObject({
@@ -127,7 +128,9 @@ describe("getStaticProps", () => {
       deposit: expect.any(Number),
       pledge: expect.any(String),
       city: expect.any(String),
-      files: expect.any(Array),
+      imgExt: expect.any(String),
+      imagesCounter: expect.any(Number),
+      imagesId: expect.any(String),
       dateCreated: expect.any(String),
     });
   });
