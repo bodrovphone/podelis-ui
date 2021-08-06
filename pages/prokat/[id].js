@@ -13,6 +13,8 @@ import ProkatTitle from "../../components/prokatTitle";
 import { getData } from "../../db";
 import { ObjectID } from "mongodb";
 
+const imageBaseUrl = process.env.NEXT_PUBLIC_CF_DOMAIN;
+
 const Prokat = (props) => {
   // const router = useRouter();
   // const { id } = router.query;
@@ -23,18 +25,22 @@ const Prokat = (props) => {
   }
 
   const { prokat } = props;
-  const { title, description, files } = prokat;
+  const { title, description, imagesId, imagesCounter, imgExt } = prokat;
 
+  // getting number of images from db and generating array of urls
+  const generateImageUrls = (id, num, ext) => {
+    return [...Array(num).keys()].map((index) => ({
+      original: `${imageBaseUrl}/${id}/${index}.${ext}`,
+      thumbnail: `${imageBaseUrl}/${id}/${index}.${ext}`,
+    }));
+  };
   return (
     <LT.Layout>
       <LT.Main>
         <LT.H1 name="Zadelis" slogan="На прокат бери - деньги береги."></LT.H1>
         <LT.TwoColumnsDesktop>
           <ProkatGallery
-            images={files.map((file) => ({
-              original: file,
-              thumbnail: file,
-            }))}
+            images={generateImageUrls(imagesId, imagesCounter, imgExt)}
           />
           <ST_.Section>
             <ProkatTitle title={title} />

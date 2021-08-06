@@ -1,13 +1,13 @@
 import React from "react";
 import Link from "next/link";
-import PropTypes from "prop-types";
 import { GeoAlt, Cash, Bookmarks, BookmarksFill } from "react-bootstrap-icons";
 import Image from "next/image";
 
 import ST from "./styles";
 
-const SingleCard = ({ id, imageSrc, title, details }) => {
+const SingleCard = ({ prokat }) => {
   // I only need randomizer and MyBook for styling purpose
+  const { _id, title, imagesId, imgExt, imagesCounter } = prokat;
 
   const randomizer = Math.floor(Math.random() * 2) + 1;
   const MyBook =
@@ -35,11 +35,16 @@ const SingleCard = ({ id, imageSrc, title, details }) => {
 
   return (
     <ST.CardWrapper>
-      <Link href={`/prokat/${id}`}>
+      <Link href={`/prokat/${_id}`}>
         <a>
           <ST.CardImage>
             <Image
-              src={imageSrc || "/img/no_image.png"}
+              // This is a good candidate for helper function - used very often
+              src={
+                imagesCounter
+                  ? `${process.env.NEXT_PUBLIC_CF_DOMAIN}/${imagesId}/0.${imgExt}`
+                  : "/img/no_image.png"
+              }
               width="100%"
               height="100%"
               layout="responsive"
@@ -62,12 +67,6 @@ const SingleCard = ({ id, imageSrc, title, details }) => {
       </Link>
     </ST.CardWrapper>
   );
-};
-
-SingleCard.propTypes = {
-  id: PropTypes.string.isRequired,
-  title: PropTypes.string.isRequired,
-  imageSrc: PropTypes.string,
 };
 
 export default SingleCard;
