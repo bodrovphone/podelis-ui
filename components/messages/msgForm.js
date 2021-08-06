@@ -137,10 +137,9 @@ const Form = (props) => {
           </ST.FormWrapper>
           {state.error}
           <ST.PeriodWrapper>
-            {state.imagePreviewUrls &&
-              state.imagePreviewUrls.map((preview, i) => (
-                <ST.AdPreview key={i} src={preview} />
-              ))}
+            {state.imagePreviewUrls?.map((preview, i) => (
+              <ST.AdPreview key={i} src={preview} />
+            ))}
           </ST.PeriodWrapper>
           {errors.title && touched.title && errors.title}
         </ST.Form>

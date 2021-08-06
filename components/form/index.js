@@ -166,9 +166,10 @@ const Form = (props) => {
   };
 
   const citySelectHandler = ({ formatted_address }) => {
-    const cityFromAddress =
-      formatted_address &&
-      formatted_address.substring(0, formatted_address.indexOf(","));
+    const cityFromAddress = formatted_address?.substring(
+      0,
+      formatted_address.indexOf(",")
+    );
     cityFromAddress &&
       dispatch({ type: "UPDATE_CITY", payload: cityFromAddress });
   };
@@ -242,10 +243,9 @@ const Form = (props) => {
               />
             </ST.Label>
             <ST.PeriodWrapper>
-              {images &&
-                images.map((preview, i) => (
-                  <ST.AdPreview key={i} src={preview} />
-                ))}
+              {images?.map((preview, i) => (
+                <ST.AdPreview key={i} src={preview} />
+              ))}
             </ST.PeriodWrapper>
             <ST.Label>
               Название

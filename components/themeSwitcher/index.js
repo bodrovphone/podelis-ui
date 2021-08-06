@@ -15,8 +15,7 @@ const ThemeSwitcher = () => {
   const lightTheme = process.env.NEXT_PUBLIC_LIGHT_THEME;
 
   const saveTheme = (theme) => {
-    console.log("saveTheme", theme);
-    window && window.localStorage.setItem("theme", JSON.stringify(theme));
+    window?.localStorage?.setItem("theme", JSON.stringify(theme));
   };
 
   const toggle = () => {
