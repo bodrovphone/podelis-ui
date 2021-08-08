@@ -1,15 +1,11 @@
 import React, { useContext } from "react";
 import ST from "./styles";
-import {
-  ThemeSwitcherContext,
-  ThemeSwitcherDispatch,
-} from "../../context/themeSwitcher.context";
+import { ThemeSwitcherContext } from "../../context/themeSwitcher.context";
 
 import DarkModeToggle from "react-dark-mode-toggle";
 
 const ThemeSwitcher = () => {
-  const { userTheme } = useContext(ThemeSwitcherContext);
-  const { toggleTheme } = useContext(ThemeSwitcherDispatch);
+  const { userTheme, toggleTheme } = useContext(ThemeSwitcherContext);
 
   const darkTheme = process.env.NEXT_PUBLIC_DARK_THEME;
   const lightTheme = process.env.NEXT_PUBLIC_LIGHT_THEME;
