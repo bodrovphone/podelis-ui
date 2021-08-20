@@ -8,12 +8,11 @@ import {
   PencilSquare,
   InfoCircle,
 } from "react-bootstrap-icons";
-import { SideBarContext, SideBarDispatch } from "../../context/sideBar.context";
+import { SideBarContext } from "../../context/sideBar.context";
 import ThemeSwitcher from "../themeSwitcher";
 
 const SideBar = () => {
-  const { navState } = useContext(SideBarContext);
-  const { toggleNav } = useContext(SideBarDispatch);
+  const { navState, toggleNav } = useContext(SideBarContext);
 
   return (
     <ST.SbContainer className={`${navState ? "active" : ""}`}>

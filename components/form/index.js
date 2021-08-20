@@ -166,9 +166,10 @@ const Form = (props) => {
   };
 
   const citySelectHandler = ({ formatted_address }) => {
-    const cityFromAddress =
-      formatted_address &&
-      formatted_address.substring(0, formatted_address.indexOf(","));
+    const cityFromAddress = formatted_address?.substring(
+      0,
+      formatted_address.indexOf(",")
+    );
     cityFromAddress &&
       dispatch({ type: "UPDATE_CITY", payload: cityFromAddress });
   };
@@ -199,14 +200,13 @@ const Form = (props) => {
       onSubmit={async (values) => {
         // from states : images , city
         const response = await axios.post("/api/postProkat", {
-          payload: {
-            ...values,
-            imagesId: imagesId.current,
-            imagesCounter,
-            imgExt: IMAGE_EXT,
-            city: city,
-            dateCreated: new Date().toISOString().split("T")[0],
-          },
+          ...values,
+          deposit: +values.deposit,
+          imagesId: imagesId.current,
+          imagesCounter,
+          imgExt: IMAGE_EXT,
+          city: city,
+          dateCreated: new Date().toISOString().split("T")[0],
         });
 
         if (response.status === 200) {
@@ -242,10 +242,9 @@ const Form = (props) => {
               />
             </ST.Label>
             <ST.PeriodWrapper>
-              {images &&
-                images.map((preview, i) => (
-                  <ST.AdPreview key={i} src={preview} />
-                ))}
+              {images?.map((preview, i) => (
+                <ST.AdPreview key={i} src={preview} />
+              ))}
             </ST.PeriodWrapper>
             <ST.Label>
               Название

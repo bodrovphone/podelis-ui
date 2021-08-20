@@ -1,12 +1,11 @@
 import React, { useContext } from "react";
 import TopNav from "../topNav";
 import ST from "./styles";
-import { SideBarContext, SideBarDispatch } from "../../context/sideBar.context";
+import { SideBarContext } from "../../context/sideBar.context";
 import { matchMedia } from "../../utils";
 
 const Container = ({ children }) => {
-  const { navState } = useContext(SideBarContext);
-  const { toggleNav } = useContext(SideBarDispatch);
+  const { navState, toggleNav } = useContext(SideBarContext);
 
   const shouldToggle = (e) => {
     if (navState && matchMedia("max-width: 572px")) {

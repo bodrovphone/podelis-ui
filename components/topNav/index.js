@@ -1,5 +1,5 @@
 import React, { useContext } from "react";
-import { SideBarContext, SideBarDispatch } from "../../context/sideBar.context";
+import { SideBarContext } from "../../context/sideBar.context";
 import Link from "next/link";
 // https://icons.getbootstrap.com/#usage
 import ST from "./styles";
@@ -14,8 +14,7 @@ import {
 import SideBar from "../sideBar";
 
 const TopNav = () => {
-  const { navState } = useContext(SideBarContext);
-  const { toggleNav } = useContext(SideBarDispatch);
+  const { navState, toggleNav } = useContext(SideBarContext);
   return (
     <>
       <ST.LinksWrapper>
