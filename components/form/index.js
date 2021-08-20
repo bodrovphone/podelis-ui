@@ -200,14 +200,13 @@ const Form = (props) => {
       onSubmit={async (values) => {
         // from states : images , city
         const response = await axios.post("/api/postProkat", {
-          payload: {
-            ...values,
-            imagesId: imagesId.current,
-            imagesCounter,
-            imgExt: IMAGE_EXT,
-            city: city,
-            dateCreated: new Date().toISOString().split("T")[0],
-          },
+          ...values,
+          deposit: +values.deposit,
+          imagesId: imagesId.current,
+          imagesCounter,
+          imgExt: IMAGE_EXT,
+          city: city,
+          dateCreated: new Date().toISOString().split("T")[0],
         });
 
         if (response.status === 200) {
