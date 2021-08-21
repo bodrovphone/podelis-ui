@@ -227,7 +227,7 @@ const Form = (props) => {
         return isSubmitting || submitted ? (
           <span>Отправляю данные...</span>
         ) : (
-          <ST.Form onSubmit={handleSubmit}>
+          <ST.Form onSubmit={handleSubmit} {...props}>
             <ST.Label>
               <ST.ButtonPhoto>
                 фото

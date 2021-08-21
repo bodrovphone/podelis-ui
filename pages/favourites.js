@@ -15,12 +15,13 @@ const Favourites = () => {
       <LT.Main>
         <LT.H1 name="Zadelis" slogan="На прокат бери - деньги береги."></LT.H1>
 
-        <Tabs>
+        <Tabs data-testId="tabs">
           <div label="Штуки">
             <CardsWidget prokats={data} />
           </div>
           <div label="Поиски">
             <FavSearches
+              data-testId="favSearches"
               queries={[
                 { label: "джинсы", tags: ["clothes"] },
                 { label: "катамараны", tags: ["hobbies", "sport"] },

@@ -16,7 +16,7 @@ const Tabs = (props) => {
   };
 
   return (
-    <ST.Tabs>
+    <ST.Tabs {...props}>
       <ST.TabList>
         {children.map((child) => {
           const { label } = child.props;
