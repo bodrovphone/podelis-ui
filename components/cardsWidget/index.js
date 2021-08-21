@@ -36,6 +36,7 @@ const CardsWidget = ({ prokats, ...props }) => {
   }
 
   return (
+    // Now this is rendering when no posts saved for Favourites page
     <div>Just a placeholder for now. Should be something more amuzing</div>
   );
 };
