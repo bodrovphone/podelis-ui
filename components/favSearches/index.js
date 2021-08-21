@@ -6,7 +6,7 @@ import ST from "./styles";
 const FavSearches = (props) => (
   <ST.FavSearchesContainer>
     {props.queries.map((query) => (
-      <SingleSearch query={query} />
+      <SingleSearch key={query.label} query={query} />
     ))}
   </ST.FavSearchesContainer>
 );

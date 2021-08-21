@@ -4,7 +4,12 @@ import CardsWidget from "../components/cardsWidget";
 import Tabs from "../components/tabs";
 import FavSearches from "../components/favSearches";
 
-const Favourites = ({ data }) => {
+import { useFetch } from "../utils/hooks";
+
+// I am not sure if it's even possible to render bookmarks on the server with getServerProps or something - because I would need to know if a authentication is made for a user before I can get those
+// much easier to do that on client.
+const Favourites = () => {
+  const { loading, error, data } = useFetch("/api/getProkats");
   return (
     <LT.Layout>
       <LT.Main>
@@ -12,7 +17,7 @@ const Favourites = ({ data }) => {
 
         <Tabs>
           <div label="Штуки">
-            <CardsWidget />
+            <CardsWidget prokats={data} />
           </div>
           <div label="Поиски">
             <FavSearches
