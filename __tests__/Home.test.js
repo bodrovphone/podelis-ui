@@ -19,10 +19,15 @@ afterEach(() => {
 
 describe("Home Page all components renders", () => {
   // using container here for demonstration purpose mostly...
-  it("should render H1 tag with Zadelis", () => {
+  it("should render H1 tag with Zadelis, nav and footer", () => {
     const { container } = render(<Home />);
     const heading = container.querySelector("h1");
     expect(heading).toHaveTextContent("Zadelis");
+
+    const nav = container.querySelector("nav");
+    const footer = container.querySelector("footer");
+    expect(nav).toBeInTheDocument();
+    expect(footer).toBeInTheDocument();
   });
 
   it("should render categories widget", () => {

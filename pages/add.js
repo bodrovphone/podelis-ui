@@ -8,7 +8,7 @@ function AddForm({ data }) {
       <LT.Main>
         <LT.H1 name="Zadelis" slogan="На прокат бери - деньги береги." />
 
-        <Form />
+        <Form data-testId="form" />
       </LT.Main>
 
       <Footer />
