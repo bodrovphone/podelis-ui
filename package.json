@@ -7,7 +7,8 @@
     "build": "next build",
     "start": "next start",
     "deploy": "nvm use && serverless",
-    "test": "jest --watch --silent"
+    "test": "jest --silent",
+    "unit": "jest --watch --silent"
   },
   "dependencies": {
     "aws-sdk": "^2.958.0",
@@ -45,7 +46,8 @@
     "identity-obj-proxy": "^3.0.0",
     "jest": "^27.0.6",
     "jest-canvas-mock": "^2.3.1",
-    "next-page-tester": "^0.27.0"
+    "next-page-tester": "^0.27.0",
+    "pre-commit": "^1.2.2"
   },
   "jest": {
     "testEnvironment": "jsdom",
