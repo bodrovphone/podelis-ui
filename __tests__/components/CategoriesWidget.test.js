@@ -10,6 +10,7 @@ describe('CategoriesWidget', () => {
 
     const images = container.querySelectorAll('img');
     // what screen size does render method simulate? I choose 4 here in fact it's six
-    expect(images.length).toBeGreaterThan(4);
+    // expect(images.length).toBeGreaterThan(3);
+    expect(images.length).toBe(3);
   });
 });

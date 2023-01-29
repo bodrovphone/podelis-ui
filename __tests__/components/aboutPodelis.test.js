@@ -8,7 +8,7 @@ describe('AboutPodelis', () => {
   it('should render logo', () => {
     const { getByText } = render(<AboutPodelis />);
 
-    const logo = getByText('Z', { exact: true });
+    const logo = getByText('P', { exact: true });
 
     expect(logo).toBeInTheDocument();
   });
@@ -16,7 +16,7 @@ describe('AboutPodelis', () => {
   it('should render slogan', () => {
     const { getByText } = render(<AboutPodelis />);
 
-    const slogan = getByText(/Zadils - Простой и удобный шаринг-сервис\./i);
+    const slogan = getByText(/Podelis - Простой и удобный шаринг-сервис\./i);
 
     expect(slogan).toMatchSnapshot();
   });

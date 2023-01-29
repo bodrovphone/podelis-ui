@@ -1,0 +1,16 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`AboutPodelis should render slogan 1`] = `
+<div
+  class="styles__Content-sc-6rzojn-1 bDqzaL"
+>
+  Podelis - Простой и удобный шаринг-сервис.
+  <br />
+  Арендуй поблизости.
+  <br />
+  Пользуйся тем что нужно, не покупая.
+  <br />
+  Сдавай в аренду вещи и зарабатывай.
+  <br />
+</div>
+`;
