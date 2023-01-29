@@ -1,12 +1,10 @@
-import Link from "next/link";
-import ST from "./styles";
+import Link from 'next/link';
+import ST from './styles';
 
 const GoBack = ({ href, children }) => (
   <ST.Wrapper>
     <ST.GoBack>
-      <Link href={href}>
-        <a>{children}</a>
-      </Link>
+      <Link href={href}>{children}</Link>
     </ST.GoBack>
   </ST.Wrapper>
 );

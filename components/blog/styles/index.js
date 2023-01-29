@@ -1,5 +1,5 @@
-import styled from "styled-components";
-import { device } from "../../styles/media";
+import styled from 'styled-components';
+import { device } from '../../styles/media';
 
 const Recommended = styled.ul`
   text-align: left;
@@ -15,7 +15,7 @@ const Recommended = styled.ul`
 
 const Blog = styled.div`
   text-align: center;
-  font-family: "zadelis-font";
+  font-family: 'podelis-font';
   font-size: 1em;
 
   @media ${device.tablet} {

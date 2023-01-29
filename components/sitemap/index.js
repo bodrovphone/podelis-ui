@@ -1,7 +1,7 @@
-import ST from "./styles";
-import LT from "../layouts";
-import Link from "next/link";
-import { Tag } from "react-bootstrap-icons";
+import ST from './styles';
+import LT from '../layouts';
+import Link from 'next/link';
+import { Tag } from 'react-bootstrap-icons';
 
 const SiteMap = ({ links, categories, labelMain, labelSecondary }) => {
   const renderLinks = (items) => {
@@ -11,9 +11,7 @@ const SiteMap = ({ links, categories, labelMain, labelSecondary }) => {
       ) : (
         <li key={index + name}>
           <Link href={url}>
-            <a>
-              {offers && <Tag />} {name} {offers && `(${offers})`}
-            </a>
+            {offers && <Tag />} {name} {offers && `(${offers})`}
           </Link>
         </li>
       );

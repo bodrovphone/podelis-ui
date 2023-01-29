@@ -1,5 +1,5 @@
-import styled from "styled-components";
-import { device } from "../../styles/media";
+import styled from 'styled-components';
+import { device } from '../../styles/media';
 
 const Form = styled.form`
   width: 100%;
@@ -12,7 +12,7 @@ const Label = styled.label`
   margin: 20px auto;
   width: 90%;
 
-  input[type="file"] {
+  input[type='file'] {
     display: none;
   }
 `;
@@ -28,7 +28,7 @@ const Input = styled.input`
   appearance: none;
   background: ${(props) => props.theme.colors.wellDone};
   text-align: center;
-  font-family: "zadelis-font";
+  font-family: 'podelis-font';
   font-size: 1em;
 
   ::placeholder {

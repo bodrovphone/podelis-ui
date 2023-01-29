@@ -1,10 +1,10 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
-exports[`AboutZadelis should render slogan 1`] = `
+exports[`AboutPodelis should render slogan 1`] = `
 <div
   class="styles__Content-qezad7-1 bLPDXH"
 >
-  Zadils - Простой и удобный шаринг-сервис.
+  Podelis - Простой и удобный шаринг-сервис.
   <br />
   Арендуй поблизости.
   <br />

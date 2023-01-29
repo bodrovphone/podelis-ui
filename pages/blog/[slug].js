@@ -1,14 +1,14 @@
-import LT from "../../components/layouts";
-import Footer from "../../components/footer";
-import { getData } from "../../db";
-import RenderBlog from "../../components/blog";
+import LT from '../../components/layouts';
+import Footer from '../../components/footer';
+import { getData } from '../../db';
+import RenderBlog from '../../components/blog';
 
 function Blog(props) {
   const { data } = props;
   return (
     <LT.Layout>
       <LT.Main>
-        <LT.H1 name="Zadelis" slogan="На прокат бери - деньги береги."></LT.H1>
+        <LT.H1 name="Podelis" slogan="На прокат бери - деньги береги."></LT.H1>
         <LT.H2>{data.title}</LT.H2>
         <RenderBlog {...props} />
       </LT.Main>
@@ -18,7 +18,7 @@ function Blog(props) {
 }
 
 export async function getStaticProps({ params }) {
-  let data = await getData("blog", { slug: params.slug });
+  let data = await getData('blog', { slug: params.slug });
   data.forEach((item) => {
     delete item._id;
   });
@@ -30,7 +30,7 @@ export async function getStaticProps({ params }) {
 }
 
 export async function getStaticPaths() {
-  let data = await getData("blog");
+  let data = await getData('blog');
   const paths = data.map(({ slug }) => ({ params: { slug } }));
   return { paths, fallback: false };
 }

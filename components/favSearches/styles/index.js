@@ -1,5 +1,5 @@
-import styled from "styled-components";
-import { device } from "../../styles/media";
+import styled from 'styled-components';
+import { device } from '../../styles/media';
 
 const FavSearchesContainer = styled.div`
   display: flex;
@@ -27,7 +27,7 @@ const Query = styled.div`
 const SearchContainer = styled.div`
   box-shadow: ${(props) => props.theme.shadows.logoHeader};
   border-radius: 0 10px 0 10px;
-  font-family: "zadelis-font";
+  font-family: 'podelis-font';
   display: flex;
   flex-direction: column;
   gap: 5px;

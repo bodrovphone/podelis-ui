@@ -1,10 +1,10 @@
-import styled from "styled-components";
-import { device } from "../../styles/media";
+import styled from 'styled-components';
+import { device } from '../../styles/media';
 
 const MessagesWrapper = styled.div`
   display: flex;
   flex-direction: column;
-  font-family: "zadelisR-font";
+  font-family: 'podelisR-font';
   max-width: 568px;
   margin: auto;
   a {
@@ -20,7 +20,7 @@ const MessageContainer = styled.div`
   align-items: flex-start;
   position: relative;
   &:before {
-    content: "";
+    content: '';
     width: 90%;
     height: 1px;
     background: rgb(126, 126, 128);
@@ -39,7 +39,7 @@ const MessageContainer = styled.div`
 const Date = styled.span`
   margin: 5px 0;
   display: block;
-  font-family: monospace, "zadelisR-font";
+  font-family: monospace, 'podelisR-font';
   font-weight: 600;
 `;
 
@@ -71,7 +71,7 @@ const MsgInput = styled.textarea`
   appearance: none;
   background: ${(props) => props.theme.colors.wellDone};
   text-align: center;
-  font-family: "zadelis-font";
+  font-family: 'podelis-font';
   font-size: 1em;
 
   ::placeholder {
@@ -112,7 +112,7 @@ const ButtonPhoto = styled.span`
   box-shadow: ${(props) => props.theme.shadows.logoHeader};
   background: ${(props) => props.theme.colors.wellDone};
   text-align: center;
-  font-family: "zadelis-font";
+  font-family: 'podelis-font';
   font-size: 1em;
   display: flex;
   align-items: center;
@@ -140,7 +140,7 @@ const ButtonSubmit = styled.button`
   background-color: ${(props) => props.theme.colors.solt};
   border: 2px solid ${(props) => props.theme.colors.mediumWell};
   text-align: center;
-  font-family: "zadelis-font";
+  font-family: 'podelis-font';
   font-size: 1em;
   display: flex;
   align-items: center;
@@ -173,7 +173,7 @@ const Form = styled.form`
 const Label = styled.label`
   display: flex;
   flex-direction: column;
-  input[type="file"] {
+  input[type='file'] {
     display: none;
   }
 `;

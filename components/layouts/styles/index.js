@@ -1,5 +1,5 @@
-import styled from "styled-components";
-import { device } from "../../styles/media";
+import styled from 'styled-components';
+import { device } from '../../styles/media';
 
 const Wrapper = styled.div`
   width: 100%;
@@ -18,7 +18,7 @@ const Main = styled.main`
   line-height: 150%;
   font-size: 1.1em;
   padding: 8px;
-  font-family: "zadelis-font";
+  font-family: 'podelis-font';
 
   @media ${device.mobileXL} {
     padding: 5em 3em 2em 3em;
@@ -37,9 +37,9 @@ const Main = styled.main`
 
 const H1 = styled.h1`
   margin: 22px 0;
-  font-size: ${(props) => props.size || "3em"};
+  font-size: ${(props) => props.size || '3em'};
   color: ${(props) => props.theme.colors.rareMedium};
-  font-family: "zadelis-font";
+  font-family: 'podelis-font';
   & div {
     text-shadow: ${(props) => props.theme.shadows.logoHeader};
     margin-bottom: 5px;
@@ -131,7 +131,7 @@ const Button = styled.button`
   display: inline-block;
   padding: 10px 18px;
   font-size: 16px;
-  font-family: "zadelis-font";
+  font-family: 'podelis-font';
   cursor: pointer;
   text-align: center;
   text-decoration: none;
@@ -180,7 +180,7 @@ const Button = styled.button`
 const H3 = styled.h3`
   font-size: 16px;
   color: #565353;
-  text-align: ${({ centered }) => centered && "center"};
+  text-align: ${({ centered }) => centered && 'center'};
 `;
 
 const UL = styled.ul`

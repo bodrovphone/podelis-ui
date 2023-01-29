@@ -1,14 +1,14 @@
-import React from "react";
-import "@testing-library/jest-dom/extend-expect";
-import defaultTopPosts from "../components/cardsWidget/defaultTopPosts";
+import React from 'react';
+import '@testing-library/jest-dom/extend-expect';
+import defaultTopPosts from '../components/cardsWidget/defaultTopPosts';
 
 // not sure if I need this mock any longer?
 
-import { render, fireEvent } from "./config/test-utils";
-import Home, { getStaticProps } from "../pages/index";
+import { render, fireEvent } from './config/test-utils';
+import Home, { getStaticProps } from '../pages/index';
 
 beforeEach(() => {
-  jest.spyOn(global, "fetch").mockResolvedValue({
+  jest.spyOn(global, 'fetch').mockResolvedValue({
     json: jest.fn().mockResolvedValue(),
   });
 });
@@ -17,87 +17,87 @@ afterEach(() => {
   jest.restoreAllMocks();
 });
 
-describe("Home Page all components renders", () => {
+describe('Home Page all components renders', () => {
   // using container here for demonstration purpose mostly...
-  it("should render H1 tag with Zadelis, nav and footer", () => {
+  it('should render H1 tag with Podelis, nav and footer', () => {
     const { container } = render(<Home />);
-    const heading = container.querySelector("h1");
-    expect(heading).toHaveTextContent("Zadelis");
+    const heading = container.querySelector('h1');
+    expect(heading).toHaveTextContent('Podelis');
 
-    const nav = container.querySelector("nav");
-    const footer = container.querySelector("footer");
+    const nav = container.querySelector('nav');
+    const footer = container.querySelector('footer');
     expect(nav).toBeInTheDocument();
     expect(footer).toBeInTheDocument();
   });
 
-  it("should render categories widget", () => {
+  it('should render categories widget', () => {
     const { getByTestId } = render(<Home />);
-    const categoriesWidget = getByTestId("cat-widget");
+    const categoriesWidget = getByTestId('cat-widget');
     expect(categoriesWidget).toBeInTheDocument();
   });
 
-  it("should render searchbar", () => {
+  it('should render searchbar', () => {
     const { getByTestId } = render(<Home />);
 
-    const searchbar = getByTestId("searchbar");
+    const searchbar = getByTestId('searchbar');
 
     expect(searchbar).toBeInTheDocument();
   });
 
-  it("should render cardsWidget", async () => {
+  it('should render cardsWidget', async () => {
     const { getByTestId } = render(<Home prokats={defaultTopPosts} />);
-    const cardsWidget = getByTestId("cardsWidget");
+    const cardsWidget = getByTestId('cardsWidget');
 
     expect(cardsWidget).toBeInTheDocument();
   });
 
-  it("should render loadMore button", () => {
+  it('should render loadMore button', () => {
     const { getByTestId } = render(<Home />);
 
-    const searchbar = getByTestId("loadMore");
+    const searchbar = getByTestId('loadMore');
 
     expect(searchbar).toBeInTheDocument();
   });
 
-  it("should render aboutZadelis", () => {
+  it('should render aboutPodelis', () => {
     const { getByTestId } = render(<Home />);
 
-    const searchbar = getByTestId("aboutZadelis");
+    const searchbar = getByTestId('aboutPodelis');
 
     expect(searchbar).toBeInTheDocument();
   });
 
-  it("should render getSocial", () => {
+  it('should render getSocial', () => {
     const { getByTestId } = render(<Home />);
 
-    const searchbar = getByTestId("getSocial");
+    const searchbar = getByTestId('getSocial');
 
     expect(searchbar).toBeInTheDocument();
   });
 
-  it("should render footer", () => {
+  it('should render footer', () => {
     const { getByTestId } = render(<Home />);
 
-    const searchbar = getByTestId("footer");
+    const searchbar = getByTestId('footer');
 
     expect(searchbar).toBeInTheDocument();
   });
 });
 
-describe("Home Page behavior", () => {
-  it("click on the menu should expand sidebar", () => {
+describe('Home Page behavior', () => {
+  it('click on the menu should expand sidebar', () => {
     const { container } = render(<Home />);
-    const menu = container.querySelector(".NavMenu");
+    const menu = container.querySelector('.NavMenu');
     fireEvent.click(menu);
 
-    const sideBar = container.querySelector(".active");
+    const sideBar = container.querySelector('.active');
 
     expect(sideBar).toBeInTheDocument();
   });
 });
 
-describe("getStaticProps", () => {
-  it("should return array of prokats with specific fields and their types", async () => {
+describe('getStaticProps', () => {
+  it('should return array of prokats with specific fields and their types', async () => {
     const { props } = await getStaticProps();
     expect(props).toMatchObject({ prokats: expect.any(Array) });
 

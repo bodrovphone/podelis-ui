@@ -1,20 +1,19 @@
-import styled from "styled-components";
-import { device } from "../../styles/media";
+import styled from 'styled-components';
+import { device } from '../../styles/media';
 
 export const FiltersWrapper_ST = styled.div`
-    width: 90%;
-    margin: 20px auto;
-    display: flex;
-    justify-content: space-between;
-    gap: 20px;
-    flex-wrap: wrap;
+  width: 90%;
+  margin: 20px auto;
+  display: flex;
+  justify-content: space-between;
+  gap: 20px;
+  flex-wrap: wrap;
 
-    label:nth-of-type(2n) {
-      input {
-        max-width: 80px;
-      }
+  label:nth-of-type(2n) {
+    input {
+      max-width: 80px;
     }
-
+  }
 `;
 
 export const Input_ST = styled.input`
@@ -48,7 +47,7 @@ export const Label_ST = styled.label`
   box-shadow: ${(props) => props.theme.shadows.logoHeader};
   background: ${(props) => props.theme.colors.wellDone};
   text-align: center;
-  font-family: "zadelis-font";
+  font-family: 'podelis-font';
   font-size: 1em;
   padding: 10px;
 

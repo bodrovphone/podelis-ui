@@ -1,5 +1,5 @@
-import styled from "styled-components";
-import { device } from "../../styles/media";
+import styled from 'styled-components';
+import { device } from '../../styles/media';
 
 const SbContainer = styled.div`
   height: 100%;
@@ -35,7 +35,7 @@ const SbContainer = styled.div`
   }
 `;
 
-const SbLink = styled.a`
+const SbLink = styled.span`
   cursor: pointer;
   margin: 0 0 40px 25px;
   display: flex;

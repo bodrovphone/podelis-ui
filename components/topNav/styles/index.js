@@ -1,7 +1,7 @@
-import styled, { keyframes } from "styled-components";
-import { device } from "../../styles/media";
-import { List } from "react-bootstrap-icons";
-import { rotate } from "../../styles/animations";
+import styled, { keyframes } from 'styled-components';
+import { device } from '../../styles/media';
+import { List } from 'react-bootstrap-icons';
+import { rotate } from '../../styles/animations';
 
 // Base elements
 const Nav = styled.nav`
@@ -11,7 +11,7 @@ const Nav = styled.nav`
   display: grid;
   grid-template-columns: 4fr 4fr 4fr 4fr 2fr 1fr;
   margin: 0 auto;
-  font-family: "zadelis-font";
+  font-family: 'podelis-font';
 
   @media ${device.mobileXL} {
     max-width: 90%;
@@ -41,7 +41,7 @@ const LinksWrapper = styled.div`
   }
 `;
 
-const NavItemLink = styled.a`
+const NavItemLink = styled.span`
   display: flex;
   flex-direction: column;
   align-items: center;

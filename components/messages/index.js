@@ -1,24 +1,18 @@
-import React, { useState } from "react";
-import Link from "next/link";
-import ST from "./styles";
-import LoadMore from "../loadMore";
-import MsgForm from "./msgForm";
-import Profile from "../profile";
+import React, { useState } from 'react';
+import Link from 'next/link';
+import ST from './styles';
+import LoadMore from '../loadMore';
+import MsgForm from './msgForm';
+import Profile from '../profile';
 
-import TimeAgo from "react-timeago";
-import russianStrings from "react-timeago/lib/language-strings/ru";
-import buildFormatter from "react-timeago/lib/formatters/buildFormatter";
+import TimeAgo from 'react-timeago';
+import russianStrings from 'react-timeago/lib/language-strings/ru';
+import buildFormatter from 'react-timeago/lib/formatters/buildFormatter';
 
 const formatter = buildFormatter(russianStrings);
 
 const LinkHOC = ({ children, links }) =>
-  links ? (
-    <Link href="/messages/thread/123">
-      <a>{children}</a>
-    </Link>
-  ) : (
-    children
-  );
+  links ? <Link href="/messages/thread/123">{children}</Link> : children;
 
 const Messages = ({ thread, links }) => {
   return (

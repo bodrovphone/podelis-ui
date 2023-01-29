@@ -1,5 +1,5 @@
-import styled from "styled-components";
-import { device } from "../../styles/media";
+import styled from 'styled-components';
+import { device } from '../../styles/media';
 
 const CardWrapper = styled.div`
   display: flex;
@@ -9,7 +9,7 @@ const CardWrapper = styled.div`
   box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2);
   transition: all 0.3s ease-in-out;
   border-radius: 5px;
-  font-family: "zadelisR-font";
+  font-family: 'podelisR-font';
 
   &:hover {
     box-shadow: 0 8px 16px 0 rgba(0, 0, 0, 0.2);
@@ -59,7 +59,7 @@ const CardTitle = styled.h3`
   position: relative;
 
   &:after {
-    content: "";
+    content: '';
     text-align: right;
     position: absolute;
     bottom: 0;

@@ -1,4 +1,4 @@
-import styled from "styled-components";
+import styled from 'styled-components';
 
 const About = styled.section`
   height: 300px;
@@ -14,7 +14,7 @@ const Content = styled.div`
   text-align: center;
   line-height: 1.5em;
   padding-top: 20px;
-  font-family: "zadelis-font-italic";
+  font-family: 'podelis-font-italic';
 `;
 
 const Social = styled.div`

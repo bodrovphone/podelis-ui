@@ -1,6 +1,6 @@
-import styled from "styled-components";
-import { Field } from "formik";
-import { device } from "../../styles/media";
+import styled from 'styled-components';
+import { Field } from 'formik';
+import { device } from '../../styles/media';
 
 const SettingWrapper = styled.div`
   margin: 0 auto;
@@ -38,7 +38,7 @@ const CheckMark = styled.span`
   border-radius: 50%;
 
   &::after {
-    content: "";
+    content: '';
     position: absolute;
     display: none;
   }
@@ -81,7 +81,7 @@ const Label = styled.label`
 
 const SettingTitle = styled.div`
   width: 100%;
-  font-family: "zadelisR-font";
+  font-family: 'podelisR-font';
   font-weight: bold;
 `;
 
@@ -89,13 +89,13 @@ const ButtonSetting = styled.button`
   display: inline-block;
   padding: 5px;
   font-size: 16px;
-  font-family: "zadelis-font";
+  font-family: 'podelis-font';
   cursor: pointer;
   text-align: center;
   text-decoration: none;
   outline: none;
   color: black;
-  background-color: ${(props) => (props.delete ? "#ff944d" : "#ffc299")};
+  background-color: ${(props) => (props.delete ? '#ff944d' : '#ffc299')};
   border: 2px solid ${(props) => props.theme.colors.mediumWell};
   border-radius: 0 10px 0 10px;
   box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2);
@@ -115,7 +115,7 @@ const ButtonSetting = styled.button`
 
   :hover {
     border: 2px solid ${(props) => props.theme.colors.solt};
-    background-color: "#ffc299";
+    background-color: '#ffc299';
   }
 
   :hover span {
@@ -128,7 +128,7 @@ const ButtonSetting = styled.button`
   }
 
   :active {
-    background-color: "#ffc299";
+    background-color: '#ffc299';
     box-shadow: 0 11px 5px 0 rgba(0, 0, 0, 0.2);
     transform: translateY(4px);
     outline: none;

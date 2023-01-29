@@ -1,6 +1,6 @@
-"use strict";
+'use strict';
 
-const { MongoClient, ObjectID } = require("mongodb");
+const { MongoClient, ObjectID } = require('mongodb');
 
 const client = new MongoClient(process.env.MONGO_DB_URI, {
   useNewUrlParser: true,
@@ -17,7 +17,7 @@ export async function getData(
   limit = 0
 ) {
   let client = await clientPromise;
-  let db = client.db("zadelis");
+  let db = client.db('podelis');
 
   let data = db.collection(collection).find(query).limit(limit);
 
@@ -32,23 +32,23 @@ export async function getData(
 
 export async function postProkat(payload) {
   let client = await clientPromise;
-  let db = client.db("zadelis");
+  let db = client.db('podelis');
 
-  let response = await db.collection("prokats").insertOne(payload);
+  let response = await db.collection('prokats').insertOne(payload);
 
   return response.insertedCount === 1 && response.insertedId;
 }
 
 export async function getAuthor(_id) {
   if (!ObjectID.isValid(_id)) {
-    throw new Error("invalid author _id");
+    throw new Error('invalid author _id');
   }
 
   let client = await clientPromise;
-  let db = client.db("zadelis");
+  let db = client.db('podelis');
 
   try {
-    let data = await db.collection("users").findOne(
+    let data = await db.collection('users').findOne(
       { _id: ObjectID(_id) },
       {
         projection: {
@@ -61,7 +61,7 @@ export async function getAuthor(_id) {
 
     return data;
   } catch (error) {
-    throw new Error("Error getting data from DB");
+    throw new Error('Error getting data from DB');
   }
 }
 
@@ -69,19 +69,19 @@ export async function getAuthor(_id) {
 // Only authors of a post is suppose to update their data and nobody's elses
 export async function updateProkat({ _id, ...payload }) {
   if (!ObjectID.isValid(_id)) {
-    throw "invalid post _id";
+    throw 'invalid post _id';
   }
 
   let client = await clientPromise;
-  let db = client.db("zadelis");
+  let db = client.db('podelis');
 
   try {
     let data = await db
-      .collection("prokats")
+      .collection('prokats')
       .updateOne({ _id: ObjectID(_id) }, { $set: payload });
 
     return data;
   } catch (error) {
-    throw new Error("Error updating data on DB");
+    throw new Error('Error updating data on DB');
   }
 }

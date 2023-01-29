@@ -1,4 +1,4 @@
-import styled from "styled-components";
+import styled from 'styled-components';
 
 const Wrapper = styled.div`
   margin: 30px auto;
@@ -13,7 +13,7 @@ const GoBack = styled.button`
   display: inline-block;
   padding: 10px 18px;
   font-size: 16px;
-  font-family: "zadelis-font";
+  font-family: 'podelis-font';
   cursor: pointer;
   text-align: center;
   text-decoration: none;

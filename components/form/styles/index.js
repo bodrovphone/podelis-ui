@@ -1,5 +1,5 @@
-import styled from "styled-components";
-import Autocomplete from "react-google-autocomplete";
+import styled from 'styled-components';
+import Autocomplete from 'react-google-autocomplete';
 
 const Form = styled.form`
   width: 100%;
@@ -11,7 +11,7 @@ const Label = styled.label`
   margin: 20px auto;
   width: 90%;
 
-  input[type="file"] {
+  input[type='file'] {
     display: none;
   }
 `;
@@ -27,7 +27,7 @@ const Input = styled.input`
   appearance: none;
   background: ${(props) => props.theme.colors.wellDone};
   text-align: center;
-  font-family: "zadelis-font";
+  font-family: 'podelis-font';
   font-size: 1em;
 
   ::placeholder {
@@ -55,7 +55,7 @@ const Location = styled(Autocomplete)`
   appearance: none;
   background: ${(props) => props.theme.colors.wellDone};
   text-align: center;
-  font-family: "zadelis-font";
+  font-family: 'podelis-font';
   font-size: 1em;
 
   ::placeholder {
@@ -88,7 +88,7 @@ const TextArea = styled.textarea`
   appearance: none;
   background: ${(props) => props.theme.colors.wellDone};
   text-align: center;
-  font-family: "zadelis-font";
+  font-family: 'podelis-font';
   font-size: 1em;
 
   ::placeholder {
@@ -137,7 +137,7 @@ const InputPeriod = styled.input`
   appearance: none;
   background: ${(props) => props.theme.colors.wellDone};
   text-align: center;
-  font-family: "zadelis-font";
+  font-family: 'podelis-font';
   font-size: 1em;
 
   ::placeholder {
@@ -182,7 +182,7 @@ const CheckBoxLabel = styled.label`
 
   span:before {
     position: absolute;
-    content: "";
+    content: '';
     height: 16px;
     width: 16px;
     left: 6px;
@@ -194,7 +194,7 @@ const CheckBoxLabel = styled.label`
   }
 
   input:checked + span {
-    background-color: ${(props) => props.color || "#2196f3"};
+    background-color: ${(props) => props.color || '#2196f3'};
   }
 
   input:focus + span {
@@ -232,7 +232,7 @@ const ButtonPhoto = styled.span`
   box-shadow: ${(props) => props.theme.shadows.logoHeader};
   background: ${(props) => props.theme.colors.wellDone};
   text-align: center;
-  font-family: "zadelis-font";
+  font-family: 'podelis-font';
   font-size: 1em;
   display: flex;
   align-items: center;
@@ -260,7 +260,7 @@ const ButtonSubmit = styled.button`
   background-color: ${(props) => props.theme.colors.solt};
   border: 2px solid ${(props) => props.theme.colors.mediumWell};
   text-align: center;
-  font-family: "zadelis-font";
+  font-family: 'podelis-font';
   font-size: 1em;
   display: flex;
   align-items: center;

@@ -1,7 +1,7 @@
-import styled from "styled-components";
+import styled from 'styled-components';
 
 const ProkatH2 = styled.h2`
-  font-family: "zadelisR-font";
+  font-family: 'podelisR-font';
   font-size: 1.4em;
 `;
 

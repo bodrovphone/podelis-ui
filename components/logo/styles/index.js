@@ -1,8 +1,8 @@
-import styled from "styled-components";
+import styled from 'styled-components';
 
 const Logo = styled.div`
   box-sizing: border-box;
-  font-family: "zadelis-font";
+  font-family: 'podelis-font';
   border-radius: 50%;
   width: 82px;
   height: 82px;

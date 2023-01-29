@@ -1,22 +1,22 @@
-import React from "react";
-import ST from "./styles";
-import GridItem from "./gridItem";
-import { Envelope } from "react-bootstrap-icons";
-import Image from "next/image";
+import React from 'react';
+import ST from './styles';
+import GridItem from './gridItem';
+import { Envelope } from 'react-bootstrap-icons';
+import Image from 'next/image';
 
 const Footer = () => (
   <ST.Footer data-testid="footer">
     <ST.Grid>
       <ST.GridBlock>
         <ST.GridItem>Владельцам</ST.GridItem>
-        <GridItem href="/about">Почему Zadelis?</GridItem>
+        <GridItem href="/about">Почему Podelis?</GridItem>
         <GridItem href="/blog/make-money">Делай деньги</GridItem>
         <GridItem href="/blog/go-for-it">Вперед за сокровищами</GridItem>
         <GridItem href="/blog/security-owner">Безопасность</GridItem>
       </ST.GridBlock>
       <ST.GridBlock>
         <ST.GridItem>Арендателям</ST.GridItem>
-        <GridItem href="/about">Почему Zadelis?</GridItem>
+        <GridItem href="/about">Почему Podelis?</GridItem>
         <GridItem href="/blog/seek-find">Ищем и находим</GridItem>
         <GridItem href="/blog/security-sharer">Безопасность</GridItem>
       </ST.GridBlock>
@@ -33,7 +33,7 @@ const Footer = () => (
             Свяжитесь с нами и мы постараемся быстро ответить на любой вопрос.
           </span>
           <div>
-            <a href="mailto:info@zadelis.com">
+            <a href="mailto:info@podelis.com">
               <Envelope size={32} color="black" />
             </a>
             <a href="viber://add?number=12345678">
@@ -56,7 +56,7 @@ const Footer = () => (
         </address>
       </ST.GridBlock>
     </ST.Grid>
-    <strong>&#169; Zadelis. 2020</strong>
+    <strong>&#169; Podelis. 2020</strong>
   </ST.Footer>
 );
 
