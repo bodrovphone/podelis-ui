@@ -1,5 +1,5 @@
-import styled from "styled-components";
-import { device } from "../../styles/media";
+import styled from 'styled-components';
+import { device } from '../../styles/media';
 
 const InputWrapper = styled.div`
   display: flex;
@@ -30,7 +30,7 @@ const Input = styled.input`
   appearance: none;
   background: ${(props) => props.theme.colors.wellDone};
   text-align: center;
-  font-family: "zadelis-font";
+  font-family: 'podelis-font';
   font-size: 1em;
 
   ::placeholder {

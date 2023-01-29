@@ -1,44 +1,44 @@
-import React from "react";
-import "@testing-library/jest-dom/extend-expect";
+import React from 'react';
+import '@testing-library/jest-dom/extend-expect';
 
-import { render, fireEvent } from "./config/test-utils";
-import Favourites from "../pages/favourites";
+import { render, fireEvent } from './config/test-utils';
+import Favourites from '../pages/favourites';
 
-describe("Favourites Page all components renders", () => {
+describe('Favourites Page all components renders', () => {
   // using container here for demonstration purpose mostly...
-  it("should render H1 tag with Zadelis, nav and footer", () => {
+  it('should render H1 tag with Podelis, nav and footer', () => {
     const { container } = render(<Favourites />);
-    const heading = container.querySelector("h1");
-    expect(heading).toHaveTextContent("Zadelis");
+    const heading = container.querySelector('h1');
+    expect(heading).toHaveTextContent('Podelis');
 
-    const nav = container.querySelector("nav");
-    const footer = container.querySelector("footer");
+    const nav = container.querySelector('nav');
+    const footer = container.querySelector('footer');
     expect(nav).toBeInTheDocument();
     expect(footer).toBeInTheDocument();
   });
 
-  it("should render Tabs component", () => {
+  it('should render Tabs component', () => {
     const { getByTestId } = render(<Favourites />);
-    const tabs = getByTestId("tabs");
+    const tabs = getByTestId('tabs');
     expect(tabs).toBeInTheDocument();
   });
 
-  it("should render FavSearches component", () => {
+  it('should render FavSearches component', () => {
     const { getByTestId, container } = render(<Favourites />);
-    const search = container.querySelector("li:last-of-type");
+    const search = container.querySelector('li:last-of-type');
     fireEvent.click(search);
-    const tabs = getByTestId("favSearches");
+    const tabs = getByTestId('favSearches');
     expect(tabs).toBeInTheDocument();
   });
 });
 
-describe("Favourites Page behavior", () => {
-  it("click on the menu should expand sidebar", () => {
+describe('Favourites Page behavior', () => {
+  it('click on the menu should expand sidebar', () => {
     const { container } = render(<Favourites />);
-    const menu = container.querySelector(".NavMenu");
+    const menu = container.querySelector('.NavMenu');
     fireEvent.click(menu);
 
-    const sideBar = container.querySelector(".active");
+    const sideBar = container.querySelector('.active');
 
     expect(sideBar).toBeInTheDocument();
   });

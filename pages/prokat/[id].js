@@ -1,17 +1,17 @@
-import Image from "next/image";
+import Image from 'next/image';
 
-import LT from "../../components/layouts";
-import Footer from "../../components/footer";
-import ProkatGallery from "../../components/prokatGallery";
-import ProkatDescription from "../../components/prokatDescription";
-import Profile from "../../components/profile";
-import ProkatDetails from "../../components/prokatDetails";
-import ST from "../../components/prokatDetails/styles";
-import ST_ from "../../components/singleCard/styles";
-import ProkatTitle from "../../components/prokatTitle";
+import LT from '../../components/layouts';
+import Footer from '../../components/footer';
+import ProkatGallery from '../../components/prokatGallery';
+import ProkatDescription from '../../components/prokatDescription';
+import Profile from '../../components/profile';
+import ProkatDetails from '../../components/prokatDetails';
+import ST from '../../components/prokatDetails/styles';
+import ST_ from '../../components/singleCard/styles';
+import ProkatTitle from '../../components/prokatTitle';
 
-import { getData } from "../../db";
-import { ObjectID } from "mongodb";
+import { getData } from '../../db';
+import { ObjectID } from 'mongodb';
 
 const imageBaseUrl = process.env.NEXT_PUBLIC_CF_DOMAIN;
 
@@ -37,7 +37,7 @@ const Prokat = (props) => {
   return (
     <LT.Layout>
       <LT.Main>
-        <LT.H1 name="Zadelis" slogan="На прокат бери - деньги береги."></LT.H1>
+        <LT.H1 name="Podelis" slogan="На прокат бери - деньги береги."></LT.H1>
         <LT.TwoColumnsDesktop>
           <ProkatGallery
             images={generateImageUrls(imagesId, imagesCounter, imgExt)}
@@ -57,7 +57,7 @@ const Prokat = (props) => {
               <Image src="/img/chat.png" width={75} height={75} />
               <Image src="/img/call.png" width={75} height={75} />
               <Image
-                styles={{ fill: "red" }}
+                styles={{ fill: 'red' }}
                 src="/img/viber-icon-colored.svg"
                 width={75}
                 height={75}
@@ -78,7 +78,7 @@ const Prokat = (props) => {
 };
 
 export async function getStaticPaths() {
-  const prokats = await getData("prokats", {}, true);
+  const prokats = await getData('prokats', {}, true);
   const prokatRoutes = prokats.map((prokat) => ({
     params: { id: prokat._id.toString() },
   }));
@@ -90,7 +90,7 @@ export async function getStaticPaths() {
 
 export async function getStaticProps({ params }) {
   try {
-    const prokatArray = await getData("prokats", { _id: ObjectID(params.id) });
+    const prokatArray = await getData('prokats', { _id: ObjectID(params.id) });
     const prokat = prokatArray[0];
     prokat.id = prokat._id.toString();
     delete prokat._id;

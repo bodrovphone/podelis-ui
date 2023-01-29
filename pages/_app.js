@@ -1,21 +1,21 @@
-import React, { useState, useEffect, useContext } from "react";
-import { ThemeProvider } from "styled-components";
-import themes from "../components/styles/theme";
-import { SideBarProvider } from "../context/sideBar.context";
+import React, { useState, useEffect, useContext } from 'react';
+import { ThemeProvider } from 'styled-components';
+import themes from '../components/styles/theme';
+import { SideBarProvider } from '../context/sideBar.context';
 import {
   ThemeSwitcherProvider,
   ThemeSwitcherContext,
-} from "../context/themeSwitcher.context";
-import "react-image-gallery/styles/css/image-gallery.css";
+} from '../context/themeSwitcher.context';
+import 'react-image-gallery/styles/css/image-gallery.css';
 
-const Zadelis = ({ Component, pageProps }) => {
+const Podelis = ({ Component, pageProps }) => {
   return (
     <SideBarProvider>
       <ThemeSwitcherProvider>
         <ThemeSwitcherContext.Consumer>
           {(ctx) => {
             return (
-              <ThemeProvider theme={themes[ctx.userTheme]}>
+              <ThemeProvider theme={themes[(ctx.userTheme = 'blueSky')]}>
                 <Component {...pageProps} />
               </ThemeProvider>
             );
@@ -26,4 +26,4 @@ const Zadelis = ({ Component, pageProps }) => {
   );
 };
 
-export default Zadelis;
+export default Podelis;

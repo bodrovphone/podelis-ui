@@ -1,13 +1,13 @@
-import LT from "../components/layouts";
-import Footer from "../components/footer";
-import ImgCircle from "../components/imgCircle";
-import Paper from "../components/paper";
+import LT from '../components/layouts';
+import Footer from '../components/footer';
+import ImgCircle from '../components/imgCircle';
+import Paper from '../components/paper';
 
 function AddForm({ data }) {
   return (
     <LT.Layout>
       <LT.Main>
-        <LT.H1 name="Zadelis" slogan="На прокат бери - деньги береги."></LT.H1>
+        <LT.H1 name="Podelis" slogan="На прокат бери - деньги береги."></LT.H1>
 
         <LT.H2>О сервисе</LT.H2>
         <LT.H3>
@@ -73,7 +73,7 @@ function AddForm({ data }) {
                 становится чем-то далеким. Кроме того поблизости и в продаже
                 просто может не оказаться того что вам нужно. Беря напрокат вы
                 получаете удовольствие от «здесь и сейчас» и получив
-                удовлетворение ставите новые цели.{" "}
+                удовлетворение ставите новые цели.{' '}
               </p>
             </Paper>
             <ImgCircle src="../img/now.jpg" />
@@ -88,7 +88,7 @@ function AddForm({ data }) {
                 велосипед. Складирование предметов которые не нужны это как
                 минимум не рационально. Многие покупки медленно но уверенно
                 превращаются в хлам. Аренда решает эту проблему и все в
-                выигрыше.{" "}
+                выигрыше.{' '}
               </p>
             </Paper>
             <ImgCircle src="../img/warehouse.jpg" />

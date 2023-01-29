@@ -1,14 +1,14 @@
-import LT from "../../components/layouts";
+import LT from '../../components/layouts';
 
-import SearchBar from "../../components/searchBar";
-import SearchFilters from "../../components/searchFilters";
-import CardsWidget from "../../components/cardsWidget";
+import SearchBar from '../../components/searchBar';
+import SearchFilters from '../../components/searchFilters';
+import CardsWidget from '../../components/cardsWidget';
 
 export default function Search(props) {
   return (
     <LT.Layout>
       <LT.Main>
-        <LT.H1 name="Zadelis" slogan="На прокат бери - деньги береги." />
+        <LT.H1 name="Podelis" slogan="На прокат бери - деньги береги." />
         <SearchBar />
         <SearchFilters />
         <LT.VCentered>

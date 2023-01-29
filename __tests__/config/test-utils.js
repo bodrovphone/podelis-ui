@@ -1,11 +1,12 @@
 // test-utils.js
-import { render } from "@testing-library/react";
-import { ThemeProvider, useTheme } from "styled-components";
-import themes from "../../components/styles/theme";
-import { SideBarProvider } from "../../context/sideBar.context";
-import { ThemeSwitcherProvider } from "../../context/themeSwitcher.context";
+import { render } from '@testing-library/react';
+import { ThemeProvider, useTheme } from 'styled-components';
+import themes from '../../components/styles/theme';
+import { SideBarProvider } from '../../context/sideBar.context';
+import { ThemeSwitcherProvider } from '../../context/themeSwitcher.context';
 
-const userTheme = process.env.NEXT_PUBLIC_LIGHT_THEME;
+// const userTheme = process.env.NEXT_PUBLIC_LIGHT_THEME | 'blueSky';
+const userTheme = 'blueSky';
 // Add in any providers here if necessary:
 // (ReduxProvider, ThemeProvider, etc)
 const Providers = ({ children }) => {
@@ -23,7 +24,7 @@ const customRender = (ui, options = {}) => {
 };
 
 // re-export everything
-export * from "@testing-library/react";
-export * from "@testing-library/jest-dom";
+export * from '@testing-library/react';
+export * from '@testing-library/jest-dom';
 // override render method
 export { customRender as render };

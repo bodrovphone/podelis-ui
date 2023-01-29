@@ -1,15 +1,15 @@
-import styled from "styled-components";
-import { swipeRight } from "../../styles/animations";
-import { device } from "../../styles/media";
+import styled from 'styled-components';
+import { swipeRight } from '../../styles/animations';
+import { device } from '../../styles/media';
 
-const swipeS = swipeRight("-52%", "-52%");
-const swipeM = swipeRight("-17%", "-17%");
+const swipeS = swipeRight('-52%', '-52%');
+const swipeM = swipeRight('-17%', '-17%');
 
 const Categories = styled.div`
   width: 100%;
   margin-bottom: 20px;
   overflow: scroll;
-  font-family: "zadelis-font";
+  font-family: 'podelis-font';
   &::-webkit-scrollbar {
     display: none;
   }

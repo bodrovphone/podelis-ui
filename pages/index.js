@@ -1,13 +1,13 @@
-import LT from "../components/layouts";
-import SearchBar from "../components/searchBar";
-import CategoriesWidget from "../components/categoriesWidget";
-import CardsWidget from "../components/cardsWidget";
-import AboutZadelis from "../components/aboutZadelis";
-import LoadMore from "../components/loadMore";
-import Footer from "../components/footer";
-import GetSocial from "../components/getSocial";
+import LT from '../components/layouts';
+import SearchBar from '../components/searchBar';
+import CategoriesWidget from '../components/categoriesWidget';
+import CardsWidget from '../components/cardsWidget';
+import AboutPodelis from '../components/aboutPodelis';
+import LoadMore from '../components/loadMore';
+import Footer from '../components/footer';
+import GetSocial from '../components/getSocial';
 
-import { getData } from "../db";
+import { getData } from '../db';
 
 export default function Home(props) {
   return (
@@ -15,18 +15,18 @@ export default function Home(props) {
       <LT.Main>
         <LT.H1
           data-testid="H1"
-          name="Zadelis"
+          name="Podelis"
           slogan="На прокат бери - деньги береги."
         />
         <CategoriesWidget
           data-testid="cat-widget"
           categories={[
-            "clothes",
-            "tools",
-            "electronics",
-            "transport",
-            "hobby",
-            "business",
+            'clothes',
+            'tools',
+            'electronics',
+            'transport',
+            'hobby',
+            'business',
           ]}
         />
         <LT.Description>
@@ -56,7 +56,7 @@ export default function Home(props) {
             <span>
               C уважением,
               <br />
-              Команда Zadelis
+              Команда Podelis
             </span>
           </article>
         </LT.Description>
@@ -70,7 +70,7 @@ export default function Home(props) {
           дней?🛠 Не покупайте вещь которой будете пользоваться нечасто 🗑,
           используйте Шеринг ❗️. Если у вас есть такая вещь , которой можно
           пользоваться - то сдавайте ее и зарабатывайте 💰. В нашем блоге мы
-          расскажем как это сделать безопасно ⚠️ и хорошо. Сервис Zadelis -
+          расскажем как это сделать безопасно ⚠️ и хорошо. Сервис Podelis -
           очень простая платформа бесплатных объявлений без рекламы 🆓 . Этот
           сервис сделан людьми для людей 👨‍👧‍👦. Все просто.
         </div>
@@ -83,10 +83,10 @@ export default function Home(props) {
           относится к ней как к своей и беречь ее 🤞🏻. Мы надеемся на это и
           описали все риски и как их можно минимизировать. Сайт все еще в
           процессе доработки 😅.
-        </div>{" "}
+        </div>{' '}
       </LT.Main>
 
-      <AboutZadelis data-testid="aboutZadelis" />
+      <AboutPodelis data-testid="aboutPodelis" />
 
       <GetSocial data-testid="getSocial" />
 
@@ -109,7 +109,7 @@ export default function Home(props) {
 
 export async function getStaticProps() {
   try {
-    const prokats = await getData("prokats", {}, false, 10);
+    const prokats = await getData('prokats', {}, false, 10);
     // a good candidate for helper function
     prokats.forEach((p) => (p._id = p._id.toString()));
 

@@ -1,9 +1,9 @@
-import React, { useRef, useEffect } from "react";
-import ST from "./styles";
-import Typed from "typed.js";
-import LT from "../layouts";
-import ReactTooltip from "react-tooltip";
-import Link from "next/link";
+import React, { useRef, useEffect } from 'react';
+import ST from './styles';
+import Typed from 'typed.js';
+import LT from '../layouts';
+import ReactTooltip from 'react-tooltip';
+import Link from 'next/link';
 
 const SearchBar = (props) => {
   const searchInput = useRef(null);
@@ -11,23 +11,23 @@ const SearchBar = (props) => {
   useEffect(() => {
     const typed = new Typed(searchInput.current, {
       strings: [
-        "что будем искать? ^4000",
-        "бетономешалка",
-        "лодка",
-        "машина",
-        "кафе",
-        "стадион",
-        "остров",
-        "iphone",
-        "дрель",
-        "палатка",
-        "дача",
+        'что будем искать? ^4000',
+        'бетономешалка',
+        'лодка',
+        'машина',
+        'кафе',
+        'стадион',
+        'остров',
+        'iphone',
+        'дрель',
+        'палатка',
+        'дача',
       ],
       typeSpeed: 80,
       backSpeed: 30,
       loop: true,
       loopCount: Infinity,
-      attr: "placeholder",
+      attr: 'placeholder',
     });
 
     return () => {
@@ -46,9 +46,7 @@ const SearchBar = (props) => {
 
       <LT.Button type="button">
         <span>
-          <Link href="/search">
-            <a>Поиск</a>
-          </Link>
+          <Link href="/search">Поиск</Link>
           <i>&gt;&gt;</i>
         </span>
       </LT.Button>

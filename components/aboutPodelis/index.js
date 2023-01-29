@@ -1,13 +1,13 @@
-import React from "react";
-import ST from "./styles";
-import Logo from "../logo";
-import Image from "next/image";
+import React from 'react';
+import ST from './styles';
+import Logo from '../logo';
+import Image from 'next/image';
 
-const AboutZadelis = (props) => (
+const AboutPodelis = (props) => (
   <ST.About {...props}>
     <Logo />
     <ST.Content>
-      Zadils - Простой и удобный шаринг-сервис.
+      Podelis - Простой и удобный шаринг-сервис.
       <br />
       Арендуй поблизости.
       <br />
@@ -20,7 +20,7 @@ const AboutZadelis = (props) => (
       <a
         target="_blank"
         rel="external"
-        href="https://www.instagram.com/explore/tags/zadelis/"
+        href="https://www.instagram.com/explore/tags/podelis/"
       >
         <Image
           src="/img/instagram-logo.png"
@@ -33,7 +33,7 @@ const AboutZadelis = (props) => (
       <a
         target="_blank"
         rel="external"
-        href="https://www.facebook.com/hashtag/zadelis"
+        href="https://www.facebook.com/hashtag/podelis"
       >
         <Image
           src="/img/facebook-logo.png"
@@ -46,7 +46,7 @@ const AboutZadelis = (props) => (
       <a
         target="_blank"
         rel="external"
-        href="https://twitter.com/hashtag/zadelis"
+        href="https://twitter.com/hashtag/podelis"
       >
         <Image
           src="/img/twitter-logo.png"
@@ -60,4 +60,4 @@ const AboutZadelis = (props) => (
   </ST.About>
 );
 
-export default AboutZadelis;
+export default AboutPodelis;

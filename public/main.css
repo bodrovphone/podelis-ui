@@ -1,15 +1,15 @@
 @font-face {
-  font-family: 'zadelis-font';
+  font-family: 'podelis-font';
   src: url('/fonts/Philosopher-Regular.ttf');
  }
  
 @font-face {
-  font-family: 'zadelis-font-italic';
+  font-family: 'podelis-font-italic';
   src: url('/fonts/Philosopher-Italic.ttf');
 }
 
  @font-face {
-  font-family: 'zadelisR-font';
+  font-family: 'podelisR-font';
   src: url('/fonts/PTSans-Regular.ttf');
  }
 * {

@@ -1,8 +1,8 @@
-import ReactHtmlParser from "react-html-parser";
-import Image from "next/image";
-import Link from "next/link";
-import LT from "../layouts";
-import ST from "./styles";
+// import ReactHtmlParser from "react-html-parser";
+import Image from 'next/image';
+import Link from 'next/link';
+import LT from '../layouts';
+import ST from './styles';
 
 const Recommendations = (recommended) => {
   return (
@@ -11,9 +11,7 @@ const Recommendations = (recommended) => {
         <LT.H3>P.s. Рекомендуем к прочтению:</LT.H3>
         {recommended.map((item, index) => (
           <li key={index}>
-            <Link href={item.path}>
-              <a>{item.text} </a>
-            </Link>
+            <Link href={item.path}>{item.text}</Link>
             {item.extra}
           </li>
         ))}
@@ -25,7 +23,7 @@ const Recommendations = (recommended) => {
 const Blog = ({ data }) =>
   data.blocks.map(({ text, image, recommended }, index) => (
     <ST.Blog key={index}>
-      {ReactHtmlParser(text)}
+      {/* {ReactHtmlParser(text)} */}
       {image && (
         <Image
           src={image}

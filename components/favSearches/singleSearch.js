@@ -1,16 +1,14 @@
-import React, { useState } from "react";
-import ST from "./styles";
-import { Search, Diagram3, XCircle, Plus } from "react-bootstrap-icons";
-import Link from "next/link";
+import React, { useState } from 'react';
+import ST from './styles';
+import { Search, Diagram3, XCircle, Plus } from 'react-bootstrap-icons';
+import Link from 'next/link';
 
 const SingleSearch = ({ query }) => (
   <ST.SearchContainer>
     <ST.Query>
       <Link href={`/search/${query.label}`}>
-        <a>
-          <Search />
-          <span>{query.label}</span>
-        </a>
+        <Search />
+        <span>{query.label}</span>
       </Link>
     </ST.Query>
     <ST.Meta>
