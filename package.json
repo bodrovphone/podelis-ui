@@ -17,7 +17,7 @@
     "express-validator": "^6.12.1",
     "formik": "2.2.6",
     "mongodb": "^3.6.9",
-    "next": "^13.1.6",
+    "next": "15.3.2",
     "prop-types": "15.7.2",
     "react": "18.2.0",
     "react-bootstrap-icons": "1.5.0",
@@ -37,10 +37,15 @@
   "devDependencies": {
     "@testing-library/jest-dom": "^5.14.1",
     "@testing-library/react": "^12.0.0",
+    "@types/jest": "29.5.14",
+    "@types/node": "22.15.21",
+    "@types/react": "18.2.79",
+    "@types/styled-components": "5.1.34",
     "babel-plugin-styled-components": "1.12.0",
     "identity-obj-proxy": "^3.0.0",
     "jest": "^27.0.6",
-    "jest-canvas-mock": "^2.3.1"
+    "jest-canvas-mock": "^2.3.1",
+    "typescript": "5.8.3"
   },
   "jest": {
     "testEnvironment": "jsdom",
