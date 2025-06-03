@@ -2,13 +2,19 @@ import React, { useRef, useEffect } from 'react';
 import ST from './styles';
 import Typed from 'typed.js';
 import LT from '../layouts';
-import ReactTooltip from 'react-tooltip';
+// import ReactTooltip from 'react-tooltip'; // Will be dynamically imported
 import Link from 'next/link';
+import dynamic from 'next/dynamic';
+
+const ReactTooltip = dynamic(() => import('react-tooltip').then(mod => mod.Tooltip), { ssr: false });
 
 const SearchBar = (props: any) => {
   const searchInput = useRef<HTMLInputElement>(null);
+  const [isClient, setIsClient] = React.useState(false);
+
   //  I need second useEffect becase it runs only once
   useEffect(() => {
+    setIsClient(true);
     const typed = new Typed(searchInput.current, {
       strings: [
         'что будем искать? ^4000',
@@ -40,9 +46,9 @@ const SearchBar = (props: any) => {
       <ST.Input
         ref={searchInput}
         type="text"
-        data-tip="начните ввод в строке поиска"
+        data-tooltip-id="search-tooltip" data-tooltip-content="начните ввод в строке поиска"
       />
-      <ReactTooltip type="light" />
+      {isClient && <ReactTooltip id="search-tooltip" variant="light" />}
 
       <LT.Button type="button">
         <span>

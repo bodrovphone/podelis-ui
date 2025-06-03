@@ -1,4 +1,4 @@
-module.exports = {
+const nextConfig = {
   // devIndicators: {
   //   autoPrerender: false,
   // },
@@ -6,3 +6,5 @@ module.exports = {
     domains: ['dskv0k54gn1gw.cloudfront.net'],
   },
 };
+
+export default nextConfig;

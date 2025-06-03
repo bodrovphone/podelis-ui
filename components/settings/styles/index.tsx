@@ -85,7 +85,11 @@ const SettingTitle = styled.div`
   font-weight: bold;
 `;
 
-const ButtonSetting = styled.button`
+interface ButtonSettingProps {
+  $delete?: boolean;
+}
+
+const ButtonSetting = styled.button<ButtonSettingProps>`
   display: inline-block;
   padding: 5px;
   font-size: 16px;
@@ -95,8 +99,8 @@ const ButtonSetting = styled.button`
   text-decoration: none;
   outline: none;
   color: black;
-  background-color: ${(props: any) => (props.delete ? '#ff944d' : '#ffc299')};
-  border: 2px solid ${(props: any) => props.theme.colors.mediumWell};
+  background-color: ${(props) => (props.$delete ? '#ff944d' : '#ffc299')};
+  border: 2px solid ${(props) => props.theme.colors.mediumWell};
   border-radius: 0 10px 0 10px;
   box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2);
 
@@ -114,7 +118,7 @@ const ButtonSetting = styled.button`
   }
 
   :hover {
-    border: 2px solid ${(props: any) => props.theme.colors.solt};
+    border: 2px solid ${(props) => props.theme.colors.solt};
     background-color: '#ffc299';
   }
 

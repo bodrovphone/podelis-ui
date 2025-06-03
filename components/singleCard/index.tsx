@@ -48,10 +48,11 @@ const SingleCard = ({ prokat }: SingleCardProps) => {
                 ? `${process.env.NEXT_PUBLIC_CF_DOMAIN}/${imagesId}/0.${imgExt}`
                 : '/img/no_image.png'
             }
-            width="100%"
-            height="100%"
+            alt={title || "Prokat image"} // Added alt prop
+            width={400} // Placeholder width for aspect ratio
+            height={300} // Placeholder height for aspect ratio
             layout="responsive"
-            priotiy="true"
+            priority // Corrected prop name and usage
           />
         </ST.CardImage>
         <ST.CardTitle>{title}</ST.CardTitle>

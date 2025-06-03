@@ -63,7 +63,7 @@ const ProfileEditable = ({
             name="name"
             value={state.name}
             onChange={handleChange}
-            maxLength="18"
+            maxLength={18}
             size={state.size}
           />
         </ST.Field>
@@ -75,7 +75,7 @@ const ProfileEditable = ({
             pattern="^((\+)?3?8)?0[1-9]{2}[0-9 ]{7}"
             value={state.tel}
             onChange={handleChange}
-            maxLength="18"
+            maxLength={18}
             size={14}
           />
         </ST.Field>
@@ -86,7 +86,7 @@ const ProfileEditable = ({
             name="city"
             value={state.city}
             onChange={handleChange}
-            maxLength="18"
+            maxLength={18}
             size={18}
           />
         </ST.Field>
@@ -101,4 +101,4 @@ const ProfileEditable = ({
   );
 };
 
-export default withTheme(ProfileEditable);
+export default withTheme(ProfileEditable) as React.FC<Omit<ProfileEditableProps, 'theme'>>;

@@ -2,7 +2,9 @@
 
 const { MongoClient, ObjectID } = require('mongodb');
 
-const client = new MongoClient(process.env.MONGO_DB_URI, {
+const MONGO_URI = process.env.MONGO_DB_URI || 'mongodb://localhost:27017/placeholderdb_podelis';
+
+const client = new MongoClient(MONGO_URI, {
   useNewUrlParser: true,
   useUnifiedTopology: true,
 });

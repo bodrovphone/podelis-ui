@@ -11,7 +11,7 @@ interface TabChildProps {
 }
 
 interface TabsProps {
-  children: ReactElement<TabChildProps>[]; // Array of React elements with specific props
+  children: ReactElement<any>[]; // Changed to ReactElement<any>[]
   [key: string]: any;
 }
 
@@ -34,8 +34,9 @@ const Tabs = (props: TabsProps) => {
   return (
     <ST.Tabs {...props}>
       <ST.TabList>
-        {children.map((child: ReactElement<TabChildProps>) => {
-          const { label } = child.props;
+        {/* Type assertion for child might be needed if TS still complains after props change */}
+        {children.map((child) => {
+          const { label } = (child.props as TabChildProps); // Accessing props safely
 
           return (
             <Tab
@@ -48,9 +49,10 @@ const Tabs = (props: TabsProps) => {
         })}
       </ST.TabList>
       <ST.TabContent>
-        {children.map((child: ReactElement<TabChildProps>) => {
-          if (child.props.label !== activeTab) return undefined;
-          return child.props.children;
+        {/* Type assertion for child might be needed */}
+        {children.map((child) => {
+          if ((child.props as TabChildProps).label !== activeTab) return undefined;
+          return (child.props as TabChildProps).children;
         })}
       </ST.TabContent>
     </ST.Tabs>

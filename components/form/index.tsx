@@ -19,7 +19,7 @@ const ACTIONS = {
 
 const IMAGE_EXT = "png";
 
-const reducer = (state: any, { type, payload }: { type: string; payload: any }): any => {
+const reducer = (state: any, { type, payload }: { type: string; payload?: any }): any => {
   if (type === ACTIONS.ADD_IMAGE) {
     // slice(-3) limits the number of images up to 4
     // filter() gets rid of duplicates
@@ -99,22 +99,28 @@ const Form = (props: any) => {
   const router = useRouter();
 
   // hopefully uuid will really be unique, otherwise I am in trouble here...
-  useEffect(async () => {
-    if (images.length) {
-      dispatch({ type: ACTIONS.UPLOADING_IMAGES });
-      const postImagesPomises = images.map((image, index) =>
-        axios.post("/api/postImage", {
-          image,
-          id: imagesId.current,
-          index,
-        })
-      );
-      try {
-        await Promise.allSettled([...postImagesPomises]);
-        dispatch({ type: ACTIONS.IMAGES_UPLOADED });
-      } catch (error: any) {}
-    }
-  }, [imagesCounter]);
+  useEffect(() => {
+    const uploadImages = async () => {
+      if (images.length) {
+        dispatch({ type: ACTIONS.UPLOADING_IMAGES });
+        const postImagesPromises = images.map((image: any, index: number) => // Added types for image and index
+          axios.post("/api/postImage", {
+            image,
+            id: imagesId.current,
+            index,
+          })
+        );
+        try {
+          await Promise.allSettled([...postImagesPromises]);
+          dispatch({ type: ACTIONS.IMAGES_UPLOADED });
+        } catch (error: any) {
+          console.error("Error uploading images:", error);
+        }
+      }
+    };
+
+    uploadImages();
+  }, [imagesCounter, images, dispatch]); // Added images and dispatch
 
   const resizeFile = (file: any): Promise<any> =>
     new Promise((resolve) => {
@@ -250,7 +256,7 @@ const Form = (props: any) => {
             </ST.PeriodWrapper>
             <ST.Label>
               Название
-              {touched.title && errors.title}
+              {touched.title && errors.title && <ST.ErrorDisplay>{String(errors.title)}</ST.ErrorDisplay>}
               <ST.Input
                 type="text"
                 placeholder="Буровая установка"
@@ -262,8 +268,9 @@ const Form = (props: any) => {
             </ST.Label>
             <ST.Label>
               Описание
+              {/* Assuming similar error display might be needed for description */}
+              {touched.description && errors.description && <ST.ErrorDisplay>{String(errors.description)}</ST.ErrorDisplay>}
               <ST.TextArea
-                type="text"
                 placeholder="Буровая установка"
                 name="description"
                 onChange={handleChange}
@@ -276,14 +283,9 @@ const Form = (props: any) => {
               <ST.Location
                 apiKey={process.env.NEXT_PUBLIC_GOOGLE_API_KEY}
                 onPlaceSelected={citySelectHandler}
-                value={city}
+                defaultValue={city}
                 language="ru"
-                onChange={({ currentTarget }: any) => {
-                  dispatch({
-                    type: "UPDATE_CITY",
-                    payload: currentTarget.value,
-                  });
-                }}
+                // Removed onChange that was updating city based on raw input
               />
             </ST.Label>
             <ST.Label>

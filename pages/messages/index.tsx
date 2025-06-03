@@ -10,7 +10,7 @@ function MessagesIndexPage({ id }: MessagesIndexPageProps) {
   return (
     <LT.Layout>
       <LT.Main>
-        <LT.H1 name="Мои Сообщения" size="2em" />
+        <LT.H1 name="Мои Сообщения" slogan="" size="2em" />
         <Messages thread links />
       </LT.Main>
       <Footer />

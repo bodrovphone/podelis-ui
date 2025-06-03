@@ -25,7 +25,9 @@ export const useFetch = (url: string = "", options: any = null) => {
       })
       .finally(() => isMounted && setLoading(false));
 
-    return () => (isMounted = false);
+    return () => {
+      isMounted = false;
+    };
   }, [url, options]);
 
   return { loading, error, data };

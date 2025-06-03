@@ -280,6 +280,13 @@ const ConditionsLabel = styled.div`
   width: 90%;
 `;
 
+const ErrorDisplay = styled.span`
+  color: red;
+  font-size: 0.8em;
+  margin-top: 4px;
+  display: block; /* Or inline-block, depending on desired layout */
+`;
+
 export default {
   Form,
   Input,
@@ -296,4 +303,5 @@ export default {
   ButtonPhoto,
   ButtonSubmit,
   ConditionsLabel,
+  ErrorDisplay,
 };

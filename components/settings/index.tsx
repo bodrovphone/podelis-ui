@@ -90,7 +90,7 @@ const Settings = (props: any) => {
 
             <ST.Group>
               <ST.SettingTitle>Удалить акаунт</ST.SettingTitle>
-              <ST.ButtonSetting type="button" delete>
+              <ST.ButtonSetting type="button" $delete>
                 Удалить акаунт
               </ST.ButtonSetting>
             </ST.Group>

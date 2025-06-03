@@ -21,6 +21,7 @@ const GifPlayer = ({ gif, still, playing, toggle, ...rest }: GifPlayerProps) => 
     <Image
       width={75}
       height={75}
+      alt={rest.alt || "GIF image"} // Provide a default alt text
       {...rest}
       src={playing ? gif || still : still || gif}
     />

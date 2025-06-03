@@ -19,7 +19,7 @@ const Form = (props: any) => {
     error: "",
   });
 
-  const msgTextRef = useRef<HTMLInputElement>(null);
+  const msgTextRef = useRef<HTMLTextAreaElement>(null);
 
   useEffect(() => {
     if (msgTextRef.current) {
@@ -65,7 +65,7 @@ const Form = (props: any) => {
               // Do not add more if limit is reached or exceeded
               return { ...prevState, error };
             }
-            
+
             return {
               files: [...currentFiles, image],
               imagePreviewUrls: [...currentImagePreviewUrls, image],
@@ -120,7 +120,6 @@ const Form = (props: any) => {
         <ST.Form onSubmit={handleSubmit}>
           <ST.FormWrapper>
             <ST.MsgInput
-              type="text"
               placeholder="Буровая установка"
               name="description"
               onChange={handleChange}
@@ -154,7 +153,7 @@ const Form = (props: any) => {
               <ST.AdPreview key={i} src={preview} />
             ))}
           </ST.PeriodWrapper>
-          {errors.title && touched.title && errors.title}
+          {errors.title && touched.title && <ST.ErrorDisplay>{String(errors.title)}</ST.ErrorDisplay>}
         </ST.Form>
       )}
     </Formik>

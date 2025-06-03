@@ -46,6 +46,14 @@ interface GifPlayerContainerState {
 class GifPlayerContainer extends React.Component<GifPlayerContainerProps, GifPlayerContainerState> {
   updateId: number;
 
+  static propTypes = {
+    gif: PropTypes.string,
+    still: PropTypes.string,
+    autoplay: PropTypes.bool,
+    pauseRef: PropTypes.func,
+    onTogglePlay: PropTypes.func
+  };
+
   static getDerivedStateFromProps (nextProps: GifPlayerContainerProps, prevState: GifPlayerContainerState): Partial<GifPlayerContainerState> | null {
     const prevGif = prevState.providedGif;
     const nextGif = nextProps.gif;
@@ -137,13 +145,5 @@ class GifPlayerContainer extends React.Component<GifPlayerContainerProps, GifPla
 }
 
 polyfill(GifPlayerContainer);
-
-GifPlayerContainer.propTypes = {
-  gif: PropTypes.string,
-  still: PropTypes.string,
-  autoplay: PropTypes.bool,
-  pauseRef: PropTypes.func,
-  onTogglePlay: PropTypes.func
-};
 
 export default GifPlayerContainer;

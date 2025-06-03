@@ -16,7 +16,7 @@ const Tab = (props: TabProps) => {
   };
 
   return (
-    <ST.TabListItem onClick={onClick} active={activeTab === label}>
+    <ST.TabListItem onClick={onClick} $active={activeTab === label}>
       {label}
     </ST.TabListItem>
   );

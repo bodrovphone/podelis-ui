@@ -211,4 +211,10 @@ export default {
   AdPreview,
   PeriodWrapper,
   FormWrapper,
+  ErrorDisplay: styled.span`
+    color: red;
+    font-size: 0.8em;
+    margin-top: 4px;
+    display: block; /* Or inline-block */
+  `,
 };

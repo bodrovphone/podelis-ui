@@ -117,8 +117,9 @@ export async function getStaticProps(): Promise<any> {
       props: { prokats },
     };
   } catch (error: any) {
+    console.error("Failed to fetch prokats for homepage:", error);
     return {
-      props: { error: true },
+      props: { prokats: [] }, // Return empty array on error
     };
   }
 }

@@ -11,7 +11,7 @@ function Thread({ id }: ThreadProps) {
   return (
     <LT.Layout>
       <LT.Main>
-        <LT.H1 name="Чат" size="2em" />
+        <LT.H1 name="Чат" slogan="" size="2em" />
         <Messages />
         <MsgForm />
         <GoBack href="/messages">&lt;&lt; ко всем сообщениям</GoBack>

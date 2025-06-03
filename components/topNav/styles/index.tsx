@@ -1,7 +1,7 @@
 import styled, { keyframes } from 'styled-components';
 import { device } from '../../styles/media';
 import { List } from 'react-bootstrap-icons';
-import { rotate } from '../../styles/animations';
+// import { rotate } from '../../styles/animations'; // Removed unused import
 
 // Base elements
 const Nav = styled.nav`
@@ -63,7 +63,6 @@ const NavItemLink = styled.span`
 
     &.NavMenu {
       align-self: center;
-      /* animation: ${rotate} 2s linear infinite; */
     }
 
   /* hide search icon on big screens */

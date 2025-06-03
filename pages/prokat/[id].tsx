@@ -36,7 +36,7 @@ const Prokat = (props: ProkatPageProps) => {
 
   // getting number of images from db and generating array of urls
   const generateImageUrls = (id: any, num: number, ext: any): any[] => {
-    return [...Array(num).keys()].map((index: number) => ({
+    return Array.from(Array(num).keys()).map((index: number) => ({
       original: `${imageBaseUrl}/${id}/${index}.${ext}`,
       thumbnail: `${imageBaseUrl}/${id}/${index}.${ext}`,
     }));
@@ -61,16 +61,18 @@ const Prokat = (props: ProkatPageProps) => {
             <ProkatDescription description={description} />
 
             <ST.ContactOwnerWrapper>
-              <Image src="/img/chat.png" width={75} height={75} />
-              <Image src="/img/call.png" width={75} height={75} />
+              <Image src="/img/chat.png" alt="Chat icon" width={75} height={75} />
+              <Image src="/img/call.png" alt="Call icon" width={75} height={75} />
               <Image
-                styles={{ fill: 'red' }}
+                alt="Viber icon" // Added alt
+                style={{ fill: 'red' }}
                 src="/img/viber-icon-colored.svg"
                 width={75}
                 height={75}
               />
               <Image
                 src="/img/telegram-icon-colored.svg"
+                alt="Telegram icon" // Added alt
                 width={75}
                 height={75}
               />
@@ -85,30 +87,41 @@ const Prokat = (props: ProkatPageProps) => {
 };
 
 export async function getStaticPaths(): Promise<any> {
-  const prokats: any[] = await getData('prokats', {}, true);
-  const prokatRoutes = prokats.map((prokat: any) => ({
-    params: { id: prokat._id.toString() },
-  }));
-  return {
-    paths: prokatRoutes,
-    fallback: true,
-  };
+  try {
+    const prokats: any[] = await getData('prokats', {}, true);
+    const prokatRoutes = prokats.map((prokat: any) => ({
+      params: { id: prokat._id.toString() },
+    }));
+    return {
+      paths: prokatRoutes,
+      fallback: 'blocking', // Changed to 'blocking'
+    };
+  } catch (error) {
+    console.error("Failed to fetch prokat paths for getStaticPaths:", error);
+    return {
+      paths: [],
+      fallback: 'blocking',
+    };
+  }
 }
 
 export async function getStaticProps({ params }: { params: any }): Promise<any> {
   try {
     const prokatArray: any[] = await getData('prokats', { _id: ObjectID(params.id) });
+    if (!prokatArray || prokatArray.length === 0) {
+      return { notFound: true };
+    }
     const prokat: any = prokatArray[0];
     prokat.id = prokat._id.toString();
     delete prokat._id;
 
     return {
       props: { prokat },
+      revalidate: 60, // Optional: revalidate every 60 seconds
     };
   } catch (error: any) {
-    return {
-      props: { error: true },
-    };
+    console.error("Failed to fetch prokat for id:", params.id, error);
+    return { notFound: true }; // Changed to notFound
   }
 }
 

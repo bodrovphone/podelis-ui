@@ -10,16 +10,21 @@ const TabList = styled.ol`
 
 const TabContent = styled.div``;
 
-const TabListItem = styled.li`
+interface TabListItemProps {
+  $active?: boolean;
+  // theme prop will be available via DefaultTheme
+}
+
+const TabListItem = styled.li<TabListItemProps>`
   display: inline-block;
   list-style: none;
   margin-bottom: -1px;
   padding: 0.5rem 0.75rem;
-  color: ${(props: any) => props.theme.colors.paper};
+  color: ${(props) => props.theme.colors.paper};
   border-radius: 0 10px 0 10px;
 
-  ${({ active, theme }: { active: any, theme: any }) =>
-    active &&
+  ${({ $active, theme }) =>
+    $active &&
     `
     box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2);
     color: ${theme.colors.rareMedium};
