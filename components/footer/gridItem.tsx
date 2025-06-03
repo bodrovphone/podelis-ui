@@ -1,6 +1,5 @@
 import React from 'react';
 import Link from 'next/link';
-import ST from './styles';
 import { ReactNode } from 'react';
 
 interface GridItemProps {
@@ -10,7 +9,7 @@ interface GridItemProps {
 
 const GridItem = ({ href, children }: GridItemProps) => (
   <Link href={href}>
-    <ST.GridItem>{children}</ST.GridItem>
+    <li className="hover:cursor-pointer hover:text-rare">{children}</li>
   </Link>
 );
 

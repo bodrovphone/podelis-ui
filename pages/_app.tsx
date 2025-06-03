@@ -7,6 +7,7 @@ import {
   ThemeSwitcherContext,
 } from '../context/themeSwitcher.context';
 import 'react-image-gallery/styles/css/image-gallery.css';
+import '../public/main.css';
 
 interface PodelisProps {
   Component: any;

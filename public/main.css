@@ -1,28 +1,24 @@
-@font-face {
-  font-family: 'podelis-font';
-  src: url('/fonts/Philosopher-Regular.ttf');
- }
- 
-@font-face {
-  font-family: 'podelis-font-italic';
-  src: url('/fonts/Philosopher-Italic.ttf');
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+/* For components/categoriesWidget */
+.no-scrollbar::-webkit-scrollbar {
+  display: none;
 }
 
- @font-face {
-  font-family: 'podelisR-font';
-  src: url('/fonts/PTSans-Regular.ttf');
- }
-* {
-  box-sizing: border-box;
-}
-html {
-  scroll-behavior: smooth;
+/* Hide scrollbar for IE, Edge and Firefox */
+.no-scrollbar {
+  -ms-overflow-style: none;  /* IE and Edge */
+  scrollbar-width: none;  /* Firefox */
 }
 
-body {
-  background-color: #fafbfb;
-  font-family: 'Helvetica Neue', Helvetica, Arial, sans-serif;
-  font-size: 0.9em;
-  padding: 0;
-  margin: 0;
+/* Styling for images within categoriesWidget, assuming GifPlayer renders an img tag */
+/* If GifPlayer renders a different structure, these selectors might need adjustment */
+.category-image-item:nth-child(3n) img {
+  background-color: #90E0EF; /* mediumWell */
+}
+
+.category-image-item:nth-child(3n + 1) img {
+  background-color: #3d77f5; /* rareMedium */
 }
