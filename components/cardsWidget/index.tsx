@@ -1,5 +1,4 @@
 import React, { useEffect, useState } from "react";
-import ST from "./styles";
 import SingleCard from "../singleCard";
 // defaultTopPosts will be replaced with getStaticProps and fetch to API during build time
 // when we have it on backend
@@ -32,11 +31,14 @@ const CardsWidget = ({ prokats, ...props }: CardsWidgetProps) => {
 
   if (prokats) {
     return (
-      <ST.Cards {...props}>
+      <section
+        {...props}
+        className="grid grid-cols-2 gap-x-[10px] gap-y-5 my-[15px] mobileXL:grid-cols-3 md:grid-cols-4 lg:grid-cols-5"
+      >
         {prokats.map((prokat: any) => (
           <SingleCard prokat={prokat} key={prokat._id} />
         ))}
-      </ST.Cards>
+      </section>
     );
   }
 

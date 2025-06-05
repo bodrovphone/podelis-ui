@@ -2,27 +2,28 @@
 import Image from 'next/image';
 import Link from 'next/link';
 import LT from '../layouts';
-import ST from './styles';
 
 const Recommendations = (recommended: any) => {
   return (
     recommended && (
-      <ST.Recommended>
+      <ul className="text-left">
         <LT.H3>P.s. Рекомендуем к прочтению:</LT.H3>
         {recommended.map((item: any, index: number) => (
           <li key={index}>
-            <Link href={item.path}>{item.text}</Link>
+            <Link href={item.path}>
+              <a className="no-underline text-rareMedium hover:text-rare">{item.text}</a>
+            </Link>
             {item.extra}
           </li>
         ))}
-      </ST.Recommended>
+      </ul>
     )
   );
 };
 
 const Blog = ({ data }: { data: any }) =>
   data.blocks.map(({ text, image, recommended }: { text: any, image: any, recommended: any }, index: number) => (
-    <ST.Blog key={index}>
+    <div key={index} className="text-center font-['podelis-font'] text-base md:text-left">
       {/* {ReactHtmlParser(text)} */}
       {image && (
         <Image
@@ -34,7 +35,7 @@ const Blog = ({ data }: { data: any }) =>
         />
       )}
       {recommended && Recommendations(recommended)}
-    </ST.Blog>
+    </div>
   ));
 
 export default Blog;

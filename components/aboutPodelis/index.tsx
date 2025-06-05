@@ -1,12 +1,14 @@
 import React from 'react';
-import ST from './styles';
 import Logo from '../logo';
 import Image from 'next/image';
 
 const AboutPodelis = (props: any) => (
-  <ST.About {...props}>
+  <section
+    {...props}
+    className="h-[300px] bg-[lemonchiffon] w-full py-5 px-[0.3em] my-[30px] relative"
+  >
     <Logo />
-    <ST.Content>
+    <div className="text-[1.1em] text-center leading-[1.5em] pt-5 font-['podelis-font-italic']">
       Podelis - Простой и удобный шаринг-сервис.
       <br />
       Арендуй поблизости.
@@ -15,12 +17,13 @@ const AboutPodelis = (props: any) => (
       <br />
       Сдавай в аренду вещи и зарабатывай.
       <br />
-    </ST.Content>
-    <ST.Social>
+    </div>
+    <div className="my-5 mx-auto text-center">
       <a
         target="_blank"
         rel="external"
         href="https://www.instagram.com/explore/tags/podelis/"
+        className="mr-2.5"
       >
         <Image
           src="/img/instagram-logo.png"
@@ -34,6 +37,7 @@ const AboutPodelis = (props: any) => (
         target="_blank"
         rel="external"
         href="https://www.facebook.com/hashtag/podelis"
+        className="mr-2.5"
       >
         <Image
           src="/img/facebook-logo.png"
@@ -47,6 +51,7 @@ const AboutPodelis = (props: any) => (
         target="_blank"
         rel="external"
         href="https://twitter.com/hashtag/podelis"
+        className="mr-2.5"
       >
         <Image
           src="/img/twitter-logo.png"
@@ -56,8 +61,8 @@ const AboutPodelis = (props: any) => (
           height={42}
         />
       </a>
-    </ST.Social>
-  </ST.About>
+    </div>
+  </section>
 );
 
 export default AboutPodelis;

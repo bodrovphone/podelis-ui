@@ -2,10 +2,12 @@ import { Formik, Field } from "formik";
 import { useReducer, useEffect, useRef } from "react";
 import Resizer from "react-image-file-resizer";
 import { Images, ChevronDoubleRight } from "react-bootstrap-icons";
-import ST from "./styles";
+import Autocomplete from "react-google-autocomplete"; // Assuming ST.Location was this
 import axios from "axios";
 import { useRouter } from "next/router";
 import { v4 as uuidv4 } from "uuid";
+
+const baseInputStyles = "w-[70%] outline-none py-[5px] px-[7px] rounded-br-lg rounded-tl-lg border-2 border-formInputBorder h-[35px] shadow-logoHeader appearance-none bg-formInputBg text-center font-['podelis-font'] text-base placeholder:text-center focus:bg-formInputBorder focus:border-formInputFocusBorder focus:placeholder:text-transparent";
 
 const ACTIONS = {
   ADD_IMAGE: "ADD_IMAGE",
@@ -235,81 +237,86 @@ const Form = (props: any) => {
         return isSubmitting || submitted ? (
           <span>Отправляю данные...</span>
         ) : (
-          <ST.Form onSubmit={handleSubmit} {...props}>
-            <ST.Label>
-              <ST.ButtonPhoto>
+          <form onSubmit={handleSubmit} {...props} className="w-full">
+            <label className="flex flex-col my-5 mx-auto w-11/12">
+              <span className="appearance-none text-center py-[5px] px-[7px] border-2 border-gray-400 font-['podelis-font'] text-base w-1/5 h-[35px] shadow-logoHeader bg-formInputBg rounded-br-lg rounded-tl-lg flex items-center justify-around hover:shadow-md cursor-pointer">
                 фото
                 <Images size="24" color="black" />
-              </ST.ButtonPhoto>
+              </span>
               <input
                 type="file"
                 name="photo"
                 multiple
                 onChange={handleImageChange}
                 accept="image/*"
+                className="hidden"
               />
-            </ST.Label>
-            <ST.PeriodWrapper>
+            </label>
+            <div className="w-11/12 mx-auto flex items-baseline flex-wrap"> {/* ST.PeriodWrapper for images */}
               {images?.map((preview: any, i: number) => (
-                <ST.AdPreview key={i} src={preview} />
+                <img key={i} src={preview} className="w-3/10 max-w-[200px] max-h-[400px] m-1.5" alt={`preview ${i}`} />
               ))}
-            </ST.PeriodWrapper>
-            <ST.Label>
+            </div>
+            <label className="flex flex-col my-5 mx-auto w-11/12">
               Название
-              {touched.title && errors.title && <ST.ErrorDisplay>{String(errors.title)}</ST.ErrorDisplay>}
-              <ST.Input
+              {touched.title && errors.title && <span className="text-red-500 text-xs mt-1 block">{String(errors.title)}</span>}
+              <input
                 type="text"
                 placeholder="Буровая установка"
                 name="title"
                 onChange={handleChange}
                 onBlur={handleBlur}
                 value={values.title}
+                className={baseInputStyles}
               />
-            </ST.Label>
-            <ST.Label>
+            </label>
+            <label className="flex flex-col my-5 mx-auto w-11/12">
               Описание
-              {/* Assuming similar error display might be needed for description */}
-              {touched.description && errors.description && <ST.ErrorDisplay>{String(errors.description)}</ST.ErrorDisplay>}
-              <ST.TextArea
+              {touched.description && errors.description && <span className="text-red-500 text-xs mt-1 block">{String(errors.description)}</span>}
+              <textarea
                 placeholder="Буровая установка"
                 name="description"
                 onChange={handleChange}
                 onBlur={handleBlur}
                 value={values.description}
+                className={`${baseInputStyles} h-[150px]`}
               />
-            </ST.Label>
-            <ST.Label>
+            </label>
+            <label className="flex flex-col my-5 mx-auto w-11/12">
               Город
-              <ST.Location
+              <Autocomplete
                 apiKey={process.env.NEXT_PUBLIC_GOOGLE_API_KEY}
                 onPlaceSelected={citySelectHandler}
                 defaultValue={city}
                 language="ru"
-                // Removed onChange that was updating city based on raw input
+                className={baseInputStyles}
+                options={{ types: ["(cities)"] }}
               />
-            </ST.Label>
-            <ST.Label>
+            </label>
+            <label className="flex flex-col my-5 mx-auto w-11/12">
               Цена
-              <ST.Input
+              <input
                 type="number"
                 name="price"
                 placeholder="0"
                 onChange={handleChange}
                 onBlur={handleBlur}
                 value={values.price}
+                className={baseInputStyles}
               />
-            </ST.Label>
-            <ST.PeriodWrapper>
-              <ST.LabelPeriod>
+            </label>
+            <div className="w-11/12 mx-auto flex items-baseline flex-wrap"> {/* ST.PeriodWrapper */}
+              <label className="flex flex-col my-2.5 w-1/2"> {/* ST.LabelPeriod */}
                 Период
-                <ST.InputPeriod
+                <input
                   type="number"
                   name="period"
                   onChange={handleChange}
                   onBlur={handleBlur}
                   value={values.period}
+                  className={`${baseInputStyles} w-[90%]`} // InputPeriod specific width
                 />
-                <ST.InputRange
+                <input
                   type="range"
                   min="1"
                   max={values.units ? "30" : "24"}
@@ -317,74 +324,79 @@ const Form = (props: any) => {
                   onChange={handleChange}
                   onBlur={handleBlur}
                   value={values.period}
+                  className="w-11/12 my-5 mb-1" // ST.InputRange styles
                 />
-              </ST.LabelPeriod>
-              <ST.CheckboxWrapper>
+              </label>
+              <div className="w-1/5 flex flex-col items-center"> {/* ST.CheckboxWrapper */}
                 {values.units ? "дни" : "часы"}
-                <ST.CheckBoxLabel>
+                <label className="relative inline-block w-[43px] h-[22px] m-1.5">
                   <input
                     type="checkbox"
                     name="units"
                     onChange={handleChange}
                     checked={values.units}
+                    className="peer opacity-0 w-0 h-0"
                   />
-                  <span />
-                </ST.CheckBoxLabel>
-              </ST.CheckboxWrapper>
-            </ST.PeriodWrapper>
+                  <span className="absolute cursor-pointer top-0 left-0 right-0 bottom-0 bg-gray-300 transition duration-400 rounded-[22px] peer-focus:ring-1 peer-focus:ring-blue-500 peer-checked:bg-blue-500 before:absolute before:content-[''] before:h-4 before:w-4 before:left-1 before:bottom-[3px] before:bg-white before:transition before:duration-400 before:rounded-full peer-checked:before:translate-x-4"></span>
+                </label>
+              </div>
+            </div>
 
-            <ST.ConditionsLabel>
-              <ST.CheckBoxLabel color="#05668d">
-                <Field type="checkbox" name="conditions" value="deposit" />
-                <span />
+            <div className="flex mx-auto gap-5 w-11/12"> {/* ST.ConditionsLabel */}
+              <label className="relative inline-block w-[43px] h-[22px] m-1.5">
+                <Field type="checkbox" name="conditions" value="deposit" className="peer opacity-0 w-0 h-0" />
+                <span className="absolute cursor-pointer top-0 left-0 right-0 bottom-0 bg-gray-300 transition duration-400 rounded-[22px] peer-focus:ring-1 peer-focus:ring-tyRareMedium peer-checked:bg-tyRareMedium before:absolute before:content-[''] before:h-4 before:w-4 before:left-1 before:bottom-[3px] before:bg-white before:transition before:duration-400 before:rounded-full peer-checked:before:translate-x-4"></span>
                 Залог
-              </ST.CheckBoxLabel>
+              </label>
 
-              <ST.CheckBoxLabel color="#f7d6e0">
-                <Field type="checkbox" name="conditions" value="terms" />
-                <span />
+              <label className="relative inline-block w-[43px] h-[22px] m-1.5">
+                <Field type="checkbox" name="conditions" value="terms" className="peer opacity-0 w-0 h-0" />
+                <span className="absolute cursor-pointer top-0 left-0 right-0 bottom-0 bg-gray-300 transition duration-400 rounded-[22px] peer-focus:ring-1 peer-focus:ring-tyMediumWell peer-checked:bg-tyMediumWell before:absolute before:content-[''] before:h-4 before:w-4 before:left-1 before:bottom-[3px] before:bg-white before:transition before:duration-400 before:rounded-full peer-checked:before:translate-x-4"></span>
                 Договор
-              </ST.CheckBoxLabel>
-              <ST.CheckBoxLabel color="#faf3dd">
-                <Field type="checkbox" name="conditions" value="pledge" />
-                <span />
+              </label>
+              <label className="relative inline-block w-[43px] h-[22px] m-1.5">
+                <Field type="checkbox" name="conditions" value="pledge" className="peer opacity-0 w-0 h-0" />
+                <span className="absolute cursor-pointer top-0 left-0 right-0 bottom-0 bg-gray-300 transition duration-400 rounded-[22px] peer-focus:ring-1 peer-focus:ring-tyWellDone peer-checked:bg-tyWellDone before:absolute before:content-[''] before:h-4 before:w-4 before:left-1 before:bottom-[3px] before:bg-white before:transition before:duration-400 before:rounded-full peer-checked:before:translate-x-4"></span>
                 Другое
-              </ST.CheckBoxLabel>
-            </ST.ConditionsLabel>
+              </label>
+            </div>
             {values.conditions.includes("deposit") && (
-              <ST.Label>
+              <label className="flex flex-col my-5 mx-auto w-11/12">
                 Залог (грн)
-                <ST.Input
+                <input
                   type="number"
                   name="deposit"
                   placeholder="укажите сумму залога"
                   onChange={handleChange}
                   onBlur={handleBlur}
                   value={values.deposit}
+                  className={baseInputStyles}
                 />
-              </ST.Label>
+              </label>
             )}
             {values.conditions.includes("pledge") && (
-              <ST.Label>
+              <label className="flex flex-col my-5 mx-auto w-11/12">
                 Укажите ваши условия
-                <ST.Input
+                <input
                   type="text"
                   name="pledge"
                   placeholder="например: водительские права"
                   onChange={handleChange}
                   onBlur={handleBlur}
                   value={values.pledge}
+                  className={baseInputStyles}
                 />
-              </ST.Label>
+              </label>
             )}
-            <ST.ButtonSubmit
+            <button
               type="submit"
               disabled={isSubmitting || uploading_images}
+              className="appearance-none text-center py-[5px] px-[7px] font-['podelis-font'] text-base min-w-[18%] h-[35px] rounded-br-lg rounded-tl-lg border-2 bg-formInputBorder border-formInputFocusBorder shadow-logoHeader flex items-center justify-around ml-[50%] mt-5 hover:shadow-md"
             >
               Отправить
               <ChevronDoubleRight size={16} color="black" />
-            </ST.ButtonSubmit>
-          </ST.Form>
+            </button>
+          </form>
         );
       }}
     </Formik>

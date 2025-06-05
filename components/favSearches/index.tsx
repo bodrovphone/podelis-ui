@@ -1,19 +1,17 @@
 import React, { useState } from "react";
 import SingleSearch from "./singleSearch";
 
-import ST from "./styles";
-
 interface FavSearchesProps {
   queries: any[];
   [key: string]: any; // For other props
 }
 
 const FavSearches = ({ queries, ...props }: FavSearchesProps) => (
-  <ST.FavSearchesContainer {...props}>
+  <div {...props} className="flex flex-col gap-[30px] my-10 md:w-[60%] md:mx-auto">
     {queries.map((query: any) => (
       <SingleSearch key={query.label} query={query} />
     ))}
-  </ST.FavSearchesContainer>
+  </div>
 );
 
 export default FavSearches;
